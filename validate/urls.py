@@ -1,0 +1,14 @@
+from django.shortcuts import render
+
+from django.urls import path
+
+from . import views
+
+# Create your urls here.
+
+app_name = 'validate'
+
+urlpatterns = [
+	
+	path('', views.IndexView.as_view(), name="index")
+]
