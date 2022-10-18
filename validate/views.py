@@ -27,22 +27,29 @@ class IndexView(View):
 		# Obtenemos el documento enviado
 		form = FileForm(request.POST, request.FILES)
 
+		
 		if form.is_valid():
-			m = form.save()
-			# Leemos el xml enviado por el request
-			xml_string = m.file.read()
+			m = form.save(commit = False)
+			# Obtenemos el file del request y lo amacenamos
+			xml_file = m.file
 
-			import pdb; pdb.set_trace()
+			ext = xml_file.name.split(".")[-1]
 
-			print(root)
+			if ext == "xml":
+				m.save()
+			else:
+				return HttpResponse("El archivo no es un documento xml")
+       
 
-			# Convertimos nuestro xml en cadena para su manipulacion.
-			objeto = Validate(xml_string)
+
+			# Asignamos nuestra instancia de la clase para validacion, pasandao como argumento el archivo.
+			objeto = Validate(xml_file)
 
 			# Regresamos el objeto, con un valor del xml
-			print(objeto)
+			print(objeto.success)
+			print(objeto.message)
 
-			return HttpResponse('Exitoso')
+			return HttpResponse(objeto.message)
 
 
 
