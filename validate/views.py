@@ -24,6 +24,7 @@ class IndexView(View):
 		return render(request, 'validate/index.html', {'form':form})
 
 	def post(self, request):
+
 		# Obtenemos el documento enviado
 		form = FileForm(request.POST, request.FILES)
 
@@ -31,25 +32,22 @@ class IndexView(View):
 		if form.is_valid():
 			m = form.save(commit = False)
 			# Obtenemos el file del request y lo amacenamos
+			
 			xml_file = m.file
-
 			ext = xml_file.name.split(".")[-1]
 
 			if ext == "xml":
-				m.save()
+				m = form.save()
+		
+				xml_file = m.file
+				print(xml_file)
+				response = Validate(xml_file)
+				print(response.success)
+				return HttpResponse(response.message)
+
 			else:
 				return HttpResponse("El archivo no es un documento xml")
        
-
-
-			# Asignamos nuestra instancia de la clase para validacion, pasandao como argumento el archivo.
-			objeto = Validate(xml_file)
-
-			# Regresamos el objeto, con un valor del xml
-			print(objeto.success)
-			print(objeto.message)
-
-			return HttpResponse(objeto.message)
 
 
 
