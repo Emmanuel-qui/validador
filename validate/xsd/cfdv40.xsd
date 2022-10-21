@@ -2,43 +2,44 @@
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
     xmlns:catCFDI="http://www.sat.gob.mx/sitio_internet/cfd/catalogos"
     xmlns:tdCFDI="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI" targetNamespace="http://www.sat.gob.mx/cfd/4" elementFormDefault="qualified" attributeFormDefault="unqualified">
+    
     <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos" schemaLocation="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/catCFDI.xsd"/>
     <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI" schemaLocation="http://www.sat.gob.mx/sitio_internet/cfd/tipoDatos/tdCFDI/tdCFDI.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/ComExt" schemaLocation="/xsd_complements/catComExt.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/CartaPorte" schemaLocation="/xsd_complements/CartaPorte20.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Combustible" schemaLocation="/xsd_complements/catCombustible.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/hidrocarburos" schemaLocation="/xsd_complements/catHidrocarburos.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Nomina" schemaLocation="/xsd_complements/catNomina.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Pagos" schemaLocation="/xsd_complements/catPagos.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/ComExt" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/catComExt.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/CartaPorte" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/catCartaPorte.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Combustible" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/catCombustible.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/hidrocarburos" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/catHidrocarburos.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Nomina" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/catNomina.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/sitio_internet/cfd/catalogos/Pagos" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/catPagos.xsd"/>
 
 
-    <xs:import namespace="http://www.sat.gob.mx/ComercioExterior11" schemaLocation="/xsd_complements/ComercioExterior11"/>
-    <xs:import namespace="http://www.sat.gob.mx/aerolineas" schemaLocation="/xsd_complements/aerolineas.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/certificadodestruccion" schemaLocation="/xsd_complements/certificadodestruccion.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/CartaPorte20" schemaLocation="/xsd_complements/CartaPorte20.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/divisas" schemaLocation="/xsd_complements/Divisas.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/ConsumoDeCombustibles11" schemaLocation="/xsd_complements/ConsumoDeCombustibles11.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/detallista" schemaLocation="/xsd_complements/detallista.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/donat" schemaLocation="/xsd_complements/donat11.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/EstadoDeCuentaCombustible12" schemaLocation="/xsd_complements/ecc12.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/GastosHidrocarburos10" schemaLocation="/xsd_complements/GastosHidrocarburos10.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/IngresosHidrocarburos10" schemaLocation="/xsd_complements/IngresosHidrocarburos.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/implocal" schemaLocation="/xsd_complements/implocal.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/leyendasFiscales" schemaLocation="/xsd_complements/leyendasFisc.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/nomina12" schemaLocation="/xsd_complements/nomina12.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/notariospublicos" schemaLocation="/xsd_complements/notariospublicos.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/arteantiguedades" schemaLocation="/xsd_complements/obrasarteantiguedades.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/pagoenespecie" schemaLocation="/xsd_complements/pagoenespecie.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/pfic" schemaLocation="/xsd_complements/pfic.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/Pagos20" schemaLocation="/xsd_complements/pfic.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/renovacionysustitucionvehiculos" schemaLocation="/xsd_complements/renovacionysustitucionvehiculos.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/servicioparcialconstruccion" schemaLocation="/xsd_complements/servicioparcialconstruccion.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/spei" schemaLocation="/xsd_complements/sepei.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/TuristaPasajeroExtranjero" schemaLocation="/xsd_complements/TuristaPasajeroExtranjero.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/valesdedespensa" schemaLocation="/xsd_complements/valesdedespensa.xsd"/>
-    <xs:import namespace="  http://www.sat.gob.mx/vehiculousado" schemaLocation="/xsd_complements/vehiculousado.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/iedu" schemaLocation="/xsd_complements/iedu.xsd"/>
-    <xs:import namespace="http://www.sat.gob.mx/ventavehiculos" schemaLocation="/xsd_complements/ventavehiculos11.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/ComercioExterior11" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/ComercioExterior11.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/aerolineas" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/aerolineas.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/certificadodestruccion" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/certificadodestruccion.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/CartaPorte20" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/CartaPorte20.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/divisas" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/Divisas.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/ConsumoDeCombustibles11" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/ConsumoDeCombustibles11.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/detallista" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/detallista.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/donat" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/donat11.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/EstadoDeCuentaCombustible12" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/ecc12.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/GastosHidrocarburos10" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/GastosHidrocarburos10.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/IngresosHidrocarburos10" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/IngresosHidrocarburos.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/implocal" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/implocal.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/leyendasFiscales" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/leyendasFisc.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/nomina12" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/nomina12.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/notariospublicos" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/notariospublicos.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/arteantiguedades" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/obrasarteantiguedades.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/pagoenespecie" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/pagoenespecie.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/pfic" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/pfic.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/Pagos20" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/Pagos20.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/renovacionysustitucionvehiculos" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/renovacionysustitucionvehiculos.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/servicioparcialconstruccion" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/servicioparcialconstruccion.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/spei" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/sepei.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/TuristaPasajeroExtranjero" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/TuristaPasajeroExtranjero.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/valesdedespensa" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/valesdedespensa.xsd"/>
+    <xs:import namespace="  http://www.sat.gob.mx/vehiculousado" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/vehiculousado.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/iedu" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/iedu.xsd"/>
+    <xs:import namespace="http://www.sat.gob.mx/ventavehiculos" schemaLocation="/home/jquiroz/Documentos/entorno/validador/validate/xsd_complements/ventavehiculos11.xsd"/>
 
 
 

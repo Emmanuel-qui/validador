@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 from django.views import View
 
+
 # importando formulario para documentos
 from .forms import FileForm
 
@@ -51,6 +52,9 @@ class IndexView(View):
 
 
 
+def layout(request):
+
+	return render(request, 'layout/layout.html')
 
 
 

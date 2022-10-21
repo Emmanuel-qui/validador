@@ -1,4 +1,4 @@
-import re
+
 from lxml import etree
 
 from pathlib import Path
@@ -8,6 +8,7 @@ import logging
 import base64
 from lxml import etree
 from zeep.plugins import HistoryPlugin
+from zeep.exceptions import Fault
 
 
 from django.conf import settings
@@ -41,7 +42,11 @@ class Validate:
         self.start()
 
     def start(self):
-        self.validate_ws()
+        self.validate_xsd()
+        if self.success:
+            self.validate_ws()
+            if self.success:
+                self.message = "Comprobante valido"
        
                 
         
@@ -76,43 +81,53 @@ class Validate:
 
     # funcion de validacion del ws de finkok
     def validate_ws(self):
+        import pdb; pdb.set_trace()
+        print(self.xml_string)
+        print(self.url)
         print("validacion ws")
         self.success = False
         lines = "".join(self.xml_file.readlines())
         xml = lines.encode("UTF-8")
-        history = HistoryPlugin()
-        client = Client(wsdl=self.url, plugins=[history])
-        contenido = client.service.validate(xml, self.username, self.password)
-        print(contenido)
-        
-
         try:
-            error = contenido.error
-            self.message = error
-        except Exception:
-            self.lista_errores.append(self.message)
-            self.lista_errores.append(str(contenido.xml))
-            self.lista_errores.append(str(contenido.sello))
-            self.lista_errores.append(str(contenido.sello_sat))
-            self.lista_errores.append(str(contenido.sat.Estado))
-            self.lista_errores.append(str(contenido.sat.CodigoEstatus))
-
-            mensaje = ",".join(self.lista_errores)
+            history = HistoryPlugin()
+            client = Client(wsdl=self.url, plugins=[history])
+            contenido = client.service.validate(self.xml_string, self.username, self.password)
+            print(contenido)
             self.success = True
-
-            self.message = mensaje
         
 
-        request = etree.tostring(history.last_sent["envelope"])
-        request = request.decode("UTF-8") 
-        self.lista_errores.append(request)
+            try:
+                error = contenido.error
+                self.message = error
+            except Exception:
+                self.lista_errores.append(self.message)
+                self.lista_errores.append(str(contenido.xml))
+                self.lista_errores.append(str(contenido.sello))
+                self.lista_errores.append(str(contenido.sello_sat))
+                self.lista_errores.append(str(contenido.sat.Estado))
+                self.lista_errores.append(str(contenido.sat.CodigoEstatus))
+                mensaje = ",".join(self.lista_errores)
+                self.success = False
+                self.message = mensaje
+        
 
-        response = etree.tostring(history.last_received["envelope"])
-        response = response.decode("UTF-8") 
-        self.lista_errores.append(response)
-        mensaje = ",".join(self.lista_errores)
-        self.success = True
+            request = etree.tostring(history.last_sent["envelope"])
+            request = request.decode("UTF-8") 
+            print(request)
+            self.lista_errores.append(request)
 
-        self.message = mensaje
+            response = etree.tostring(history.last_received["envelope"])
+            response = response.decode("UTF-8")
+            print(response) 
+            self.lista_errores.append(response)
+            mensaje = ",".join(self.lista_errores)
+            self.success = False
+            self.message = mensaje
+        except Fault as fault:
+            print(fault.message)
+            print(fault.code)
+            print(fault.actor)
+            print(fault.detail)
+            self.message = "Ha ocurrido un error"
 
         
