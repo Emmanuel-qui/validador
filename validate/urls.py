@@ -1,3 +1,4 @@
+from unicodedata import name
 from django.shortcuts import render
 
 from django.urls import path
@@ -10,5 +11,7 @@ app_name = 'validate'
 
 urlpatterns = [
 	
-	path('', views.IndexView.as_view(), name="index")
+	path('', views.IndexView.as_view(), name="index"),
+
+	path('layout/', views.layout, name="layout")
 ]
