@@ -3,6 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	{% load static %}
 	<title> Validador </title>
 </head>
 <body>
@@ -11,12 +12,22 @@
 
 	<h2> Formulario, ingrese el documento </h2>
 
+	<!--
 	<form action="{% url 'validate:index' %}" method="post" enctype="multipart/form-data">
 		{% csrf_token %}		
         {{form.as_p}}
 
         <input type="submit" value="Enviar">
-	</form>		
+	</form>		-->
+
+	<form id="form_file" method="" enctype="multipart/form-data">
+		{% csrf_token %}
+		<input type="file" name="file" id="file">
+		<input type="button" value="Enviar" id="form_button">
+	</form>
+
+
+	 <script src="{% static 'app.js' %}"></script>
 
 </body>
 </html>

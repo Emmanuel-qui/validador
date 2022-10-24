@@ -23,18 +23,13 @@ class Validate:
         #self.xml_string = None
         self.xml_string = self.xml_file.read()
         self.xml_etree = None
-     
-
         # Datos de la cuenta
         self.username = "jquiroz@finkok.com.mx"
         self.password = "Joseemmanuel_1223"
         self.url = "https://demo-facturacion.finkok.com/servicios/soap/validation.wsdl"
 
-        self.lista_errores = []
-        
-
-
-
+        # diccionario con los mensajes de validacion.
+        self.response = {}
         self.success = False
         self.message = "Error"
 
@@ -51,19 +46,18 @@ class Validate:
                 
         
       
-            
-
+    # funcion para validar la estructura de los XML.         
     def validate_xsd(self):
         self.success = False
-        print("entra a validacion xsd")
+        print("entra a validacion xsd...")
         try:
             self.xml_etree = etree.fromstring(self.xml_string, settings.INVOICE_XSD_PARSER)
 
             self.success = True
-            self.message = "Estructura valida"
-            self.lista_errores.append(self.message)
+            self.message = "Estructura valida XSD"
         except Exception as e:
             self.message = str(e)
+            self.success = True
 
     # funcion para validar que sea un archivo xml
     def validate_ext(self):
@@ -81,53 +75,24 @@ class Validate:
 
     # funcion de validacion del ws de finkok
     def validate_ws(self):
-        import pdb; pdb.set_trace()
-        print(self.xml_string)
-        print(self.url)
         print("validacion ws")
         self.success = False
         lines = "".join(self.xml_file.readlines())
         xml = lines.encode("UTF-8")
+        history = HistoryPlugin()
+        client = Client(wsdl=self.url, plugins=[history])
+        contenido = client.service.validate(self.xml_string, self.username, self.password)
         try:
-            history = HistoryPlugin()
-            client = Client(wsdl=self.url, plugins=[history])
-            contenido = client.service.validate(self.xml_string, self.username, self.password)
-            print(contenido)
-            self.success = True
+            error = contenido.error
+            self.response = {'Estructura': self.message,
+                            'Sello': str(contenido.sello),
+                            'Sello_Sat':str(contenido.sello_sat),
+                            'Error': error}
+        except Exception:
+            print(contenido.sat)
+            print(contenido.sat.Estado)
+            print(contenido.sat.CodigoEstatus)
         
 
-            try:
-                error = contenido.error
-                self.message = error
-            except Exception:
-                self.lista_errores.append(self.message)
-                self.lista_errores.append(str(contenido.xml))
-                self.lista_errores.append(str(contenido.sello))
-                self.lista_errores.append(str(contenido.sello_sat))
-                self.lista_errores.append(str(contenido.sat.Estado))
-                self.lista_errores.append(str(contenido.sat.CodigoEstatus))
-                mensaje = ",".join(self.lista_errores)
-                self.success = False
-                self.message = mensaje
-        
-
-            request = etree.tostring(history.last_sent["envelope"])
-            request = request.decode("UTF-8") 
-            print(request)
-            self.lista_errores.append(request)
-
-            response = etree.tostring(history.last_received["envelope"])
-            response = response.decode("UTF-8")
-            print(response) 
-            self.lista_errores.append(response)
-            mensaje = ",".join(self.lista_errores)
-            self.success = False
-            self.message = mensaje
-        except Fault as fault:
-            print(fault.message)
-            print(fault.code)
-            print(fault.actor)
-            print(fault.detail)
-            self.message = "Ha ocurrido un error"
 
         

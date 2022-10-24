@@ -3,6 +3,9 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 from django.views import View
 
+# importando libreria para responder en formato json.
+from django.http import JsonResponse
+
 
 # importando formulario para documentos
 from .forms import FileForm
@@ -25,29 +28,17 @@ class IndexView(View):
 		return render(request, 'validate/index.html', {'form':form})
 
 	def post(self, request):
-
 		# Obtenemos el documento enviado
 		form = FileForm(request.POST, request.FILES)
-
 		
 		if form.is_valid():
-			m = form.save(commit = False)
+			m = form.save()
 			# Obtenemos el file del request y lo amacenamos
-			
 			xml_file = m.file
-			ext = xml_file.name.split(".")[-1]
-
-			if ext == "xml":
-				m = form.save()
-		
-				xml_file = m.file
-				print(xml_file)
-				response = Validate(xml_file)
-				print(response.success)
-				return HttpResponse(response.message)
-
-			else:
-				return HttpResponse("El archivo no es un documento xml")
+			# mandamos el xml como parametro a la clase Validate para hacer el proceso de validacion.
+			validate = Validate(xml_file)
+			print(validate.response)
+			return JsonResponse(validate.response)
        
 
 
