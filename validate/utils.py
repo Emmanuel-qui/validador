@@ -1,19 +1,11 @@
-
 from lxml import etree
-
-from pathlib import Path
-
 from zeep import Client
-import logging
-import base64
 from lxml import etree
 from zeep.plugins import HistoryPlugin
-from zeep.exceptions import Fault
-
-
 from django.conf import settings
 
-
+# Importamos modelo.
+from .models import InvoiceModel
 
 
 class Validate:
@@ -32,6 +24,7 @@ class Validate:
         self.response = {}
         self.success = False
         self.message = "Error"
+        self.save = False
 
         # funcion que da inicio al proceso de validacion.
         self.start()
@@ -40,8 +33,9 @@ class Validate:
         self.validate_xsd()
         if self.success:
             self.validate_ws()
-            if self.success:
-                self.message = "Comprobante valido"
+            if self.save:
+                self.save_invoice()
+                    
        
                 
         
@@ -52,12 +46,15 @@ class Validate:
         print("entra a validacion xsd...")
         try:
             self.xml_etree = etree.fromstring(self.xml_string, settings.INVOICE_XSD_PARSER)
-
             self.success = True
             self.message = "Estructura valida XSD"
+            self.save = True
         except Exception as e:
-            self.message = str(e)
             self.success = True
+            self.message = str(e)
+            self.save = False
+          
+            
 
     # funcion para validar que sea un archivo xml
     def validate_ext(self):
@@ -93,6 +90,72 @@ class Validate:
             print(contenido.sat.Estado)
             print(contenido.sat.CodigoEstatus)
         
+        self.success = True
+        
+
+      # funcion para guardar datos en el modelo invoice   
+    def save_invoice(self):
+        self.success = False
+        voucher = etree.fromstring(self.xml_string)
+        namespace = {'cfdi':"http://www.sat.gob.mx/cfd/4"}
+
+        version = voucher.get('Version')
+        serie = voucher.get('Serie')
+        folio = voucher.get('Folio')
+        fecha = voucher.get('Fecha')
+        sello = voucher.get('Sello')
+        formapago = voucher.get('FormaPago')
+        nocertificado = voucher.get('NoCertificado')
+        certificado = voucher.get('Certificado')
+        condicionespago = voucher.get('CondicionesDePago')
+        # datos del e y r
+        subtotal = voucher.get('SubTotal')
+        descuento = voucher.get('Descuento')
+        moneda = voucher.get('Moneda')
+        tipocambio = voucher.get('TipoCambio')
+        total = voucher.get('Total')
+        tipocomprobante = voucher.get('TipoDeComprobante')
+        exportacion = voucher.get('Exportacion')
+        lugarexpedicion = voucher.get('LugarExpedicion')
+        metodopago = voucher.get('MetodoPago')
+
+        # datos del emisor
+        emisor = voucher.xpath('.//cfdi:Emisor', namespaces = namespace)[0]
+        rfc_emisor = emisor.get('Rfc')
+        nombre_emisor = emisor.get('Nombre')
+        
+
+        # datos del receptor
+        receptor = voucher.xpath('.//cfdi:Emisor', namespaces = namespace)[0]
+        rfc_receptor = receptor.get('Rfc')
+        nombre_receptor = receptor.get('Nombre')
+        
+        invoice = InvoiceModel(version = version,
+                                series = serie,
+                                folio = folio,
+                                date = fecha,
+                                stamp = sello,
+                                payment_form = formapago,
+                                no_certificate = nocertificado,
+                                certificate = certificado,
+                                payment_conditions = condicionespago,
+                                rfc_business = rfc_emisor,
+                                name_business = nombre_emisor,
+                                rfc_receiver = rfc_receptor,
+                                name_receiver = nombre_receptor,
+                                subtotal =subtotal,
+                                discount = descuento,
+                                currency = moneda,
+                                exchange_rate = tipocambio,
+                                total = total,
+                                voucher_type = tipocomprobante,
+                                export = exportacion,
+                                place_of_expedition = lugarexpedicion,
+                                metodo_pago = metodopago
+                                )
+        invoice.save()
+        self.success = True
+
 
 
         

@@ -87,3 +87,42 @@ body {
 h1 {
     color: aqua;
 }
+
+
+/* Codigo css para tabla */
+.container-validate {
+    display: grid;
+    max-width: 900px;    
+}
+.dividir {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+#form_file {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   height: 250px;
+   -webkit-box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.75);
+box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.75);
+}
+
+#id_table {
+    display: none;
+    width: 200px;
+}
+th {
+    text-align: center;
+}
+tr {
+    padding: 1rem;
+}
