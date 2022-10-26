@@ -22,11 +22,9 @@ const csrftoken = getCookie("csrftoken");
 const enviar = document.getElementById("form_button");
 
 function send() {
-  const div = document.getElementById("contenedor");
-  div.classList.add("dividir");
+  
 
-  const table = document.getElementById("id_table");
-  table.style.display = "block";
+  
 
   const td_estruc = document.getElementById("td_estruc");
   const td_sello = document.getElementById("td_sello");
@@ -40,16 +38,16 @@ function send() {
   // Obtenemos los valores del formulario
   const form = new FormData();
   
-  var file = input_file.files[0].name;
+  // var file = input_file.files[0].name;
   
-  let ext = file.split('.').pop()
+  // let ext = file.split('.').pop()
 
-  if(ext == "xml"){
-    alert("si es un xml")
-  }else {
-    alert("No es un xml")
-    input_file.value = "";
-  }
+  // if(ext == "xml"){
+  //   alert("si es un xml")
+  // }else {
+  //   alert("No es un xml")
+  //   input_file.value = "";
+  // }
 
 
   form.append("file", input_file.files[0]);

@@ -5,7 +5,7 @@ from zeep.plugins import HistoryPlugin
 from django.conf import settings
 
 # Importamos modelo.
-from .models import InvoiceModel
+from .models import InvoiceModel, ValidateResultModel
 
 
 class Validate:
@@ -24,7 +24,7 @@ class Validate:
         self.response = {}
         self.success = False
         self.message = "Error"
-        self.save = False
+        self.estruc = False
 
         # funcion que da inicio al proceso de validacion.
         self.start()
@@ -33,12 +33,11 @@ class Validate:
         self.validate_xsd()
         if self.success:
             self.validate_ws()
-            if self.save:
+            if self.success:
+                # Guardamos la informacion
                 self.save_invoice()
-                    
-       
+            
                 
-        
       
     # funcion para validar la estructura de los XML.         
     def validate_xsd(self):
@@ -49,27 +48,12 @@ class Validate:
             self.success = True
             self.message = "Estructura valida XSD"
             self.save = True
+            self.estruc = True
         except Exception as e:
             self.success = True
             self.message = str(e)
-            self.save = False
-          
+            self.estruc = False
             
-
-    # funcion para validar que sea un archivo xml
-    def validate_ext(self):
-        ext = self.xml_file.name.split(".")[-1]
-        if ext.lower() == "xml":
-            self.xml_string = self.xml_file.read()
-            self.success = True
-            self.message = "extencion valida"
-        elif ext.upper() == "XML":
-            self.xml_string = self.xml_file.read()
-            self.success = True
-            self.message = "extencion valida"
-        else:
-            self.message = "El archivo no es un documento XML"
-
     # funcion de validacion del ws de finkok
     def validate_ws(self):
         print("validacion ws")
@@ -99,36 +83,36 @@ class Validate:
         voucher = etree.fromstring(self.xml_string)
         namespace = {'cfdi':"http://www.sat.gob.mx/cfd/4"}
 
-        version = voucher.get('Version')
-        serie = voucher.get('Serie')
-        folio = voucher.get('Folio')
-        fecha = voucher.get('Fecha')
-        sello = voucher.get('Sello')
-        formapago = voucher.get('FormaPago')
-        nocertificado = voucher.get('NoCertificado')
-        certificado = voucher.get('Certificado')
-        condicionespago = voucher.get('CondicionesDePago')
+        version = voucher.xpath('string(./@Version)',namespaces = namespace)
+        serie = voucher.xpath('string(./@Serie)')
+        folio = voucher.xpath('string(./@Folio)')
+        fecha = voucher.xpath('string(./@Fecha)')
+        sello = voucher.xpath('string(./@Sello)')
+        formapago = voucher.xpath('string(./@FormaPago)')
+        nocertificado = voucher.xpath('string(./@NoCertificado)')
+        certificado = voucher.xpath('string(./Certificado)')
+        condicionespago = voucher.xpath('string(./CondicionesDePago)')
         # datos del e y r
-        subtotal = voucher.get('SubTotal')
-        descuento = voucher.get('Descuento')
-        moneda = voucher.get('Moneda')
-        tipocambio = voucher.get('TipoCambio')
-        total = voucher.get('Total')
-        tipocomprobante = voucher.get('TipoDeComprobante')
-        exportacion = voucher.get('Exportacion')
-        lugarexpedicion = voucher.get('LugarExpedicion')
-        metodopago = voucher.get('MetodoPago')
+        subtotal = voucher.xpath('string(./SubTotal)')
+        descuento = voucher.xpath('string(./Descuento)')
+        moneda = voucher.xpath('string(./Moneda)')
+        tipocambio = voucher.xpath('string(./TipoCambio)')
+        total = voucher.xpath('string(./Total)')
+        tipocomprobante = voucher.xpath('string(./TipoDeComprobante)')
+        exportacion = voucher.xpath('string(./Exportacion)')
+        lugarexpedicion = voucher.xpath('string(./LugarExpedicion)')
+        metodopago = voucher.xpath('string(./MetodoPago)')
 
         # datos del emisor
         emisor = voucher.xpath('.//cfdi:Emisor', namespaces = namespace)[0]
-        rfc_emisor = emisor.get('Rfc')
-        nombre_emisor = emisor.get('Nombre')
+        rfc_emisor = emisor.xpath('string(./@Rfc)',namespaces = namespace)
+        nombre_emisor = emisor.xpath('string(./@Nombre)',namespaces = namespace)
         
 
         # datos del receptor
-        receptor = voucher.xpath('.//cfdi:Emisor', namespaces = namespace)[0]
-        rfc_receptor = receptor.get('Rfc')
-        nombre_receptor = receptor.get('Nombre')
+        receptor = voucher.xpath('.//cfdi:Receptor', namespaces = namespace)[0]
+        rfc_receptor = receptor.xpath('string(./@Rfc)',namespaces = namespace)
+        nombre_receptor = receptor.xpath('string(./@Nombre)',namespaces = namespace)
         
         invoice = InvoiceModel(version = version,
                                 series = serie,
@@ -154,8 +138,35 @@ class Validate:
                                 metodo_pago = metodopago
                                 )
         invoice.save()
+
+        id = InvoiceModel.objects.order_by("id").last()
+        print(id)
         self.success = True
 
+        resultado = ""
+        if self.estruc:
+            resultado = "Crompobante Valido"
+        else:
+            resultado = "Comprobante Invalido"
 
+        self.save_validate_result(id,resultado,tipocomprobante,version,rfc_emisor,rfc_receptor,subtotal,total,metodopago,lugarexpedicion,fecha)
+
+    # funcion para guardar los datos del resultado.
+    def save_validate_result(self,id,resultado,tipocomprobante,version,rfc_emisor,rfc_receptor,subtotal,total,metodopago,lugarexpedicion,fecha):
+    
+        validate_result = ValidateResultModel(
+                                            invoice = id, 
+	                                        results = resultado,
+	                                        voucher_type = tipocomprobante,
+	                                        version = version,
+	                                        rfc_business = rfc_emisor,
+	                                        rfc_receiver = rfc_receptor,
+	                                        subtotal = subtotal,
+	                                        total = total, 
+	                                        metodo_pago = metodopago,
+	                                        place_of_expedition = lugarexpedicion, 
+	                                        date = fecha, 
+	                                        stamp = False
+                                            )
 
         

@@ -84,9 +84,18 @@ body {
     margin: 0 auto;
 }
 
-h1 {
-    color: aqua;
-}
+.btn-primary {
+    color: #fff;
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+  }
+  .btn-primary:hover {
+    color: #fff;
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+  }
+
+  
 
 
 /* Codigo css para tabla */
@@ -94,10 +103,10 @@ h1 {
     display: grid;
     max-width: 900px;    
 }
-.dividir {
+/* .dividir {
     grid-template-columns: 1fr 1fr;
     column-gap: 3rem;
-}
+} */
 
 .center {
     display: flex;
@@ -105,24 +114,18 @@ h1 {
     justify-content: center;
     min-height: 100vh;
 }
-
-#form_file {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-   height: 250px;
-   -webkit-box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.75);
--moz-box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.75);
-box-shadow: -1px 1px 5px 0px rgba(0,0,0,0.75);
-}
-
 #id_table {
     display: none;
-    width: 200px;
 }
 th {
     text-align: center;
 }
 tr {
     padding: 1rem;
+}
+
+
+/* Contenido formulario */
+.contenido-formulario {
+    margin-top: 1rem;
 }

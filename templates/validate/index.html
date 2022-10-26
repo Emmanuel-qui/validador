@@ -1,0 +1,44 @@
+{% extends 'layout/layout.html' %}
+
+{% block content %}
+<div class="contenido-formulario">
+	<form action="">
+		<label for="formFile" class="form-label">Seleccione el xml a validar</label>
+		<input class="form-control" type="file" id="file">
+		<br>
+		<div class="col-auto">
+			<input id="form_button" type="button"  class="btn btn-primary mb-3" value="Enviar"/>
+		</div>
+	</form>
+</div>
+<br>
+
+<div>
+	<table class="table">
+		<thead>
+			<h1> Resultado </h1>
+		</thead>
+		<tbody>
+			<tr class="table-light">
+				<th> Estructura </th>
+				<td id="td_estruc"> mensaje </td>
+			</tr>
+			<tr class="table-light">
+				<th> Sello </th>
+				<td id="td_sello"> mensaje </td>
+			</tr>
+			<tr class="table-light">
+				<th> Sello SAT </th>
+				<td id="td_sesat"> mensaje </td>
+			</tr>
+			<tr class="table-danger">
+				<th> Error </th>
+				<td id="td_error"> mensaje </td>
+			</tr>
+
+
+		</tbody>
+	</table>
+</div>
+
+{% endblock %}
