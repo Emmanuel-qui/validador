@@ -43,9 +43,11 @@ class IndexView(View):
 
 
 
-def layout(request):
+class ResultValidate(View):
 
-	return render(request, 'layout/layout.html')
+	def get(self, request):
+
+		return render(request, 'validate/result.html')
 
 
 

@@ -13,5 +13,5 @@ urlpatterns = [
 	
 	path('', views.IndexView.as_view(), name="index"),
 
-	path('layout/', views.layout, name="layout")
+	path('result/', views.ResultValidate.as_view(), name="result")
 ]
