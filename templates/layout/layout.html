@@ -39,11 +39,11 @@
       </div>
     
       <nav class="menu-navegacion">
-        <a class="enlace_navegacion" href="#">Activo</a>
+        <a class="enlace_navegacion" href="{% url 'validate:index' %}">Validador CFDI</a>
 
         <a class="enlace_navegacion" href="#">Activo</a>
 
-        <a class="enlace_navegacion" href="#">Activo</a>
+        <a class="enlace_navegacion" href="{% url 'validate:result' %}">Historial Validacion</a>
 
         <a class="enlace_navegacion" href="#">Activo</a>
       </nav>
@@ -57,13 +57,14 @@
         {% endblock %}
     </div>
 
+    <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/result.js' %}"></script>
     <script src="{% static 'js/index.js' %}"></script>
     
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     
     
-    <script src="{% static 'js/app.js' %}"></script>
+    
     
   </body>
 </html>

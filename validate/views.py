@@ -1,4 +1,3 @@
-
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 from django.views import View
@@ -13,9 +12,11 @@ from .forms import FileForm
 # importamos la clase Validate
 from .utils import Validate
 
+# Importamos el modelo
+from .models import ValidateResultModel
+
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Create your views here.
 
@@ -42,12 +43,49 @@ class IndexView(View):
        
 
 
-
+# Cargando la vista
 class ResultValidate(View):
 
-	def get(self, request):
+	template_name = "validate/result.html"
 
-		return render(request, 'validate/result.html')
+	def get(self, request):
+		return render(request, self.template_name)
+
+
+# vista para la logica 
+class ValidateResult(View):
+
+	def post(self, request):
+		lista_result = []
+		start = int(request.POST.get("start"))
+		length = int(request.POST.get("length"))
+		rfc_emisor = request.POST.get("rfc_emisor")
+
+		lista_objetos = ValidateResultModel.objects.all()
+		if rfc_emisor:
+			lista_objetos = lista_objetos.filter(rfc_business__icontains=rfc_emisor)
+		total_records = lista_objetos.count()
+		lista_objetos = lista_objetos[start:start+length]
+
+		for item in lista_objetos:
+			lista_result.append({
+				'id': item.id,
+				'rfc_emisor': item.rfc_business,
+				'rfc_receptor': item.rfc_receiver,
+				'version': item.version,
+				'fecha': item.date,
+				'fecha_validacion':item.validate_date,
+				'sello':item.stamp,
+
+			})
+		print(lista_result)
+		
+		response = {
+			"aaData": lista_result,
+			"iTotalRecords": total_records,
+			"iTotalDisplayRecords": len(lista_objetos),
+		}
+		return JsonResponse(response)
 
 
 

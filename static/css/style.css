@@ -55,7 +55,7 @@ body {
     text-align: center;
     display: block;
     padding: 1rem;
-    font-size: 1.5rem;
+    font-size: 1rem;
     text-decoration: none;
     color: white;
     border-bottom: 1px solid rgb(211, 211, 211);
@@ -84,6 +84,7 @@ body {
     margin: 0 auto;
 }
 
+/*Modificacion de bootstrap */
 .btn-primary {
     color: #fff;
     background-color: var(--color-principal);
@@ -95,7 +96,13 @@ body {
     border-color: var(--color-secundario);
   }
 
-  
+  .form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: var(--color-secundario);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(166, 168, 166, 0.25);
+  }
 
 
 /* Codigo css para tabla */

@@ -20,11 +20,26 @@ function getCookie(name) {
 const csrftoken = getCookie("csrftoken");
 
 const enviar = document.getElementById("form_button");
+// const btn_get = document.getElementById("id_get");
+
+// function load_result(){
+//   const options = {
+//     method: "POST",
+//     headers: { "X-CSRFToken": csrftoken }
+//   }
+
+
+//   fetch('http://127.0.0.1:8000/validate/validateresult/', options)
+//     .then(response => {
+//       console.log(response.json())
+//     })
+//     .then(data => console.log(data))
+//     .catch((error) => {
+//       console.error("error", error)
+//     });
+// }
 
 function send() {
-  
-
-  
 
   const td_estruc = document.getElementById("td_estruc");
   const td_sello = document.getElementById("td_sello");
@@ -73,4 +88,6 @@ function send() {
     });
 }
 
-enviar.addEventListener("click", send);
+enviar.addEventListener("click",send);
+
+// btn_get.addEventListener("click",load_result);

@@ -10,8 +10,10 @@ from . import views
 app_name = 'validate'
 
 urlpatterns = [
-	
-	path('', views.IndexView.as_view(), name="index"),
 
-	path('result/', views.ResultValidate.as_view(), name="result")
+    path('', views.IndexView.as_view(), name="index"),
+
+    path('result/', views.ResultValidate.as_view(), name="result"),
+
+    path('validateresult/', views.ValidateResult.as_view(), name="validateresult")
 ]
