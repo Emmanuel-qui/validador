@@ -169,4 +169,5 @@ class Validate:
 	                                        stamp = False
                                             )
 
+        validate_result.save()
         
