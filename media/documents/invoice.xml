@@ -1,0 +1,38 @@
+<cfdi:Comprobante xmlns:pago20="http://www.sat.gob.mx/Pagos20"
+  xmlns:cartaporte20="http://www.sat.gob.mx/CartaPorte20"
+  xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+  xmlns:implocal="http://www.sat.gob.mx/implocal"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" Version="4.0" Serie="A" Folio="1" Fecha="2022-10-27T10:00:01" SubTotal="0" Moneda="XXX" Total="0" TipoDeComprobante="T" LugarExpedicion="64258" Exportacion="01" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/CartaPorte20 http://www.sat.gob.mx/sitio_internet/cfd/CartaPorte/CartaPorte20.xsd">
+  <cfdi:Emisor Nombre="ESCUELA KEMPER URGATE" Rfc="EKU9003173C9" RegimenFiscal="601"/>
+  <cfdi:Receptor Rfc="EKU9003173C9" Nombre="ESCUELA KEMPER URGATE" DomicilioFiscalReceptor="20928" RegimenFiscalReceptor="601" UsoCFDI="S01"/>
+  <cfdi:Conceptos>
+    <cfdi:Concepto Cantidad="1.0" ClaveProdServ="01010101" ClaveUnidad="H87" ValorUnitario="0" Importe="0" Descripcion="Servicios transporte de carga por carretera (en camión) a nivel regional y nacional (Servicios de transporte de carga foráneo)" ObjetoImp="01"/>
+  </cfdi:Conceptos>
+  <cfdi:Complemento>
+    <cartaporte20:CartaPorte Version="2.0" TranspInternac="No" TotalDistRec="1.000000">
+      <cartaporte20:Ubicaciones>
+        <cartaporte20:Ubicacion TipoUbicacion="Origen" IDUbicacion="OR101010" RFCRemitenteDestinatario="IIA040805DZ4" FechaHoraSalidaLlegada="2021-11-01T00:00:00">
+          <cartaporte20:Domicilio Calle="calle" NumeroExterior="211" Colonia="1957" Localidad="13" Referencia="casa blanca" Municipio="011" Estado="CMX" Pais="MEX" CodigoPostal="13250"/>
+        </cartaporte20:Ubicacion>
+        <cartaporte20:Ubicacion TipoUbicacion="Destino" IDUbicacion="DE202020" RFCRemitenteDestinatario="IIA040805DZ4" FechaHoraSalidaLlegada="2021-11-01T01:00:00" DistanciaRecorrida="1.00">
+          <cartaporte20:Domicilio Calle="calle" NumeroExterior="214" Colonia="0347" Localidad="23" Referencia="casa blanca" Municipio="004" Estado="COA" Pais="MEX" CodigoPostal="25350"/>
+        </cartaporte20:Ubicacion>
+      </cartaporte20:Ubicaciones>
+      <cartaporte20:Mercancias PesoBrutoTotal="1.000" UnidadPeso="XBX" PesoNetoTotal="1.000" NumTotalMercancias="1" CargoPorTasacion="0.000000">
+        <cartaporte20:Mercancia BienesTransp="01010101" Descripcion="Accesorios de equipo de telefonía" Cantidad="1.000000" ClaveUnidad="XBX" MaterialPeligroso="No" PesoEnKg="1.000" ValorMercancia="100.000000" Moneda="MXN">
+          <cartaporte20:CantidadTransporta Cantidad="1.000000" IDOrigen="OR101010" IDDestino="DE202020"/>
+        </cartaporte20:Mercancia>
+        <cartaporte20:Autotransporte PermSCT="TPAF01" NumPermisoSCT="NumPermisoSCT">
+          <cartaporte20:IdentificacionVehicular ConfigVehicular="VL" PlacaVM="plac892" AnioModeloVM="2020"/>
+          <cartaporte20:Seguros AseguraRespCivil="SW Seguros" PolizaRespCivil="123456789" AseguraCarga="SW Seguros"/>
+          <cartaporte20:Remolques>
+            <cartaporte20:Remolque SubTipoRem="CTR004" Placa="VL45K98"/>
+          </cartaporte20:Remolques>
+        </cartaporte20:Autotransporte>
+      </cartaporte20:Mercancias>
+      <cartaporte20:FiguraTransporte>
+        <cartaporte20:TiposFigura TipoFigura="01" RFCFigura="VAAM130719H60" NumLicencia="a234567890"/>
+      </cartaporte20:FiguraTransporte>
+    </cartaporte20:CartaPorte>
+  </cfdi:Complemento>
+</cfdi:Comprobante>
