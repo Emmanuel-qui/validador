@@ -25,6 +25,7 @@ body {
     margin: 1rem;
 }
 
+
 .header_boton_menu {
     cursor: pointer;
     background-color: transparent;
@@ -95,6 +96,16 @@ body {
     background-color: var(--color-secundario);
     border-color: var(--color-secundario);
   }
+  .btn-outline-primary {
+    color: white;
+    border-color: var(--color-principal);
+  }
+  .btn-outline-primary:hover {
+    font-weight: 500;
+    color: var(--color-secundario);
+    background-color: white;
+    border-color: white;
+  }
 
   .form-control:focus {
     color: #212529;
@@ -104,6 +115,7 @@ body {
     box-shadow: 0 0 0 0.25rem rgba(166, 168, 166, 0.25);
   }
 
+ 
 
 /* Codigo css para tabla */
 .container-validate {

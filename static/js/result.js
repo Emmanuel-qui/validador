@@ -33,6 +33,14 @@ $(document).ready(function () {
             { data: 'fecha' },
             { data: 'fecha_validacion' },
             { data: 'sello' },
+           
+        ],
+        buttons: [
+                {
+                    extend: 'collection',
+                    text: 'Export',
+                    buttons: [ 'csv', 'excel', 'pdf' ]
+                }
         ],
     });
 
