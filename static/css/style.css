@@ -148,3 +148,16 @@ tr {
 .contenido-formulario {
     margin-top: 1rem;
 }
+
+
+/* css formulario registro */
+
+.color-fondo {
+    background-color: var(--color-principal);
+}
+.btn-register {
+    width: 100%;
+    color: #fff;
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+}
