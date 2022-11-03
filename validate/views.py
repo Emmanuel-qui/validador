@@ -107,9 +107,7 @@ def ValidateResultDetail(request, pk):
 	print(validate_invoice)
 
 
-	
-
-	return render(request, 'validate/detail.html')
+	return render(request, 'validate/detail.html', {'validate_invoice': validate_invoice})
 
 	
 
