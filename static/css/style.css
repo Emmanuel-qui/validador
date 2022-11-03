@@ -52,6 +52,18 @@ body {
     margin-top: 1rem;
     
 }
+.logo-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 1rem;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
 .enlace_navegacion {
     text-align: center;
     display: block;

@@ -86,7 +86,7 @@ class ValidateResult(View):
 				'sello':item.stamp,
 
 			})
-		print(lista_result)
+		
 		
 		response = {
 			"aaData": lista_result,
@@ -98,7 +98,19 @@ class ValidateResult(View):
 
 
 
+# funcion del detalle de la validacion
+
+def ValidateResultDetail(request, pk):
+
+	validate_invoice = ValidateResultModel.objects.get(id=pk)
+
+	print(validate_invoice)
 
 
+	
+
+	return render(request, 'validate/detail.html')
+
+	
 
 

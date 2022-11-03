@@ -15,5 +15,7 @@ urlpatterns = [
 
     path('result/', views.ResultValidate.as_view(), name="result"),
 
-    path('validateresult/', views.ValidateResult.as_view(), name="validateresult")
+    path('validateresult/', views.ValidateResult.as_view(), name="validateresult"),
+
+    path('detail/<int:pk>', views.ValidateResultDetail, name="detail"),
 ]

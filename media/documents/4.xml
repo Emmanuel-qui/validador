@@ -1,0 +1,498 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" Version="4.0" Serie="AMU" Folio="1" Fecha="2022-10-31T10:57:20" Sello="iLamEaPj6InnLvqlaM7LfsyqkLQlRjP5NV/uzJsyOQ2eheS5w8n+cJVWOjt+xWVdOn+5+OPE//3YvjZln2oIPA+6S+O/vDkODNIwv3tIzzTcaDscbg0KZ1CG+0pe7+LRgxMBHj0M20VgPo4WWjDNzwfIgBldzawrxUuaGq4lFTOnys8+cvuNc87rUJQImVjdK5vkcZeX2LrOP7H5XEtkowBA6kWwnyFQsBTpjWJ0nOq9MoE6q2gDpE235zx80g8KEeZSwNxr2xvaMD3xImKn04al2bMusvdvJ8lko/8+IpMq7VqCt4aYuFruDQunIcNWiRYEvRXIp+y7g6jU8Yddrg==" FormaPago="03" NoCertificado="00001000000509248388" Certificado="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" CondicionesDePago="0 dias" SubTotal="10001.95" Moneda="USD" TipoCambio="19.87" Total="10001.95" TipoDeComprobante="I" Exportacion="01" MetodoPago="PUE" LugarExpedicion="37295" xmlns:cfdi="http://www.sat.gob.mx/cfd/4">
+  <cfdi:Emisor Rfc="WFM170921EZ9" Nombre="WKL FOOTWEAR MEXICO" RegimenFiscal="601" />
+  <cfdi:Receptor Rfc="XEXX010101000" Nombre="AMAZON.COM SERVICES, INC." DomicilioFiscalReceptor="37295" RegimenFiscalReceptor="616" UsoCFDI="S01" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="5.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 26" ValorUnitario="17.50" Importe="87.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="87.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="5.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 26.5" ValorUnitario="17.50" Importe="87.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="87.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="10.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 27" ValorUnitario="17.50" Importe="175.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="175.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="15.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 27.5" ValorUnitario="17.50" Importe="262.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="262.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="9.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 28" ValorUnitario="17.50" Importe="157.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="157.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="19.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 28.5" ValorUnitario="17.50" Importe="332.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="332.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 29.5" ValorUnitario="17.50" Importe="105.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="105.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="5.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 30" ValorUnitario="17.50" Importe="87.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="87.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 30.5" ValorUnitario="17.50" Importe="122.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="122.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="7062 - NAPA / AUSTRIA NEGRO Talla: 29" ValorUnitario="17.50" Importe="105.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="105.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="4.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 30" ValorUnitario="17.49" Importe="69.96" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="69.96" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="2.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 30.5" ValorUnitario="17.49" Importe="34.98" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="34.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="1.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 27" ValorUnitario="17.49" Importe="17.49" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="17.49" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="2.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 27.5" ValorUnitario="17.49" Importe="34.98" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="34.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="1.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 28" ValorUnitario="17.49" Importe="17.49" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="17.49" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="2.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 28.5" ValorUnitario="17.49" Importe="34.98" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="34.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="4.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 29" ValorUnitario="17.49" Importe="69.96" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="69.96" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="2.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 29.5" ValorUnitario="17.49" Importe="34.98" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="34.98" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 26" ValorUnitario="17.49" Importe="104.94" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="104.94" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71001 - CRAZY GREEN BAY Talla: 26.5" ValorUnitario="17.49" Importe="104.94" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="104.94" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - NOBUCK MIEL Talla: 30.5" ValorUnitario="18.49" Importe="129.43" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="129.43" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - NOBUCK MIEL Talla: 26" ValorUnitario="18.49" Importe="110.94" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="110.94" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - NOBUCK MIEL Talla: 26.5" ValorUnitario="18.49" Importe="110.94" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="110.94" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="3.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - NOBUCK MIEL Talla: 27" ValorUnitario="18.49" Importe="55.47" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="55.47" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - NOBUCK MIEL Talla: 27.5" ValorUnitario="18.49" Importe="129.43" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="129.43" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="3.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - NOBUCK MIEL Talla: 28.5" ValorUnitario="18.49" Importe="55.47" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="55.47" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="1.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - NOBUCK MIEL Talla: 30" ValorUnitario="18.49" Importe="18.49" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="18.49" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="9.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 28" ValorUnitario="18.49" Importe="166.41" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="166.41" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 28.5" ValorUnitario="18.49" Importe="110.94" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="110.94" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="5.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 29" ValorUnitario="18.49" Importe="92.45" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="92.45" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 29.5" ValorUnitario="18.49" Importe="110.94" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="110.94" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="3.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 30" ValorUnitario="18.49" Importe="55.47" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="55.47" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="11.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 30.5" ValorUnitario="18.49" Importe="203.39" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="203.39" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="3.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 26" ValorUnitario="18.49" Importe="55.47" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="55.47" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 26.5" ValorUnitario="18.49" Importe="110.94" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="110.94" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="10.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 27" ValorUnitario="18.49" Importe="184.90" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="184.90" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="3.00" ClaveUnidad="PR" Unidad="Par" Descripcion="71824 - PULL UP NEBRASKA CAFE Talla: 27.5" ValorUnitario="18.49" Importe="55.47" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="55.47" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="8.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 28.5" ValorUnitario="19.50" Importe="156.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="156.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="14.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 29" ValorUnitario="19.50" Importe="273.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="273.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="8.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 29.5" ValorUnitario="19.50" Importe="156.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="156.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 30" ValorUnitario="19.50" Importe="136.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="136.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="2.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 30.5" ValorUnitario="19.50" Importe="39.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="39.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 26" ValorUnitario="19.50" Importe="117.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="117.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="10.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 26.5" ValorUnitario="19.50" Importe="195.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="195.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="5.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 27" ValorUnitario="19.50" Importe="97.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="97.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="8.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 27.5" ValorUnitario="19.50" Importe="156.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="156.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="9.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76201 - HUNTING ARENA Talla: 28" ValorUnitario="19.50" Importe="175.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="175.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="4.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76209 - NAPA / AUSTRIA NEGRO Talla: 27.5" ValorUnitario="19.00" Importe="76.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="76.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="5.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 27" ValorUnitario="22.90" Importe="114.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="114.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 27.5" ValorUnitario="22.90" Importe="160.30" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="160.30" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="12.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 28" ValorUnitario="22.90" Importe="274.80" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="274.80" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="13.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 28.5" ValorUnitario="22.90" Importe="297.70" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="297.70" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="9.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 29" ValorUnitario="22.90" Importe="206.10" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="206.10" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 29.5" ValorUnitario="22.90" Importe="160.30" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="160.30" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 30" ValorUnitario="22.90" Importe="137.40" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="137.40" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 30.5" ValorUnitario="22.90" Importe="137.40" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="137.40" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="5.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 26" ValorUnitario="22.90" Importe="114.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="114.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76222 - FLOTHER / BISONTE  NEGRO Talla: 26.5" ValorUnitario="22.90" Importe="160.30" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="160.30" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76227 - GRASO CHOCOLATE Talla: 28.5" ValorUnitario="22.90" Importe="137.40" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="137.40" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="7.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76227 - GRASO CHOCOLATE Talla: 29" ValorUnitario="22.90" Importe="160.30" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="160.30" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="2.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76227 - GRASO CHOCOLATE Talla: 30" ValorUnitario="22.90" Importe="45.80" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="45.80" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="4.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76227 - GRASO CHOCOLATE Talla: 27" ValorUnitario="22.90" Importe="91.60" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="91.60" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="2.00" ClaveUnidad="PR" Unidad="Par" Descripcion="76227 - GRASO CHOCOLATE Talla: 27.5" ValorUnitario="22.90" Importe="45.80" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="45.80" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="18.00" ClaveUnidad="PR" Unidad="Par" Descripcion="77411 - GRASO CHOCOLATE Talla: 27.5" ValorUnitario="24.50" Importe="441.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="441.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="10.00" ClaveUnidad="PR" Unidad="Par" Descripcion="77411 - GRASO CHOCOLATE Talla: 28" ValorUnitario="24.50" Importe="245.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="245.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="29.00" ClaveUnidad="PR" Unidad="Par" Descripcion="77411 - GRASO CHOCOLATE Talla: 28.5" ValorUnitario="24.50" Importe="710.50" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="710.50" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="10.00" ClaveUnidad="PR" Unidad="Par" Descripcion="77411 - GRASO CHOCOLATE Talla: 29" ValorUnitario="24.50" Importe="245.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="245.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="77411 - GRASO CHOCOLATE Talla: 26" ValorUnitario="24.50" Importe="147.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="147.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="6.00" ClaveUnidad="PR" Unidad="Par" Descripcion="77411 - GRASO CHOCOLATE Talla: 26.5" ValorUnitario="24.50" Importe="147.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="147.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="53111600" Cantidad="18.00" ClaveUnidad="PR" Unidad="Par" Descripcion="77411 - GRASO CHOCOLATE Talla: 27" ValorUnitario="24.50" Importe="441.00" ObjetoImp="02">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="441.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.000000" Importe="0.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="0.00" />
+</cfdi:Comprobante>
