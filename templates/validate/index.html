@@ -2,7 +2,7 @@
 
 {% block content %}
 <div class="contenido-formulario">
-	<form action="">
+	<form id="validate_formulario" action="">
 		<label for="formFile" class="form-label">Seleccione el xml a validar</label>
 		<input class="form-control" type="file" id="file">
 		<br>
@@ -13,32 +13,33 @@
 </div>
 <br>
 
-<div>
+<div class="card">
+	<div class="card-header bg-secondary text-white">
+		<h5 class="card-title text-center">Resultado</h5>
+	</div>
+
+	<div class="card-body">
 	<table class="table">
-		<thead>
-			<h1> Resultado </h1>
-		</thead>
 		<tbody>
 			<tr class="table-light">
 				<th> Estructura </th>
-				<td id="td_estruc"> mensaje </td>
+				<td id="td_estruc">Esperando resultado</td>
 			</tr>
 			<tr class="table-light">
 				<th> Sello </th>
-				<td id="td_sello"> mensaje </td>
+				<td id="td_sello">Esperando resultado</td>
 			</tr>
 			<tr class="table-light">
 				<th> Sello SAT </th>
-				<td id="td_sesat"> mensaje </td>
+				<td id="td_sesat">Esperando resultado</td>
 			</tr>
 			<tr class="table-danger">
 				<th> Error </th>
-				<td id="td_error"> mensaje </td>
+				<td id="td_error">Esperando resultado</td>
 			</tr>
-
-
 		</tbody>
 	</table>
+	</div>
 </div>
 
 {% endblock %}

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    {% load static %}
+
+    <link
+      rel="stylesheet"
+      href="{% static 'bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    <link
+      rel="stylesheet"
+      href="{% static 'font-awesome/css/font-awesome.min.css'%}"
+    />
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <title>Iniciar Sesión</title>
+  </head>
+  <body class="center">
+    <div class="row border shadow">
+      <div class="col card" style="width: 20rem">
+        <div class="card-body">
+          <img src="..." class="card-img-top" alt="..." />
+        </div>
+      </div>
+      <div class="col card" style="width: 20rem">
+        <div class="card-head">
+          <br />
+          <h5 class="text-center" style="color: #7b211f">Iniciar Sesión</h5>
+        </div>
+        <div class="card-body">
+          <form>
+            <div class="row">
+              <div class="mb-3">
+                <label for="nombre" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="nombre" />
+              </div>
+
+              <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" />
+              </div>
+              <div class="mb-3">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="mostrar_password"
+                />
+                <label class="form-check-label" for="flexCheckDefault">
+                  mostrar
+                </label>
+              </div>
+
+              <div>
+                <input
+                  type="button"
+                  class="btn btn-register"
+                  value="Iniciar Sesión"
+                />
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      $(document).ready(function () {
+        console.log('cargando')
+        $("#mostrar_password").on("click",function () {
+            var checked = $("input:checked").val();
+            if (checked == 'on'){
+                $("#password").attr("type", "text");
+                console.log('entro')
+            }else {
+                $("#password").attr("type", "password");
+                console.log('no entro')
+            }
+          
+        });
+      });
+    </script>
+  </body>
+</html>

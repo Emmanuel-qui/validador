@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:cfdi="http://www.sat.gob.mx/cfd/3" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd http://www.sat.gob.mx/ine http://www.sat.gob.mx/sitio_internet/cfd/ine/ine11.xsd" xmlns:ine="http://www.sat.gob.mx/ine" Version="3.3" Serie="F" Folio="004220" Fecha="2022-11-01T10:54:15" Sello="rrpdENqP3yd8b/oppBwlEvL1cC+aeRjHXZVs4Xn4Mc5JxpMdKlo5quvmsZthDAtds60Lgw4eB7siZmzqOOpTabBXi4vn8nRvpaGO5ZCBMdXmNsLS3/VAwgEGZfm1kp0UmtPWxoyE376ZqVZz4/qDDGaKki2YQeoxn85Ai5/U3M26KCiKhZOUImAmdASlLvhLFnFHAnfLX8ke/il4dECoOn8hUvhCyt2BYcyyVnlXh9kBRcPQyQu/BwsXKHvqe1HIShq+YZdMB5dBCZZjqwgqza6SeylwJCwe6LsdHK91Y2FHi66NSl+dttdCmLOWemNzSPA1g1xy9Q/KXQ5POpmt3w==" FormaPago="03" NoCertificado="00001000000507263639" Certificado="MIIF0DCCA7igAwIBAgIUMDAwMDEwMDAwMDA1MDcyNjM2MzkwDQYJKoZIhvcNAQELBQAwggGEMSAwHgYDVQQDDBdBVVRPUklEQUQgQ0VSVElGSUNBRE9SQTEuMCwGA1UECgwlU0VSVklDSU8gREUgQURNSU5JU1RSQUNJT04gVFJJQlVUQVJJQTEaMBgGA1UECwwRU0FULUlFUyBBdXRob3JpdHkxKjAoBgkqhkiG9w0BCQEWG2NvbnRhY3RvLnRlY25pY29Ac2F0LmdvYi5teDEmMCQGA1UECQwdQVYuIEhJREFMR08gNzcsIENPTC4gR1VFUlJFUk8xDjAMBgNVBBEMBTA2MzAwMQswCQYDVQQGEwJNWDEZMBcGA1UECAwQQ0lVREFEIERFIE1FWElDTzETMBEGA1UEBwwKQ1VBVUhURU1PQzEVMBMGA1UELRMMU0FUOTcwNzAxTk4zMVwwWgYJKoZIhvcNAQkCE01yZXNwb25zYWJsZTogQURNSU5JU1RSQUNJT04gQ0VOVFJBTCBERSBTRVJWSUNJT1MgVFJJQlVUQVJJT1MgQUwgQ09OVFJJQlVZRU5URTAeFw0yMTA0MzAyMTMxNDBaFw0yNTA0MzAyMTMxNDBaMIGeMRwwGgYDVQQDExNMVUlTIEJBQ0EgSEVSTkFOREVaMRwwGgYDVQQpExNMVUlTIEJBQ0EgSEVSTkFOREVaMRwwGgYDVQQKExNMVUlTIEJBQ0EgSEVSTkFOREVaMRYwFAYDVQQtEw1CQUhMNDkwODI2VEUwMRswGQYDVQQFExJCQUhMNDkwODI2SENIQ1JTMDkxDTALBgNVBAsTBExVSVMwggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCvMDvi+uQMg/9UpbrLLV1RilA5lH+WvI2lF2q4gjK2Gia5WS+/s6SMC6P4KS3pVb16oqb7YXDsp2EFzDZ6kl2lM/jXMtOAhRwl/jGgImAfwokBOXXHTA7YyqFHnkgfpYV6MWDBK3PLES45XZa+Qn/exatEQGO1QHyvdB2XwS3+rbKRvY2AblCi43SaW84wmdpdCW4paGY/uwD1lQXknHg+Vg0p4a2agZhetObrS4FpuTlEOZYIgaAR7lUxyTzBG+2PgaGI29mGunF7Xj2ZfMpgkD9/OdkY3ZQUdp3nhM8KQKSj6tbZqiJtWADcRE2VFFHPzchCbnmwKMhT0aOGBNL9AgMBAAGjHTAbMAwGA1UdEwEB/wQCMAAwCwYDVR0PBAQDAgbAMA0GCSqGSIb3DQEBCwUAA4ICAQB/xItoQBnxQTBkR8n0E93AaRXk2kH/CoFnGcZevhDmLvasytgjZ5hGqm6uw2DboXCSUCX/UZ90pcqNXti0NtmGslU38zNDJKiBEo1fLjX3yzny2XEh0fiW8ggeV8PS6x9ciY3fKGsbTueXStRXTnH72QqMoKY88LYBc0mnWs5nangCRP1f6dXZ0Cqz+JF9bwYjZMKTDxnJc0uKm2DWQ+HSK2fMhCJi068f4lcJaSs+wMTzo/6xCptMisHYYb6V45nePbd0cTMA1qJqfvzU6bw7jNUN1631d7F2QBmUd5dDbqNYZKVQQ+UkaCi2avxRLPUZ9qNoBLbxRGbTFhN1+Wc9EYyv3YN/mTf8BKoWFJAInkaT2ACwRrwvAxRxmQyy9RUfWFPjWtuzJUF3KKfqif1KyDuJH/fnV6JnWX9ihGTR8lMB7JUS2CPDh4B/MhGpZcHWjTSViDtj8KL1VMduHqVt6dqSTvp+dbjFlSTOagqCha2KgxZuHAXJBeuSV1FCRUanDq2DEo5SEVkEKBtMV17bhKbvQa/0F65YHG3XbFqnvvH5QIXt6wqBWCTqhgZ0vdqznPmXYQ6k6D5jXGvZHQ9RPP3bNhSjZ7X1u98oqNM6CArerSIjWAXH1jxOoOU6ZXhFFYZKrzSUKk2Pi6r6OoZCheIFJY/Dsu0QLC1qB2qL5w==" CondicionesDePago="CONTADO" SubTotal="16450.00" Total="19082.00" Moneda="MXN" TipoDeComprobante="I" MetodoPago="PUE" LugarExpedicion="31384">
+  <cfdi:Emisor Rfc="BAHL490826TE0" Nombre="LUIS BACA HERNANDEZ" RegimenFiscal="612" />
+  <cfdi:Receptor Rfc="OOR120217I38" Nombre="ORGANIKA OPERADORA DE RESIDUOS SOLIDOS S.A. DE C.V." UsoCFDI="G03" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="26111900" NoIdentificacion="81" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="VOLANTE DE MOTOR NUEVO" ValorUnitario="10000.00" Importe="10000.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="10000.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="1600.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="26111900" NoIdentificacion="194" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="REPARACION DE PRENSA Y DISCO FREIGTHLINER" ValorUnitario="3000.00" Importe="3000.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="3000.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="480.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="26111900" NoIdentificacion="230" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="COLLARIN FREIGHTLINER  DE JALON" ValorUnitario="3000.00" Importe="3000.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="3000.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="480.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="26111900" NoIdentificacion="293" Cantidad="1" ClaveUnidad="H87" Unidad="PIEZA" Descripcion="BALERO PILOTO 30BD5222A6" ValorUnitario="450.00" Importe="450.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="450.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="72.00" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="2632.00">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="2632.00" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+</cfdi:Comprobante>

@@ -20,24 +20,6 @@ function getCookie(name) {
 const csrftoken = getCookie("csrftoken");
 
 const enviar = document.getElementById("form_button");
-// const btn_get = document.getElementById("id_get");
-
-// function load_result(){
-//   const options = {
-//     method: "POST",
-//     headers: { "X-CSRFToken": csrftoken }
-//   }
-
-
-//   fetch('http://127.0.0.1:8000/validate/validateresult/', options)
-//     .then(response => {
-//       console.log(response.json())
-//     })
-//     .then(data => console.log(data))
-//     .catch((error) => {
-//       console.error("error", error)
-//     });
-// }
 
 function send() {
 
@@ -82,6 +64,7 @@ function send() {
       td_sello.innerText = data.Sello;
       td_sesat.innerText = data.Sello_Sat;
       td_error.innerText = data.Error;
+      document.getElementById('validate_formulario').reset();
     })
     .catch((error) => {
       console.error("Error:", error);
@@ -90,4 +73,3 @@ function send() {
 
 enviar.addEventListener("click",send);
 
-// btn_get.addEventListener("click",load_result);

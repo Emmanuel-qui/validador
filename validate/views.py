@@ -60,10 +60,18 @@ class ValidateResult(View):
 		start = int(request.POST.get("start"))
 		length = int(request.POST.get("length"))
 		rfc_emisor = request.POST.get("rfc_emisor")
+		rfc_receptor = request.POST.get("rfc_receptor")
+		fecha_validate = request.POST.get("fecha_validacion")
 
 		lista_objetos = ValidateResultModel.objects.all()
 		if rfc_emisor:
 			lista_objetos = lista_objetos.filter(rfc_business__icontains=rfc_emisor)
+		elif rfc_receptor:
+			lista_objetos = lista_objetos.filter(rfc_receiver__icontains=rfc_receptor)
+		elif fecha_validate:
+			lista_objetos = lista_objetos.filter(validate_date__icontains=fecha_validate)
+
+			
 		total_records = lista_objetos.count()
 		lista_objetos = lista_objetos[start:start+length]
 
@@ -78,7 +86,7 @@ class ValidateResult(View):
 				'sello':item.stamp,
 
 			})
-		print(lista_result)
+		
 		
 		response = {
 			"aaData": lista_result,
@@ -90,7 +98,17 @@ class ValidateResult(View):
 
 
 
+# funcion del detalle de la validacion
+
+def ValidateResultDetail(request, pk):
+
+	validate_invoice = ValidateResultModel.objects.get(id=pk)
+
+	print(validate_invoice)
 
 
+	return render(request, 'validate/detail.html', {'validate_invoice': validate_invoice})
+
+	
 
 

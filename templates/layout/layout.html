@@ -26,7 +26,10 @@
           </span>
       </div>
       <div class="header-item">
-        <button>Iniciar Sesion</button>
+        <button class="btn btn-outline-primary">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <span>example@gmail.com</span>
+        </button>
       </div>
     </header>
 
@@ -37,7 +40,11 @@
             <i id="cerrar" class="fa fa-angle-left" aria-hidden="true"></i>
         </span>
       </div>
-    
+      <div class="logo-imagen">
+        <img src="{% static 'img/perfil.png' %}" alt="logo">
+        <p>example@gmail.com</p>
+        <h5>Finkok</h5>
+      </div>
       <nav class="menu-navegacion">
         <a class="enlace_navegacion" href="{% url 'validate:index' %}">Validador CFDI</a>
 

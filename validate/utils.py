@@ -46,8 +46,7 @@ class Validate:
         try:
             self.xml_etree = etree.fromstring(self.xml_string, settings.INVOICE_XSD_PARSER)
             self.success = True
-            self.message = "Estructura valida XSD"
-            self.save = True
+            self.message = "Estructura Valida"
             self.estruc = True
         except Exception as e:
             self.success = True
@@ -65,10 +64,18 @@ class Validate:
         contenido = client.service.validate(self.xml_string, self.username, self.password)
         try:
             error = contenido.error
-            self.response = {'Estructura': self.message,
+            if error != None:
+                self.response = {'Estructura': self.message,
                             'Sello': str(contenido.sello),
                             'Sello_Sat':str(contenido.sello_sat),
                             'Error': error}
+            else:
+                error = "¡No existe, ningún error!"
+                self.response = {'Estructura': self.message,
+                            'Sello': str(contenido.sello),
+                            'Sello_Sat':str(contenido.sello_sat),
+                            'Error': error}
+
         except Exception:
             print(contenido.sat)
             print(contenido.sat.Estado)
@@ -105,9 +112,11 @@ class Validate:
 
         # datos del emisor
         emisor = voucher.xpath('.//cfdi:Emisor', namespaces = namespace)[0]
+        
         rfc_emisor = emisor.xpath('string(./@Rfc)',namespaces = namespace)
         nombre_emisor = emisor.xpath('string(./@Nombre)',namespaces = namespace)
         
+        import pdb; pdb.set_trace()
 
         # datos del receptor
         receptor = voucher.xpath('.//cfdi:Receptor', namespaces = namespace)[0]
