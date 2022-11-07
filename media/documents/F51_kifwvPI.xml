@@ -1,0 +1,541 @@
+<cfdi:Comprobante LugarExpedicion="43000" MetodoPago="PUE" Exportacion="01" TipoDeComprobante="I" Total="28611.00" TipoCambio="1" Moneda="MXN" SubTotal="27740.64" Certificado="MIIFljCCA36gAwIBAgIUMzAwMDEwMDAwMDA0MDAwMDIzMzIwDQYJKoZIhvcNAQELBQAwggErMQ8wDQYDVQQDDAZBQyBVQVQxLjAsBgNVBAoMJVNFUlZJQ0lPIERFIEFETUlOSVNUUkFDSU9OIFRSSUJVVEFSSUExGjAYBgNVBAsMEVNBVC1JRVMgQXV0aG9yaXR5MSgwJgYJKoZIhvcNAQkBFhlvc2Nhci5tYXJ0aW5lekBzYXQuZ29iLm14MR0wGwYDVQQJDBQzcmEgY2VycmFkYSBkZSBjYWRpejEOMAwGA1UEEQwFMDYzNzAxCzAJBgNVBAYTAk1YMRkwFwYDVQQIDBBDSVVEQUQgREUgTUVYSUNPMREwDwYDVQQHDAhDT1lPQUNBTjERMA8GA1UELRMIMi41LjQuNDUxJTAjBgkqhkiG9w0BCQITFnJlc3BvbnNhYmxlOiBBQ0RNQS1TQVQwHhcNMTkwNTI5MTg0NDU3WhcNMjMwNTI5MTg0NDU3WjCBvTEgMB4GA1UEAxMXQ0VDSUxJQSBNSVJBTkRBIFNBTkNIRVoxIDAeBgNVBCkTF0NFQ0lMSUEgTUlSQU5EQSBTQU5DSEVaMSAwHgYDVQQKExdDRUNJTElBIE1JUkFOREEgU0FOQ0hFWjEWMBQGA1UELRMNTUlTQzQ5MTIxNEI4NjEbMBkGA1UEBRMSTUlTQzQ5MTIxNE1DQ1JOQzAxMSAwHgYDVQQLExdDRUNJTElBIE1JUkFOREEgU0FOQ0hFWjCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAJzAzSn5OeWoVfKCzpTudveHSAxa/cUNaooOUjrPJhWRsKKtYArZ67CDYZSbqbjIBwb3Dv6Agr1NHHbYT+h657rJOC3Zhmm4d4a05UoizZTDAtY5c3XAKpdKuJ2oggZuSR9H7mSQ1P3WfT5v3TRg6xgEQwmMdb7v3C0AK1PTOKtjhjmne9NqhzrEHe3nfiWqX6Jn8Xt+lrPAz9k40BOWJiPy9gMthAHPXgXYUMsmfFVYubcNXVIX+iElehL6j5Ain4/S+FBqqp0RvuEF6VfZiI5SuXlH69Rw7BwUcFjgv9hOmRc+vYeaasoqLmfF5Suk+6oEThvh2AO24yiq+1m3scUCAwEAAaMdMBswDAYDVR0TAQH/BAIwADALBgNVHQ8EBAMCBsAwDQYJKoZIhvcNAQELBQADggIBAJU0OG2EeLQWVVijpaOBFTyG3+KYCy+hJYyo6/hcUUCRFBAiNTb89tylUkRKpJ9p8digYLkeemmhOkP5UNnwpiy0nfgKDlNHX3BWWBC2X6vcHXF9fOMf1CxYaDMhpqzHI+rNe+7E9GX+Y55Butk1RXGNbrprDkF4HKpc8rj1CtlyvmUjJJ9iWCOyap8/k5NWn1LZA9WdB6JoA5DIX2M4GCkh67bHeNteog8W8DEtYAekkI7Ufe74EI5e3NB3xLO2EZrmula5WEOpEGuvLdi9pqiYzSSabFB/xf1papyZYvKkWWiw6OOEo5V2Z2EXd/sDAMWQhyJygHjUh2ajXQFfKI577omUQf346dlhJXi7PMk2N/26lvtJT5hYLyrbk5K9XiYBfJKkIedn9eoCZIxMH59J8ka2Q23rLnil1rw4l8kVZ9wAhGazeK4Nfzm38B81j6q38Gi7x5GaparrOr+bA5Brr2/e5mH8YGQXUPRNK4ag/N+KggnOH/fHZBH0mKSJZoLhsizGXahcazzuEjqENXF/C+0QG8vuimEtyyCFzx4JzzB5G1i+ZEhGMH7nkRSUf/8Rq8fN2u0SNYE5JEB4ipFaer2JGlRrzSMP5iNkCH2wxWphrMHRWqVqx97PpM45nE0JcukvObw72TaKFhohQ2U6yMb/fqqP5p7C1Z5af38H" NoCertificado="30001000000400002332" FormaPago="01" Sello="l5VHRGT+H3uTqF1f+cA8brjOZZzSCNNkAXOyhC7nI6I5+8fN9rnO++fF5tGryDP0LDZuUugF9b/tXGVf6a6C775yzroXMij5ieY1XbtKlLuyTFC+qbzIXok8K79BF4X0TToan4glA3tZXyEe8XUb3gDYar5hPImR4xFbQ6F+keirIIZaG0+AjYu8L/uuVnAzumGKqQ5ij7bY1dHgiNr7VvfZcr11KuIQbM9du5hWlas8zIftZdj6UACTUt9Ea+JclzQndlAkdVsfC/u9Cwny4EsKFQ5lHDnW1D4GaDAI+xu8pTaq7nZVRrrOYTsa5QCGn1pLlPnbCZ+LUof4jEgUvw==" Fecha="2022-11-02T09:39:21" Folio="51" Serie="B" Version="4.0" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd" xmlns:cfdi="http://www.sat.gob.mx/cfd/4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <cfdi:InformacionGlobal Año="2022" Meses="11" Periodicidad="01"/>
+    <cfdi:Emisor RegimenFiscal="605" Nombre="CECILIA MIRANDA SANCHEZ" Rfc="MISC491214B86"/>
+    <cfdi:Receptor UsoCFDI="S01" RegimenFiscalReceptor="616" DomicilioFiscalReceptor="43000" Nombre="PUBLICO EN GENERAL" Rfc="XAXX010101000"/>
+    <cfdi:Conceptos>
+        <cfdi:Concepto ObjetoImp="02" Importe="2340.000000" ValorUnitario="180.00" Descripcion="FAENA FUERTE 360 LT." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="13.0" NoIdentificacion="782" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="2340.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="130.000000" ValorUnitario="65.00" Descripcion="ANDOBIOTIC 1 MLL" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="794" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="130.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="462.616820" ValorUnitario="92.52" Descripcion="ANTORCHA 900 ML." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="5.0" NoIdentificacion="641" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="32.383177" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="462.6168200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="308.411214" ValorUnitario="154.21" Descripcion="ASUNTOL LIQUIDO 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2.0" NoIdentificacion="563" ClaveProdServ="10191500">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="21.588785" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="308.4112140"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="150.000000" ValorUnitario="50.00" Descripcion="AVEFENICOL-ST 20 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="655" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="150.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="420.000000" ValorUnitario="60.00" Descripcion="BIO-GREEN 1 LT" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="7.0" NoIdentificacion="583" ClaveProdServ="10171601">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="420.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="375.000000" ValorUnitario="125.00" Descripcion="BIODIPIRONA 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3.0" NoIdentificacion="698" ClaveProdServ="51142700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="375.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="94.339623" ValorUnitario="94.34" Descripcion="BOVITRAZ 12.5% 100 ML (6%)" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="703" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="5.660377" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="94.339623"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="65.000000" ValorUnitario="65.00" Descripcion="AVIPEN 10 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="761" ClaveProdServ="51101507">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="65.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="585.000000" ValorUnitario="65.00" Descripcion="EMICINA LIQUIDA 20 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="9.0" NoIdentificacion="50" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="585.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="360.000000" ValorUnitario="180.00" Descripcion="LAXOTONICO INY. 30 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2.0" NoIdentificacion="745" ClaveProdServ="51241114">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="360.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="327.102804" ValorUnitario="46.73" Descripcion="FOSFURO DE ZINC 50 GRS" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="7.0" NoIdentificacion="75" ClaveProdServ="10191506">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="22.897196" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="327.1028040"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="384.000000" ValorUnitario="48.00" Descripcion="PANACUR POLVO 4% 12.5G" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="8.0" NoIdentificacion="164" ClaveProdServ="51102500">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="384.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="598.130840" ValorUnitario="119.63" Descripcion="GRAMOXONE 900 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="5.0" NoIdentificacion="258" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="41.869159" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="598.1308400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="830.188680" ValorUnitario="103.77" Descripcion="AGRAMINA 480 950 ML." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="8.0" NoIdentificacion="272" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="49.811321" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="830.1886800"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="793.103448" ValorUnitario="99.14" Descripcion="AZADON SIN MANGO 182X150MM GIMEX" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="8.0" NoIdentificacion="736" ClaveProdServ="27112002">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="126.896552" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="793.1034480"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="215.517240" ValorUnitario="43.10" Descripcion="CUAJO CUAMIX 120 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="5.0" NoIdentificacion="283" ClaveProdServ="12164500">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="34.482758" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="215.5172400"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="220.000000" ValorUnitario="110.00" Descripcion="STOP-ON 250 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2.0" NoIdentificacion="358" ClaveProdServ="42121600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="220.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="566.037738" ValorUnitario="94.34" Descripcion="FITOAMINA 950 ML." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="6.0" NoIdentificacion="787" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="33.962264" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="566.0377380"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="135.000000" ValorUnitario="45.00" Descripcion="IXODIZOL 25 GRS" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="106" ClaveProdServ="01010101">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="135.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="1120.000000" ValorUnitario="160.00" Descripcion="TRONADOR 1LT." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="7.0" NoIdentificacion="387" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="1120.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="120.000000" ValorUnitario="120.00" Descripcion="RIPERCOL 12% 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="724" ClaveProdServ="51101700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="120.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="1395.000000" ValorUnitario="465.00" Descripcion="VIGANTOL ADE 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3.0" NoIdentificacion="671" ClaveProdServ="51191905">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="1395.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="240.000000" ValorUnitario="240.00" Descripcion="FLUNIXIN INY. 8.3% 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="84" ClaveProdServ="51142700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="240.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="1330.000000" ValorUnitario="190.00" Descripcion="PENCIVET SUPER FUERTE 15ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="7.0" NoIdentificacion="162" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="1330.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="362.068966" ValorUnitario="51.72" Descripcion="GRAPA GALVANIZADA DE ACERO (2.54CM) 1KG" Unidad="KILO" ClaveUnidad="H87" Cantidad="7.0" NoIdentificacion="310" ClaveProdServ="27112120">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="57.931035" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="362.0689660"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="360.000000" ValorUnitario="360.00" Descripcion="EMICINA L.A. 100ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="51" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="360.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="1040.000000" ValorUnitario="130.00" Descripcion="SUPER FLUMI-STREP 2MLL" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="8.0" NoIdentificacion="189" ClaveProdServ="51101507">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="1040.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="252.336448" ValorUnitario="126.17" Descripcion="FOLEY REY 450 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="672" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="17.663551" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="252.336448"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="475.000000" ValorUnitario="95.00" Descripcion="TRIPLE CANINA 1 DS." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="5.0" NoIdentificacion="810" ClaveProdServ="51201600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="475.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="1350.000000" ValorUnitario="270.00" Descripcion="SEMILLA BRIZANTHA MINERAO" Unidad="KILO" ClaveUnidad="H87" Cantidad="5.0" NoIdentificacion="832" ClaveProdServ="10151704">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="1350.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="270.000000" ValorUnitario="30.00" Descripcion="ERICLOR AVICOLA SOBRE 10 G" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="9.0" NoIdentificacion="54" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="270.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="300.000000" ValorUnitario="150.00" Descripcion="ANAPIRO 2X1GR" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="222" ClaveProdServ="42121606">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="300.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="48.000000" ValorUnitario="12.00" Descripcion="JERINGA 20ML (PENCIVET S/C)" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="4.0" NoIdentificacion="357" ClaveProdServ="42121600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="48.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="169.811322" ValorUnitario="56.60" Descripcion="FOLEY MAX 1.5% 1KG" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="815" ClaveProdServ="73101600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="10.188679" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="169.811322"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="691.588785" ValorUnitario="138.32" Descripcion="GARRABAN 100ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="5.0" NoIdentificacion="90" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="48.411215" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="691.5887850"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="137.614680" ValorUnitario="45.87" Descripcion="GRANERIL FUM TUBO C /16TABS" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="785" ClaveProdServ="10171600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="12.385321" TasaOCuota="0.090000" TipoFactor="Tasa" Impuesto="003" Base="137.614680"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="110.000000" ValorUnitario="110.00" Descripcion="IMIDOFIN INY. 10 ML" Unidad="PIEZA" ClaveUnidad="H82" Cantidad="1" NoIdentificacion="825" ClaveProdServ="42121606">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="110.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="215.517241" ValorUnitario="215.52" Descripcion="JAULA MASCOTERA GRANDE 60X40X33" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="677" ClaveProdServ="10131601">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="34.482759" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="215.517241"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="215.517242" ValorUnitario="107.76" Descripcion="TROMPA GARRAFA 454GR." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="211" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="34.482759" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="215.517242"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="323.275863" ValorUnitario="107.76" Descripcion="AZADON SIN MANGO 205X190MM GIMEX" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3.0" NoIdentificacion="342" ClaveProdServ="27112002">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="51.724138" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="323.2758630"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="180.000000" ValorUnitario="60.00" Descripcion="VITANHEGRA B12 20ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="250" ClaveProdServ="51191905">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="180.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="251.886792" ValorUnitario="83.96" Descripcion="BRAVO SPRAY 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="822" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="15.113208" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="251.886792"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="115.000000" ValorUnitario="115.00" Descripcion="MAMISAN UNGUENTO 100 GR" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="140" ClaveProdServ="51142700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="115.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="255.000000" ValorUnitario="85.00" Descripcion="ESTREPTO BB REF. 5 MLL 25 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="718" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="255.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="179.245284" ValorUnitario="89.62" Descripcion="ROGOR DRAGON 240 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2.0" NoIdentificacion="826" ClaveProdServ="01010101">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="10.754717" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="179.2452840"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="200.000000" ValorUnitario="100.00" Descripcion="UTER PARTO 20 UI 250ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="218" ClaveProdServ="42121607">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="200.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="164.485982" ValorUnitario="82.24" Descripcion="FOLEY REY 240 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="837" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="11.514019" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="164.485982"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="175.862070" ValorUnitario="58.62" Descripcion="CYBOR SOBRE 10GR" Unidad="SOBRE" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="353" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="28.137931" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="175.862070"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="370.000000" ValorUnitario="185.00" Descripcion="SUPER CRIA 5KG" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="404" ClaveProdServ="10122100">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="370.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="248.000000" ValorUnitario="124.00" Descripcion="CREMA DON RICARDO PLUS 60 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="605" ClaveProdServ="51241208">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="248.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="296.000000" ValorUnitario="148.00" Descripcion="HEMOPLEX 50 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="552" ClaveProdServ="42121602">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="296.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="150.000000" ValorUnitario="75.00" Descripcion="VIRUELA AVIAR 100 DS/2 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="829" ClaveProdServ="51201700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="150.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="495.283020" ValorUnitario="165.09" Descripcion="BUTOX 100ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3.0" NoIdentificacion="645" ClaveProdServ="10191500">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="29.716981" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="495.2830200"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="95.000000" ValorUnitario="95.00" Descripcion="UNGUENTO LA TIA CHICA 60G" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="216" ClaveProdServ="42121600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="95.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="320.000000" ValorUnitario="320.00" Descripcion="SUPER CRIA 10KG" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="436" ClaveProdServ="10122100">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="320.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="870.000000" ValorUnitario="145.00" Descripcion="RAMPANTE 1 LT." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="6.0" NoIdentificacion="737" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="870.0000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="301.886792" ValorUnitario="150.94" Descripcion="CROSSER 1 LT" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="566" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="18.113208" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="301.886792"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="116.379309" ValorUnitario="38.79" Descripcion="RAT KILL TRAPER CHICO C/2" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="738" ClaveProdServ="10191500">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="18.620689" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="116.379309"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="150.943396" ValorUnitario="150.94" Descripcion="BOLFO SHAMPOO 350ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="15" ClaveProdServ="10191500">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="9.056604" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="150.943396"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="185.344828" ValorUnitario="185.34" Descripcion="JAULA MASCOTERA CHICA 50X37X23" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="676" ClaveProdServ="10131601">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="29.655172" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="185.344828"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="155.660376" ValorUnitario="51.89" Descripcion="JABON ASUNTOL 80 GRS" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="549" ClaveProdServ="10191500">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="9.339623" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="155.660376"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="190.000000" ValorUnitario="95.00" Descripcion="BAYFOLAN FORTE 1 LT" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="643" ClaveProdServ="10171600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="190.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="200.000000" ValorUnitario="200.00" Descripcion="TRODAX INY. 50 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="570" ClaveProdServ="51101700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="200.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="400.000000" ValorUnitario="200.00" Descripcion="HEMOPLEX 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="551" ClaveProdServ="42121602">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="400.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="129.310344" ValorUnitario="43.10" Descripcion="BEBEDERO PARA POLLO 4 LTS." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="3" NoIdentificacion="705" ClaveProdServ="21101907">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="20.689655" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="129.310344"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="125.000000" ValorUnitario="125.00" Descripcion="EXPECTORANTE BRONCODILATADOR 50ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="53" ClaveProdServ="42121603">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="125.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="160.000000" ValorUnitario="160.00" Descripcion="HIERROVET B12 100 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="690" ClaveProdServ="42121600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="160.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="225.000000" ValorUnitario="225.00" Descripcion="NAPZIN INY. 50 ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="763" ClaveProdServ="51142700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="225.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="190.000000" ValorUnitario="95.00" Descripcion="GT-300 20ML" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="491" ClaveProdServ="51102600">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="190.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="168.000000" ValorUnitario="168.00" Descripcion="NUTRIFOSS 12% 20KGS" Unidad="BULTO" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="797" ClaveProdServ="13102012">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="168.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="150.943396" ValorUnitario="150.94" Descripcion="DOMINANTE 1 LT." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="783" ClaveProdServ="10171700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="9.056604" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="150.943396"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="396.226415" ValorUnitario="396.23" Descripcion="TAKTIC 1 LT" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="490" ClaveProdServ="51101700">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="23.773585" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="396.226415"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="200.000000" ValorUnitario="100.00" Descripcion="LOCION ANTI-VERRUGAS 100ML." Unidad="PIEZA" ClaveUnidad="H87" Cantidad="2" NoIdentificacion="430" ClaveProdServ="70122007">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="200.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+        <cfdi:Concepto ObjetoImp="02" Importe="45.000000" ValorUnitario="45.00" Descripcion="ALFADEX SOBRE 25 GRS" Unidad="PIEZA" ClaveUnidad="H87" Cantidad="1" NoIdentificacion="740" ClaveProdServ="10191509">
+            <cfdi:Impuestos>
+                <cfdi:Traslados>
+                    <cfdi:Traslado Importe="0.000000" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="45.000000"/>
+                </cfdi:Traslados>
+            </cfdi:Impuestos>
+        </cfdi:Concepto>
+    </cfdi:Conceptos>
+    <cfdi:Impuestos TotalImpuestosTrasladados="870.37">
+        <cfdi:Traslados>
+            <cfdi:Traslado Importe="224.547171" TasaOCuota="0.060000" TipoFactor="Tasa" Impuesto="003" Base="27740.64"/>
+            <cfdi:Traslado Importe="196.327102" TasaOCuota="0.070000" TipoFactor="Tasa" Impuesto="003" Base="27740.64"/>
+            <cfdi:Traslado Importe="12.385321" TasaOCuota="0.090000" TipoFactor="Tasa" Impuesto="003" Base="27740.64"/>
+            <cfdi:Traslado Importe="0" TasaOCuota="0.000000" TipoFactor="Tasa" Impuesto="002" Base="27740.64"/>
+            <cfdi:Traslado Importe="437.103448" TasaOCuota="0.160000" TipoFactor="Tasa" Impuesto="002" Base="27740.64"/>
+        </cfdi:Traslados>
+    </cfdi:Impuestos>
+</cfdi:Comprobante>

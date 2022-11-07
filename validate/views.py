@@ -104,9 +104,6 @@ def ValidateResultDetail(request, pk):
 
 	validate_invoice = ValidateResultModel.objects.get(id=pk)
 
-	print(validate_invoice)
-
-
 	return render(request, 'validate/detail.html', {'validate_invoice': validate_invoice})
 
 	

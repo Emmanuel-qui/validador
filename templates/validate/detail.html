@@ -1,8 +1,50 @@
-{% extends 'layout/layout.html' %}
+{% extends 'layout/layout.html' %} {% block content %}
 
-{% block content %}
+<br />
+<br />
 
-	<h1>{{ validate_invoice.results }}</h1>
+<div class="row justify-content-center">
+  <div class="w-50">
+    <div class="card">
+      <div class="card-head bg-secondary text-white">
+        <h5 class="text-center">Informacion del Comprobante</h5>
+      </div>
+      <div class="card-body">
+        <table class="table">
+          <tbody>
+            <tr>
+              <td>Resultado: {{ validate_invoice.results }}</td>
+              <td>Version: {{ validate_invoice.version }}</td>
+            </tr>
 
+            <tr>
+              <td>RFC Receptor: {{ validate_invoice.rfc_receiver }}</td>
+              <td>Metodo Pago: {{ validate_invoice.metodo_pago }}</td>
+            </tr>
+            <tr>
+			  <td>RFC Emisor: {{ validate_invoice.rfc_rfc_business }}</td>
+              <td>Fecha: {{ validate_invoice.date }}</td>
+            </tr>
+            <tr>
+              <td>Fecha Validacion: {{ validate_invoice.validate_date }}</td>
+              <td>
+                Lugar Expedicion: {{ validate_invoice.place_of_expedition }}
+              </td>
+            </tr>
+			<tr>
+				<td>Tipo de Comprobante: {{ validate_invoice.voucher_type }}</td>
+				<td>Total: {{ validate_invoice.total }}</td>
+			</tr>
+          </tbody>
+        </table>
+
+		<table>
+			<thead>Resultado</thead>
+			<tbody></tbody>
+		</table>
+      </div>
+    </div>
+  </div>
+</div>
 
 {% endblock %}
