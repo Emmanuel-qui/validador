@@ -18,4 +18,6 @@ urlpatterns = [
     path('validateresult/', views.ValidateResult.as_view(), name="validateresult"),
 
     path('detail/<int:pk>', views.ValidateResultDetail, name="detail"),
+
+    path('pdf/<int:pk>', views.GeneratePdf.as_view(), name="generate-pdf"),
 ]

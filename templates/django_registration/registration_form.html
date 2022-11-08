@@ -26,32 +26,10 @@
                 <h5 class="text-center" style="color: #7b211f;">Formulario de Registro</h5>
            </div>
             <div class="card-body">
-                <form>
-                    <div class="row">
-                        <div class="mb-3">
-                            <label for="nombre" class="form-label">Nombre</label>
-                            <input type="text" class="form-control" id="nombre">
-                        </div>
-                        <div class="mb-3">
-                            <label for="apellido" class="form-label">Apellidos</label>
-                            <input type="text" class="form-control" id="apellido">
-                        </div>
-                        <div class="mb-3">
-                            <label for="correo" class="form-label">Correo</label>
-                            <input type="email" class="form-control" id="correo" placeholder="name@example.com">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password1" class="form-label">Password</label>
-                            <input type="password" class="form-control" id="password1">
-                        </div>
-                        <div class="mb-3">
-                            <label for="password2" class="form-label">Confirmar Password</label>
-                            <input type="password" class="form-control" id="password2">
-                        </div>
-                        <div>
-                            <input type="button" class="btn btn-register" value="Registrarse">
-                        </div>
-                    </div>
+                <form  method="POST">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit">enviar</button>
                 </form>
             </div>
           </div>

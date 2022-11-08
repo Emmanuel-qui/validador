@@ -32,8 +32,10 @@
           <h5 class="text-center" style="color: #7b211f">Iniciar Sesión</h5>
         </div>
         <div class="card-body">
-          <form>
-            <div class="row">
+          <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <!-- <div class="row">
               <div class="mb-3">
                 <label for="nombre" class="form-label">Usuario</label>
                 <input type="text" class="form-control" id="nombre" />
@@ -52,16 +54,16 @@
                 <label class="form-check-label" for="flexCheckDefault">
                   mostrar
                 </label>
-              </div>
+              </div> -->
 
               <div>
                 <input
-                  type="button"
+                  type="submit"
                   class="btn btn-register"
                   value="Iniciar Sesión"
                 />
               </div>
-            </div>
+           
           </form>
         </div>
       </div>
