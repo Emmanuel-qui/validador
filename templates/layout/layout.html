@@ -51,7 +51,7 @@
         </span>
       </div>
       <div class="logo-imagen">
-        <img src="{% static 'img/usuario.png' %}" alt="logo">
+        <img src="{% static 'img/perfil.png' %}" alt="logo">
         <p>example@gmail.com</p>
         <h5>Finkok</h5>
       </div>
@@ -62,7 +62,7 @@
 
         <a class="enlace_navegacion" href="{% url 'validate:result' %}">Historial Validacion</a>
 
-        <a class="enlace_navegacion" href="#">Activo</a>
+        <a class="enlace_navegacion" href="{% url 'profile:home' %}">Configuracion</a>
       </nav>
     </div>
 

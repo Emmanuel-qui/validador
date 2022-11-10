@@ -159,7 +159,9 @@ tr {
 
 /* Contenido formulario */
 .contenido-formulario {
-    margin-top: 1rem;
+    margin: 0 auto;
+    width: 800px;
+    padding-top: 2rem;
 }
 
 
@@ -178,4 +180,19 @@ tr {
 
 .enlace:hover {
     color: var(--color-principal);
+}
+
+/* Estilos seccion del perfil */
+
+
+.contenedor-perfil {
+    width: 760px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.imagen-perfil {
+    width: 300px;
+    padding: 1rem;
+    margin: 1rem;
 }

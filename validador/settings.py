@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'validate.apps.ValidateConfig',
     'register',
+    'perfil'
 ]
 
 MIDDLEWARE = [
