@@ -1,26 +1,25 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8"/>
-        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
-        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-        {% load static %}
-        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
-        <link href="{% static 'bootstrap/css/bootstrap.min.css.map' %}" rel="stylesheet"/>
-        <title>
-            Registro Complet
-        </title>
-    </head>
-    <body class="bg-success">
-        <div class="container">
-            <div class="m-0 row vh-100 d-flex justify-content-center align-items-center">
-                <div class="alert alert-success w-25 p-3" role="alert">
-                    ¡Felicidades!
-                    Su registro fue exitoso, verifique su correo para activar su cuenta.
+{% extends 'django_registration/base.html' %}
+
+
+{% block title %}
+    Completar Registro
+{% endblock %}
+
+{% block content-form %}
+{% load static %}
+
+    <div class="container">
+        <div class="row">
+            <div class="card">
+                <div class="card-head">
+                    <h5>En hora buena! Nos hemos puesto en contacto.</h5>
+                </div>
+                <div class="card-body">
+                    <p>Para continuar con el registro, es necesario que verifique su bandeja de entrada. </p>
+                    
                 </div>
             </div>
         </div>
-        <script src="{% static 'bootstrap/js/bootstrap.min.js'%}">
-        </script>
-    </body>
-</html>
+    </div>
+
+{% endblock %}

@@ -1,4 +1,13 @@
-{% extends 'layout/layout.html' %} {% block content %}
+{% extends 'layout/layout.html' %} 
+
+{% block link-css %}
+<link rel="stylesheet" 
+type="text/css" 
+href="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.css"/>
+{% endblock link-css %}
+  
+
+{% block content %}
 <br />
 <br />
 <div class="row row-cols-3">
@@ -33,9 +42,9 @@
 <br />
 <br>
 <br>
-<table id="example" class="display" style="width: 100%">
+<table id="example"class="table border" style="width: 100%">
   <thead>
-    <tr>
+    <tr class="table-secondary">
       <th>RFC Emisor</th>
       <th>RFC Receptor</th>
       <th>Version</th>
@@ -47,12 +56,18 @@
   </thead>
 </table>
 
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.print.min.js"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/buttons.html5.min.js"></script>
 
-<script src="https://cdn.datatables.net/buttons/2.2.3/css/buttons.dataTables.min.css"></script>
-<script src="https://cdn.datatables.net/buttons/2.2.3/js/dataTables.buttons.min.js"></script>
-
-<p id="parrafo"></p>
 {% endblock %}
 
+{% block script %}
+  <script 
+  src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+  <script  
+  src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js">
+  </script>
+
+  {% load static %}
+  <script src="{% static 'js/result.js' %}"></script>
+
+{% endblock %}

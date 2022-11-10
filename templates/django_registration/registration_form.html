@@ -1,23 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'django_registration/base.html' %}
 
-    {% load static %}
-    
-    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}" />
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
-    <link rel="stylesheet" href="{% static 'font-awesome/css/font-awesome.min.css'%}"/>
-    <title>Registro</title>
-</head>
-<body class="center">
 
+{% block title %}
+    Registrarse
+{% endblock %}
+
+{% block content-form %}
+{% load static %}
+<div class="center">
+    {% if form.errors %}
+    <div>       
+        <div class="alert alert-dark"" role="alert">
+        {{ form.errors }}
+        </div>
+    </div>      
+    {% endif %}
     <div class="row border shadow">
             <div class="col card" style="width: 20rem;">
-            <div class="card-body">
-                <img src="..." class="card-img-top" alt="...">
+            <div class="card-body d-flex justify-content-center align-items-center">
+                <img src="{% static 'img/img-quadrum.jpeg' %}" class="img-fluid" alt="logo" />
             </div>
         </div>
         <div class="col card" style="width: 20rem;">
@@ -27,15 +28,47 @@
            </div>
             <div class="card-body">
                 <form  method="POST">
-                    {% csrf_token %}
-                    {{ form.as_p }}
-                    <button type="submit">enviar</button>
+                    <div class="row">
+                        {% csrf_token %}
+                        
+                        <div class="mb-3">
+                            <label for="id_username">Nombre: </label>
+                            {{ form.username }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_email">Correo: </label>
+                            {{ form.email }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password1">Contraseña: </label>
+                            {{ form.password1 }}
+                        </div>
+                        <div class="mb-3">
+                            <label for="id_password2">Confirmar Contraseña: </label>
+                            {{ form.password2 }}
+                        </div>
+                        <div class="mb-3">
+                            <input class="btn btn-register" type="submit" value="Registrarse" />
+                        </div>
+                    </div>
                 </form>
             </div>
           </div>
     </div>
+
     
+</div>
 
+<script>
+    $(document).ready(function (){
+        $("#id_username").addClass("form-control");
 
-</body>
-</html>
+        $("#id_email").addClass("form-control");
+
+        $("#id_password1").addClass("form-control");
+
+        $("#id_password2").addClass("form-control");
+    });
+</script>
+
+{% endblock %}

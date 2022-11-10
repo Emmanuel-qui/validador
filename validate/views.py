@@ -113,7 +113,7 @@ def ValidateResultDetail(request, pk):
 	
 
 # Vista para la generacion de PDF.
-
+# realice un cambio
 class GeneratePdf(View):
 
 	def get(self, request, pk):

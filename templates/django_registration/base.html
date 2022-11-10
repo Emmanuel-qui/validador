@@ -11,21 +11,15 @@
     <link rel="stylesheet" href="{% static 'css/style.css' %}" />
     
  
-    <title>Siguiente paso</title>
+    <title>{% block title %}{% endblock %}</title>
 
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
   </head>
-  <body class="center bg-secondary">
+  <body>
    
-    <div class="card">
-        <div class="card-head">
-            <h6 class="card-title">En hora buena!</h6>
-        </div>
-        <div class="card-body">
-            <p>Revise dentro de su bandeja de entrada, se le hizo llegar un correo para poder activar su cuenta.</p>
-        </div>
+    {% block content-form %}
 
-    </div>
+    {% endblock %}
    
     <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
     
