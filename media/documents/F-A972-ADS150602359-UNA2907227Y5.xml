@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/3 http://www.sat.gob.mx/sitio_internet/cfd/3/cfdv33.xsd" Version="3.3" Serie="A" Folio="972" Fecha="2022-10-26T09:07:01" Sello="QEbDRZpolgpI/XcE3yXC3QZHQdH49sW+eHbvkeioa9SnzpOrgm9V/2G82V2uUT428id6PYcxnf99sSKoydSRGJPhrpOp88dmGF0bZDFz+KcFfQlFFKrRpILEjgMPiY0KtO1/JQV7mrL24zVHOVBFUIQY/6ey/7hyuBlEf1/Xjv32zeWbh+1lFTu+H/VL/H1QEcWq94ueRXbOLUyvx7r1ZZA4jaNrwbaduzAaz5Jxd01oEmkbMV06sox+gtwSXsjkRCx3K1evRZOrS4ALTr8p1CChGUzodZqcf9Xsy6BvXcdtnALfeqLCJqHJHX6Vwd61Qu9jgqPRcy2cbCrF/jAFGg==" FormaPago="99" NoCertificado="00001000000506569530" Certificado="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" CondicionesDePago="CREDITO: 45 DIAS" SubTotal="62091.00" Descuento="0.00" Moneda="MXN" TipoCambio="1" Total="72025.56" TipoDeComprobante="I" MetodoPago="PPD" LugarExpedicion="04250" xmlns:cfdi="http://www.sat.gob.mx/cfd/3">
+  <cfdi:CfdiRelacionados TipoRelacion="04">
+    <cfdi:CfdiRelacionado UUID="5CB5613A-0A24-4F97-A7B6-C022B5DF89BD" />
+  </cfdi:CfdiRelacionados>
+  <cfdi:Emisor Rfc="ADS150602359" Nombre="ABASTECEDORA Y DISTRIBUIDORA DEL SURESTE GARCIA HNOS SA DE CV" RegimenFiscal="601" />
+  <cfdi:Receptor Rfc="UNA2907227Y5" Nombre="UNIVERSIDAD NACIONAL AUTONOMA DE MEXICO" UsoCFDI="G03" />
+  <cfdi:Conceptos>
+    <cfdi:Concepto ClaveProdServ="30161503" NoIdentificacion="HOJA" Cantidad="3" ClaveUnidad="H87" Unidad="PZA" Descripcion="HOJA DE POLICARBONATO CEL 6MM DE 2.10 X 6.70 HUMO" ValorUnitario="5854.00" Importe="17562.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="17562.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="2809.9200" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31162800" NoIdentificacion="PLACA" Cantidad="4" ClaveUnidad="H87" Unidad="PZA" Descripcion="PLACA DE 25X25 CM DE 3/8" ValorUnitario="469.00" Importe="1876.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1876.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="300.1600" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31191506" NoIdentificacion="DISCO 4" Cantidad="4" ClaveUnidad="H87" Unidad="PZA" Descripcion="DISCO DE 4&quot; PARA DESBASTE DE METAL" ValorUnitario="49.00" Importe="196.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="196.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="31.3600" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PERFIL" Cantidad="8" ClaveUnidad="H87" Unidad="PZA" Descripcion="TRAMOS DE PERFIL 1 1/2 X11/2 ROJO C-18" ValorUnitario="525.00" Importe="4200.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="4200.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="672.0000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PTR 3X2" Cantidad="5" ClaveUnidad="H87" Unidad="PZA" Descripcion="TRAMO DE PTR DE 3X2 BLANCO C-11" ValorUnitario="2399.00" Importe="11995.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="11995.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="1919.2000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PTR 3X2" Cantidad="5" ClaveUnidad="H87" Unidad="PZA" Descripcion="PTR DE 3X2 BLANCO C-11" ValorUnitario="2399.00" Importe="11995.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="11995.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="1919.2000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PTR 3X3" Cantidad="2" ClaveUnidad="H87" Unidad="PZA" Descripcion="TRAMO DE PTR DE 3X3 BLANCO C-11" ValorUnitario="2867.00" Importe="5734.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="5734.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="917.4400" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PTR 4X2" Cantidad="3" ClaveUnidad="H87" Unidad="PZA" Descripcion="TRAMO DE PTR DE 4X2 BLANCO C-11" ValorUnitario="2947.00" Importe="8841.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="8841.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="1414.5600" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PERFIL H" Cantidad="2" ClaveUnidad="H87" Unidad="PZA" Descripcion="PERFIL &quot;H&quot; PARA POLICARBONATO DE 6MM DE 7.32 LARGO" ValorUnitario="629.00" Importe="1258.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="1258.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="201.2800" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PERFIL J" Cantidad="2" ClaveUnidad="H87" Unidad="PZA" Descripcion="PERFIL &quot;J&quot; PARA POLICARBONATO DE 6MM 7.32 LARGO" ValorUnitario="398.00" Importe="796.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="796.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="127.3600" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="30102300" NoIdentificacion="PTR AZUL" Cantidad="8" ClaveUnidad="H87" Unidad="PZA" Descripcion="TRAMO DE PTR AZUL DE 11/2 X 1 1/2&quot; C-14" ValorUnitario="699.00" Importe="5592.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="5592.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="894.7200" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31162100" NoIdentificacion="TAQUETE" Cantidad="20" ClaveUnidad="H87" Unidad="PZA" Descripcion="TAQUETE DE EXPANSION CON TORNILLO DE 1/2&quot;" ValorUnitario="46.00" Importe="920.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="920.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="147.2000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31161500" NoIdentificacion="TORNILLO" Cantidad="200" ClaveUnidad="H87" Unidad="PZA" Descripcion="TORNILLOS DE CABEZA HEXAGONAL CON PUNTA DE BROCA DE 1&quot; CON RONDANA DE NEOPRENO" ValorUnitario="3.30" Importe="660.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="660.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="105.6000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="23271800" NoIdentificacion="SOLDADURA" Cantidad="5" ClaveUnidad="H87" Unidad="KGM" Descripcion="SOLDADURA 6013 DE 1/8" ValorUnitario="103.00" Importe="515.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="515.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="82.4000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="21101513" NoIdentificacion="UNA-DISCO" Cantidad="6" ClaveUnidad="H87" Unidad="PZA" Descripcion="DISCO DE CORTE DE 4&quot; PARA CORTE DE METAL" ValorUnitario="27.00" Importe="162.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="162.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="25.9200" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31201600" NoIdentificacion="UNA1-SILICON" Cantidad="3" ClaveUnidad="H87" Unidad="PZA" Descripcion="SILICON PARA POLICARBONATO SISTA" ValorUnitario="199.00" Importe="597.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="597.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="95.5200" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="31201600" NoIdentificacion="UNA2-SILICON" Cantidad="3" ClaveUnidad="H87" Unidad="PZA" Descripcion="SILICON TRANSPARENTE ESTRUCTURAL SISTA" ValorUnitario="199.00" Importe="597.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="597.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="95.5200" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+    <cfdi:Concepto ClaveProdServ="23271800" NoIdentificacion="UNA-SOLDADURA" Cantidad="5" ClaveUnidad="KGM" Unidad="PZA" Descripcion="SOLDADURA 6013 DE 3/32" ValorUnitario="118.00" Importe="590.00" Descuento="0.00">
+      <cfdi:Impuestos>
+        <cfdi:Traslados>
+          <cfdi:Traslado Base="590.00" Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="94.4000" />
+        </cfdi:Traslados>
+      </cfdi:Impuestos>
+    </cfdi:Concepto>
+  </cfdi:Conceptos>
+  <cfdi:Impuestos TotalImpuestosTrasladados="11853.76">
+    <cfdi:Traslados>
+      <cfdi:Traslado Impuesto="002" TipoFactor="Tasa" TasaOCuota="0.160000" Importe="11853.76" />
+    </cfdi:Traslados>
+  </cfdi:Impuestos>
+</cfdi:Comprobante>

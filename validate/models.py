@@ -12,7 +12,7 @@ class FileModel(models.Model):
 # Modelo para guardar datos del Documento
 class InvoiceModel(models.Model):
 	version = models.CharField(max_length = 3, null=False)
-	series = models.CharField(max_length = 25, null = True)
+	series = models.CharField(max_length = 255, null = True)
 	folio = models.CharField(max_length = 40, null = True)
 	# fecha
 	date = models.CharField(max_length = 20, null=False)
@@ -25,9 +25,9 @@ class InvoiceModel(models.Model):
 	# condiciones_pago
 	payment_conditions = models.TextField(null = True)
 	rfc_business = models.CharField(max_length = 25, null=False)
-	name_business = models.CharField(max_length = 25, null=False)
+	name_business = models.CharField(max_length = 255, null=False)
 	rfc_receiver = models.CharField(max_length = 25, null=False)
-	name_receiver = models.CharField(max_length = 25, null=False)
+	name_receiver = models.CharField(max_length = 255, null=False)
 	subtotal = models.CharField(max_length = 255, null=False)
 	#descuento
 	discount = models.CharField(max_length = 255, null = True)
@@ -49,6 +49,7 @@ class InvoiceModel(models.Model):
  # modelo para guardar el resultado.
 class ValidateResultModel(models.Model):
 	invoice = models.OneToOneField(InvoiceModel, on_delete = models.CASCADE)
+
 	results = models.CharField(max_length = 255, null = False)
 	# tipodecomprobante
 	voucher_type = models.CharField(max_length = 1, null = False)
@@ -69,8 +70,15 @@ class ValidateResultModel(models.Model):
 	# fecha
 	date = models.CharField(max_length = 20, null=False)
 	# fecha_validacion
-	validate_date = models.DateTimeField(auto_now = True)
+	validate_date = models.DateTimeField(auto_now = True, null = False)
+	# estructura
+	estruc = models.CharField(max_length = 255, null = True)
 	# sello
-	stamp = models.BooleanField(null = False)
+	stamp = models.BooleanField(null = True)
+	#sello_sat
+	stamp_sat = models.BooleanField(null = True)
+	# error del ws
+	error_ws = models.TextField(null=True)
+
 
 

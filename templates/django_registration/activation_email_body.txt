@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Activacion de cuenta</title>
+</head>
+<body>
+	<h2>{{ user.usename }} por favor activa tu cuenta</h2>
+	<p>Para activar tu tu cuenta, da click en el siguiente boton:</p>
+	<button><a href="{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}"></a>ACTIVAR</button>
+	<p>O bien puedes copiar y pegar el siguiente enlace</p>
+	<a href="{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}">{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}</a>
+</body>
+</html>

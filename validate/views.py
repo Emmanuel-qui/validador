@@ -1,22 +1,26 @@
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 from django.views import View
-
 # importando libreria para responder en formato json.
 from django.http import JsonResponse
-
-
 # importando formulario para documentos
 from .forms import FileForm
-
 # importamos la clase Validate
 from .utils import Validate
-
 # Importamos el modelo
 from .models import ValidateResultModel
-
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
+# Librerias para la creacion del PDF
+from io import BytesIO
+from reportlab.pdfgen import canvas
+from django.http import HttpResponse
+from reportlab.lib.pagesizes import letter, landscape
+from reportlab.lib.pagesizes import A4
+
+
+
+
 
 # Create your views here.
 
@@ -104,11 +108,17 @@ def ValidateResultDetail(request, pk):
 
 	validate_invoice = ValidateResultModel.objects.get(id=pk)
 
-	print(validate_invoice)
-
-
 	return render(request, 'validate/detail.html', {'validate_invoice': validate_invoice})
 
 	
 
+# Vista para la generacion de PDF.
+# realice un cambio
+class GeneratePdf(View):
 
+	def get(self, request, pk):
+
+		
+		response = HttpResponse(content_type='application/pdf')
+		
+		return response

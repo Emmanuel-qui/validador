@@ -80,8 +80,12 @@ WSGI_APPLICATION = 'validador.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'validador',
+        'USER': 'jquiroz',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': '', 
     }
 }
 
@@ -149,3 +153,24 @@ if INVOICE_XSD_FILE.exists():
     INVOICE_XSD_SCHEMA_ROOT = etree.XML(INVOICE_XSD_STRING)
     INVOICE_XSD_SCHEMA = etree.XMLSchema(INVOICE_XSD_SCHEMA_ROOT)
     INVOICE_XSD_PARSER = etree.XMLParser(schema=INVOICE_XSD_SCHEMA)
+
+
+
+
+# LoginView 
+LOGIN_REDIRECT_URL = '/validate/'
+# END LoginView
+
+LOGOUT_REDIRECT_URL = '/accounts/login/'
+
+
+# SETTINGS REGISTRATION
+ACCOUNT_ACTIVATION_DAYS = 7
+# END SETTINGS REGISTRATION
+
+# codigo
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.mailtrap.io'
+EMAIL_HOST_USER = '1dab4d5ce6e38f'
+EMAIL_HOST_PASSWORD = '5678527cd82cab'
+EMAIL_PORT = '2525'

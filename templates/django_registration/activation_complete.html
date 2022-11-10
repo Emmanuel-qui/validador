@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Cargando estilos a la vista -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
+ 
+    <title>Siguiente paso</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  </head>
+  <body class="center bg-secondary">
+   
+    <div class="card">
+        <div class="card-head">
+            <h6 class="card-title">En hora buena!</h6>
+        </div>
+        <div class="card-body">
+            <p>Revise dentro de su bandeja de entrada, se le hizo llegar un correo para poder activar su cuenta.</p>
+        </div>
+
+    </div>
+   
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    
+  </body>
+</html>

@@ -77,9 +77,7 @@ class Validate:
                             'Error': error}
 
         except Exception:
-            print(contenido.sat)
-            print(contenido.sat.Estado)
-            print(contenido.sat.CodigoEstatus)
+            print('Ocurrio una excepcion')
         
         self.success = True
         
@@ -91,24 +89,24 @@ class Validate:
         namespace = {'cfdi':"http://www.sat.gob.mx/cfd/4"}
 
         version = voucher.xpath('string(./@Version)',namespaces = namespace)
-        serie = voucher.xpath('string(./@Serie)')
-        folio = voucher.xpath('string(./@Folio)')
-        fecha = voucher.xpath('string(./@Fecha)')
-        sello = voucher.xpath('string(./@Sello)')
-        formapago = voucher.xpath('string(./@FormaPago)')
-        nocertificado = voucher.xpath('string(./@NoCertificado)')
-        certificado = voucher.xpath('string(./Certificado)')
-        condicionespago = voucher.xpath('string(./CondicionesDePago)')
+        serie = voucher.xpath('string(./@Serie)',namespaces = namespace)
+        folio = voucher.xpath('string(./@Folio)',namespaces = namespace)
+        fecha = voucher.xpath('string(./@Fecha)',namespaces = namespace)
+        sello = voucher.xpath('string(./@Sello)',namespaces = namespace)
+        formapago = voucher.xpath('string(./@FormaPago)',namespaces = namespace)
+        nocertificado = voucher.xpath('string(./@NoCertificado)',namespaces = namespace)
+        certificado = voucher.xpath('string(./@Certificado)',namespaces = namespace)
+        condicionespago = voucher.xpath('string(./@CondicionesDePago)',namespaces = namespace)
         # datos del e y r
-        subtotal = voucher.xpath('string(./SubTotal)')
-        descuento = voucher.xpath('string(./Descuento)')
-        moneda = voucher.xpath('string(./Moneda)')
-        tipocambio = voucher.xpath('string(./TipoCambio)')
-        total = voucher.xpath('string(./Total)')
-        tipocomprobante = voucher.xpath('string(./TipoDeComprobante)')
-        exportacion = voucher.xpath('string(./Exportacion)')
-        lugarexpedicion = voucher.xpath('string(./LugarExpedicion)')
-        metodopago = voucher.xpath('string(./MetodoPago)')
+        subtotal = voucher.xpath('string(./@SubTotal)',namespaces = namespace)
+        descuento = voucher.xpath('string(./@Descuento)',namespaces = namespace)
+        moneda = voucher.xpath('string(./@Moneda)',namespaces = namespace)
+        tipocambio = voucher.xpath('string(./@TipoCambio)',namespaces = namespace)
+        total = voucher.xpath('string(./@Total)',namespaces = namespace)
+        tipocomprobante = voucher.xpath('string(./@TipoDeComprobante)',namespaces = namespace)
+        exportacion = voucher.xpath('string(./@Exportacion)',namespaces = namespace)
+        lugarexpedicion = voucher.xpath('string(./@LugarExpedicion)',namespaces = namespace)
+        metodopago = voucher.xpath('string(./@MetodoPago)',namespaces = namespace)
 
         # datos del emisor
         emisor = voucher.xpath('.//cfdi:Emisor', namespaces = namespace)[0]
@@ -116,13 +114,13 @@ class Validate:
         rfc_emisor = emisor.xpath('string(./@Rfc)',namespaces = namespace)
         nombre_emisor = emisor.xpath('string(./@Nombre)',namespaces = namespace)
         
-        import pdb; pdb.set_trace()
+        
 
         # datos del receptor
         receptor = voucher.xpath('.//cfdi:Receptor', namespaces = namespace)[0]
         rfc_receptor = receptor.xpath('string(./@Rfc)',namespaces = namespace)
         nombre_receptor = receptor.xpath('string(./@Nombre)',namespaces = namespace)
-        
+       
         invoice = InvoiceModel(version = version,
                                 series = serie,
                                 folio = folio,
@@ -148,23 +146,25 @@ class Validate:
                                 )
         invoice.save()
 
-        id = InvoiceModel.objects.order_by("id").last()
-        print(id)
-        self.success = True
+        estruc = self.response['Estructura'] 
+        print(estruc)
+        stamp = bool(self.response['Sello'])
+        print(stamp)
+        stamp_sat = bool(self.response['Sello_Sat'])
+        print(stamp_sat)
+        error = self.response['Error']
+        print(error)
+
 
         resultado = ""
         if self.estruc:
-            resultado = "Crompobante Valido"
+            resultado = "Comprobante Valido"
         else:
             resultado = "Comprobante Invalido"
 
-        self.save_validate_result(id,resultado,tipocomprobante,version,rfc_emisor,rfc_receptor,subtotal,total,metodopago,lugarexpedicion,fecha)
-
-    # funcion para guardar los datos del resultado.
-    def save_validate_result(self,id,resultado,tipocomprobante,version,rfc_emisor,rfc_receptor,subtotal,total,metodopago,lugarexpedicion,fecha):
-    
+        
         validate_result = ValidateResultModel(
-                                            invoice = id, 
+                                            invoice = invoice, 
 	                                        results = resultado,
 	                                        voucher_type = tipocomprobante,
 	                                        version = version,
@@ -174,9 +174,17 @@ class Validate:
 	                                        total = total, 
 	                                        metodo_pago = metodopago,
 	                                        place_of_expedition = lugarexpedicion, 
-	                                        date = fecha, 
-	                                        stamp = False
+	                                        date = fecha,
+                                            estruc = estruc, 
+	                                        stamp = stamp,
+                                            stamp_sat = stamp_sat,
+                                            error_ws = error,
                                             )
-
         validate_result.save()
+        self.success = True
+   
+    
+        
+
+        
         
