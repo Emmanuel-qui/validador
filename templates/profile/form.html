@@ -1,0 +1,82 @@
+{% extends 'layout/layout.html' %}
+
+
+{% block content %}
+	<br>
+    <br>
+    <div class="w-75 p-5" style="margin: 0 auto;">
+        <div class="card">
+            <div class="card-head" style="background-color: #7b211f;">
+                <h5 class="card-title text-center p-3 text-white">Registre su información</h5>
+            </div>
+            <div class="card-body">
+                <div>
+                    <form id="form-datos">
+                    <div class="row row-cols-3">
+                        <div class="col mb-2 mt-2">
+                            <input type="text" class="form-control" id="nombre">
+                            <span class="form-text">Nombre Completo</span>
+                        </div>
+                        <div class="col mb-2 mt-2">
+                            <input type="text" class="form-control" id="telefono">
+                            <span class="form-text">Telefono</span>
+                        </div>
+                        <div class="col mb-2 mt-2">
+                            <input type="text" class="form-control" id="rfc">
+                            <span class="form-text">RFC</span>
+                        </div>
+                        <div class="col mb-2 mt-2">
+                            
+                            <input type="text" class="form-control" id="postal">
+                            <span class="form-text">Codigo Postal</span>
+                        </div>
+                        <div class="col mb-2 mt-2">
+                            
+                            <input type="text" class="form-control">
+                            <span class="form-text" id="pais">País</span>
+                        </div>
+                        <div class="col mb-2 mt-2">
+                            
+                            <input type="text" class="form-control" id="estado">
+                            <span class="form-text">Estado</span>
+                        </div>
+                        
+                    </div>
+
+                    <div class="row row-cols-2">
+                        <div class="col mb-2 mt-3">
+                            <span class="form-text">Tipo de Persona</span>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm">
+                                <option selected>Seleccione el tipo de persona</option>
+                                <option value="1">Moral</option>
+                                <option value="2">Fisica</option>
+                              </select>
+                        </div>
+                        <div class="col mb-2 mt-3">
+                            <span class="form-text">Regimen Fiscal</span>
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm">
+                                <option selected>Seleccione el regimen fiscal</option>
+                                <option value="1">General de Ley Personas Morales</option>
+                                <option value="2">Personas Morales con Fines no Lucrativos </option>
+                                <option value="3">Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
+                              </select>
+                            
+                        </div>
+                    </div>
+                    <div class="mt-5">
+                        <button id="boton-data" type="button" class="btn btn-register w-50">Guardar Datos</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% block script %}
+
+        {% load static %}
+        <script src="{% static 'js/profile.js' %}"></script>
+
+    {% endblock %}
+
+{% endblock %}

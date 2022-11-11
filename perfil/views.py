@@ -7,4 +7,11 @@ class ProfileView(View):
 
     def get(self, request):
 
+        
+        user = request.user;
+        print(user)
+
+        
+        print(request)
+
         return render(request, 'profile/home.html')

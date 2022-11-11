@@ -2,30 +2,36 @@
 
 {% block content %}
     <div class="contenedor-perfil">
-        <div class="card imagen-perfil">
-            <img src="" alt="perfil">
+        <div class="card d-flex justify-content-center align-items-center shadow">
+            <div class="row w-75 p-1">
+                <img src="" alt="perfil">
+            </div>
+        </div>
+        <br>
+        <br>
+        <div>
+            <h3 class="text-center">Datos Personales.</h3>
         </div>
         <div class="card d-flex justify-content-center align-items-center shadow">
-            <div class="row w-50 p-1">
+            <div class="row w-75 p-1">
                 <form>
-                    <div class="row mb-4">
-                        <span class="col-sm-2 col-form-label">Nombre</span>
-                        <input type="text" class="form-control">
-                        
-                    </div>
-                    <div class="mb-4">
-                        <label for="" class="form-label"></label>
+                    <div class="input-group mb-3 mt-2">
+                        <span class="input-group-text">Telefono</span>
                         <input type="text" class="form-control">
                     </div>
-                    <div class="mb-4">
-                        <label for="" class="form-label"></label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Código Postal</span>
                         <input type="text" class="form-control">
                     </div>
-                    <div class="mb-4">
-                        <label for="" class="form-label"></label>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">Estado</span>
                         <input type="text" class="form-control">
                     </div>
-                    <div class="mb-4">
+                    <div class="input-group mb-3">
+                        <span class="input-group-text">País</span>
+                        <input type="text" class="form-control">
+                    </div>
+                    <div class="input-group mt-2 mb-2">
                         <input type="submit" class="btn btn-register" value="Guardar Datos">
                     </div>
                 </form>
