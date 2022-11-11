@@ -8,40 +8,46 @@ href="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.css"/>
   
 
 {% block content %}
-<br />
-<br />
-<div class="row row-cols-3">
+
+<div class="d-flex justify-content-center flex-column align-items-center mt-5">
+<div class="row row-cols-3 w-75 mb-4 p-3 border border-2 rounded-2">
+  <div class="col-12 p-1 mb-2 text-center">
+    <span class="form-text fs-6">Filtros de Busqueda.</span>
+  </div>
   <div class="col">
-    <label for="emisor" class="form-label">RFC Emisor</label>
+   
     <input
       type="text"
       id="filter_rfc_emisor"
-      class="form-control"
+      class="form-control form-control-sm"
       name="emisor"
     />
+    <span class="form-text">RFC Emisor </span>
   </div>
   <div class="col">
-    <label for="receptor" class="form-label">RFC Receptor</label>
+    
     <input
       type="text"
-      class="form-control"
+      class="form-control form-control-sm"
       id="filter_rfc_receptor"
       name="receptor"
     />
+    <span class="form-text">RFC Receptor</span>
   </div>
   <div class="col">
-    <label for="fecha" class="form-label">Fecha de Validacion</label>
+    
     <input
       type="date"
-      class="form-control"
+      class="form-control form-control-sm"
       id="filter_fecha"
       name="fecha"
     />
+    <span class="form-text">Fecha de Validación</span>
   </div>
+
 </div>
-<br />
-<br>
-<br>
+
+<div class="w-75 border border-3 rounded-2 p-2">
 <table id="example"class="table border" style="width: 100%">
   <thead>
     <tr class="table-secondary">
@@ -55,8 +61,8 @@ href="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.css"/>
     </tr>
   </thead>
 </table>
-
-
+</div>
+</div>
 {% endblock %}
 
 {% block script %}

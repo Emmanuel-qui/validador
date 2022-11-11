@@ -33,7 +33,7 @@
       <div class="header-item dropdown">
         <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa fa-user-o" aria-hidden="true"></i>
-          <span>example@gmail.com</span>
+          <span id="user_email">example@gmail.com</span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#">Action</a></li>
@@ -52,8 +52,9 @@
       </div>
       <div class="logo-imagen">
         <img src="{% static 'img/perfil.png' %}" alt="logo">
-        <p>example@gmail.com</p>
-        <h5>Finkok</h5>
+        <span class="mt-1" id="user_email_p">example@gmail.com</span>
+        
+        <h5 class="mt-2">Finkok</h5>
       </div>
       <nav class="menu-navegacion">
         <a class="enlace_navegacion" href="{% url 'validate:index' %}">Validador CFDI</a>

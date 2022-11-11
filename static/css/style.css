@@ -37,10 +37,10 @@ body {
 
 .sidebar-navegacion {
     top:0;
-    left: -200px;
+    left: -270px;
     background-color: var(--color-principal);
     position: fixed;
-    width: 200px;
+    width: 270px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -68,7 +68,7 @@ img {
     text-align: center;
     display: block;
     padding: 1rem;
-    font-size: 1rem;
+    font-size: 1.2rem;
     text-decoration: none;
     color: white;
     border-bottom: 1px solid rgb(211, 211, 211);

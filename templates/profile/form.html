@@ -14,30 +14,30 @@
                     <form id="form-datos">
                     <div class="row row-cols-3">
                         <div class="col mb-2 mt-2">
-                            <input type="text" class="form-control" id="nombre">
-                            <span class="form-text">Nombre Completo</span>
+                            <input type="text" class="form-control" id="nombre" name="nombre">
+                            <span class="form-text">Empresa</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            <input type="text" class="form-control" id="telefono">
+                            <input type="text" class="form-control" id="telefono" name="telefono">
                             <span class="form-text">Telefono</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            <input type="text" class="form-control" id="rfc">
+                            <input type="text" class="form-control" id="rfc" name="rfc">
                             <span class="form-text">RFC</span>
                         </div>
                         <div class="col mb-2 mt-2">
                             
-                            <input type="text" class="form-control" id="postal">
+                            <input type="text" class="form-control" id="postal" name="postal">
                             <span class="form-text">Codigo Postal</span>
                         </div>
                         <div class="col mb-2 mt-2">
                             
-                            <input type="text" class="form-control">
-                            <span class="form-text" id="pais">País</span>
+                            <input type="text" class="form-control" id="pais" name="pais">
+                            <span class="form-text" >País</span>
                         </div>
                         <div class="col mb-2 mt-2">
                             
-                            <input type="text" class="form-control" id="estado">
+                            <input type="text" class="form-control" id="estado" name="estado">
                             <span class="form-text">Estado</span>
                         </div>
                         
@@ -46,19 +46,26 @@
                     <div class="row row-cols-2">
                         <div class="col mb-2 mt-3">
                             <span class="form-text">Tipo de Persona</span>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm" id="tipo_persona">
                                 <option selected>Seleccione el tipo de persona</option>
-                                <option value="1">Moral</option>
-                                <option value="2">Fisica</option>
+                                <option value="M">Moral</option>
+                                <option value="F">Fisica</option>
                               </select>
                         </div>
                         <div class="col mb-2 mt-3">
                             <span class="form-text">Regimen Fiscal</span>
-                            <select class="form-select form-select-sm" aria-label=".form-select-sm">
+                            <select class="form-select form-select-sm" aria-label=".form-select-sm" id="regimen">
                                 <option selected>Seleccione el regimen fiscal</option>
-                                <option value="1">General de Ley Personas Morales</option>
-                                <option value="2">Personas Morales con Fines no Lucrativos </option>
-                                <option value="3">Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
+                                <option value="601">General de Ley Personas Morales</option>
+                                <option value="603">Personas Morales con Fines no Lucrativos </option>
+                                <option value="605">Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
+                                <option value="606">Arrendamiento</option>
+                                <option value="607">Régimen de Enajenación o Adquisición de Bienes</option>
+                                <option value="608">Demás ingresos</option>
+                                <option value="610">Residentes en el Extranjero sin Establecimiento Permanente en México</option>
+                                <option value="611">Ingresos por Dividendos (socios y accionistas)</option>
+                                <option value="612">Personas Físicas con Actividades Empresariales y Profesionales</option>
+                                <option value="614">Ingresos por intereses</option>
                               </select>
                             
                         </div>
