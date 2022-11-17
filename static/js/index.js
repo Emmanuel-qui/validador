@@ -4,7 +4,7 @@ $(document).ready(function(){
     $.get(url, function(response){
         $("#user_email").html(response.email);
         $("#user_email_p").html(response.email);
-        
+        $("#user_empresa_h5").html(response.name);
     });
 
 

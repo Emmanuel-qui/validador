@@ -73,11 +73,6 @@ $(document).ready(function() {
         datatable.ajax.reload();
     });
     
-    $('#example_next').on( 'click', function () {
-        datatable.page.len( 10 ).draw('page');
-    } );
-     
-    $('#example_previous').on( 'click', function () {
-        datatable.page( 'previous' ).draw( 'page' );
-    } );
+   
+
 });

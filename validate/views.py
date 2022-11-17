@@ -11,13 +11,16 @@ from .utils import Validate
 from .models import ValidateResultModel
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
-# Librerias para la creacion del PDF
-from io import BytesIO
-from reportlab.pdfgen import canvas
-from django.http import HttpResponse
-from reportlab.lib.pagesizes import letter, landscape
-from reportlab.lib.pagesizes import A4
 
+from django.core.mail import send_mail
+from django.core.mail import EmailMessage
+from django.core.files.base import ContentFile
+from django.conf import settings
+
+#from perfil.models import AccountModel
+from django.contrib.auth.models import User
+
+from validate.generate_pdf import PDF
 
 
 
@@ -26,17 +29,26 @@ from reportlab.lib.pagesizes import A4
 
 class IndexView(View):
 
-
 	def get(self, request):
+		usuario = request.user;
+        
+		objeto_usuario = User.objects.get(username=usuario)
+
+		
+
+		
+
+		
 		#Obtenemos el formulario creado y lo mandamos a la vista.
 		form = FileForm()
 
+		
 		success = True
 
 		if success:
 			return render(request, 'profile/form.html')
-		
-		return render(request, 'validate/index.html', {'form':form})
+		else:
+			return render(request, 'validate/index.html', {'form':form})
 
 	def post(self, request):
 		# Obtenemos el documento enviado
@@ -101,7 +113,7 @@ class ValidateResult(View):
 		response = {
 			"aaData": lista_result,
 			"iTotalRecords": total_records,
-			"iTotalDisplayRecords": len(lista_objetos),
+			"iTotalDisplayRecords": total_records,
 		}
 		return JsonResponse(response)
 
@@ -112,19 +124,84 @@ class ValidateResult(View):
 
 def ValidateResultDetail(request, pk):
 
-	validate_invoice = ValidateResultModel.objects.get(id=pk)
+		validate_invoice = ValidateResultModel.objects.get(id=pk)
+		tipo = ""
+		if validate_invoice.voucher_type == "I":
+			tipo = "Ingreso"
+		elif validate_invoice.voucher_type == "E":
+			tipo = "Egreso"
+		else:
+			tipo = "Pago"
 
-	return render(request, 'validate/detail.html', {'validate_invoice': validate_invoice})
+		sello_sat = ""
+
+		if validate_invoice.stamp_sat:
+			sello_sat = "Encontrado"
+		else: 
+			sello_sat = "No encontrado"
+		
+		sello = "Incorrecto"
+
+		if validate_invoice.stamp:
+			sello = "Correcto"
+
+		response = {
+			'id': validate_invoice.id,
+			'Resultado': validate_invoice.results,
+			'Version': validate_invoice.version,
+			'Receptor': validate_invoice.rfc_receiver,
+			'Metodo_pago': validate_invoice.metodo_pago,
+			'Emisor': validate_invoice.rfc_business,
+			'Fecha': validate_invoice.date,
+			'Fecha_validacion': validate_invoice.validate_date,
+			'Lugar_ex': validate_invoice.place_of_expedition,
+			'Tipo': tipo,
+			'Total': validate_invoice.total,
+			'Estructura': validate_invoice.estruc,
+			'Sello': sello,
+			'Sello_sat': sello_sat,
+			'Error_msj': validate_invoice.error_ws
+
+		}
+
+		return render(request, 'validate/detail.html', context=response)
 
 	
 
 # Vista para la generacion de PDF.
-# realice un cambio
 class GeneratePdf(View):
 
 	def get(self, request, pk):
-
 		
-		response = HttpResponse(content_type='application/pdf')
+		pdf_obj = PDF(pk)
+		pdf_result =  pdf_obj.generate()
+		response = HttpResponse(pdf_result, content_type='application/pdf')
 		
 		return response
+
+
+# Vista envio de email
+class UserEmail(View):
+
+	def get(self,request,pk):
+
+		user_obj = request.user
+		import pdb; pdb.set_trace()
+		pdf_obj = PDF(1)
+		pdf_result =  pdf_obj.generate()
+
+		msj = EmailMessage(subject="Reporte comprobante",
+            body="Estimado usuario, le compartimos el reporte del resultado de la validación con Validador Quadrum.",
+            from_email=settings.EMAIL_HOST_USER,
+			to=[user_obj.email],
+			)
+
+		pdf_file = ContentFile(pdf_result, name="pdf_prueba.pdf")
+
+		msj.attach('reporte.pdf',pdf_result,'application/pdf')
+
+		msj.send()
+
+		response = {'msj': 'Correo enviado'}
+
+		return JsonResponse(response)

@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'validate.middleware.simple_middleware'
 ]
 
 ROOT_URLCONF = 'validador.urls'
@@ -170,8 +171,14 @@ ACCOUNT_ACTIVATION_DAYS = 7
 # END SETTINGS REGISTRATION
 
 # codigo
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_USE_TLS = True
 EMAIL_HOST = 'smtp.mailtrap.io'
 EMAIL_HOST_USER = '1dab4d5ce6e38f'
 EMAIL_HOST_PASSWORD = '5678527cd82cab'
 EMAIL_PORT = '2525'
+
+
+
+
+

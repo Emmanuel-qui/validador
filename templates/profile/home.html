@@ -3,40 +3,54 @@
 {% block content %}
     <div class="contenedor-perfil">
         <div class="card d-flex justify-content-center align-items-center shadow">
-            <div class="row w-75 p-1">
-                <img src="" alt="perfil">
+            <div class="row w-75 p-1" style="height: 200px;">
+                <img class="" src="{{ imagen.url }}" alt="perfil">
             </div>
         </div>
-        <br>
-        <br>
-        <div>
+       
+        <div class="mt-4 mb-2">
             <h3 class="text-center">Datos Personales.</h3>
         </div>
         <div class="card d-flex justify-content-center align-items-center shadow">
             <div class="row w-75 p-1">
-                <form>
+                <form id="user_data" enctype="multipart/form-data">
+                    <div class="input-group mb-3 mt-2">
+                        <span class="input-group-text">Empresa</span>
+                        <input type="text" class="form-control" id="id_empresa" value="{{ empresa }}">
+                    </div>
                     <div class="input-group mb-3 mt-2">
                         <span class="input-group-text">Telefono</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="id_telefono" value="{{ telefono }}">
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 mt-2">
                         <span class="input-group-text">Código Postal</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="id_codigo_postal" value="{{ codigo_postal }}">
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 mt-2">
                         <span class="input-group-text">Estado</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="id_estado" value="{{ estado }}">
                     </div>
-                    <div class="input-group mb-3">
+                    <div class="input-group mb-3 mt-2">
                         <span class="input-group-text">País</span>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" id="id_pais" value="{{ pais }}">
+                    </div>
+                    <div class="input-group mb-3 mt-2">
+                        
+                        <input type="file" class="form-control" id="id_imagen">
                     </div>
                     <div class="input-group mt-2 mb-2">
-                        <input type="submit" class="btn btn-register" value="Guardar Datos">
+                        <button class="btn btn-register" id="id_update">Guardar Datos</button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+
+{% endblock %}
+
+{% block script %}
+
+{% load static %}
+    <script src="{% static 'js/profile.js' %}"></script>
 
 {% endblock %}

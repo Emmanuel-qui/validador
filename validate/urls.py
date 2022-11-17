@@ -20,4 +20,6 @@ urlpatterns = [
     path('detail/<int:pk>', views.ValidateResultDetail, name="detail"),
 
     path('pdf/<int:pk>', views.GeneratePdf.as_view(), name="generate-pdf"),
+
+    path('send/<int:pk>', views.UserEmail.as_view(), name="email"),
 ]
