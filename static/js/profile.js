@@ -92,9 +92,7 @@ function updateAccount() {
   form.append("estado", estado);
   form.append("imagen", imagen.files[0]);
 
-  
-
-  const url = "";
+  const url = "/profile/";
 
   const options = {
     method: "POST",

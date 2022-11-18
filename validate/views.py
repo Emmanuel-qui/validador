@@ -22,6 +22,8 @@ from django.contrib.auth.models import User
 
 from validate.generate_pdf import PDF
 
+from perfil.models import AccountModel
+
 
 
 
@@ -32,6 +34,8 @@ class IndexView(View):
 	def get(self, request):		
 		#Obtenemos el formulario creado y lo mandamos a la vista.
 		form = FileForm()
+		
+		
 		return render(request, 'validate/index.html', {'form':form})
 
 	def post(self, request):

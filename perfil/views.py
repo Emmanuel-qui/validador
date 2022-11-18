@@ -14,10 +14,7 @@ class ProfileView(View):
 
         obj_user = request.user
        
-        obj_account = AccountModel.objects.filter(user=obj_user)
-
-        if not obj_account.exists():
-            return render(request, 'profile/home.html')
+        obj_account = AccountModel.objects.get(user=obj_user)
 
         response = {
             'empresa': obj_account.business_name,
@@ -32,42 +29,26 @@ class ProfileView(View):
         return render(request, 'profile/home.html',context=response)
     
     def post(self, request):
+        import pdb; pdb.set_trace()
+        obj_user = request.user
+        obj_account = AccountModel.objects.get(user=obj_user.id)
 
-        if request.POST['imagen'] == "undefined":
-            
-            obj_user = request.user
-            obj_account = AccountModel.objects.get(user=obj_user.id)
-
-            empresa = request.POST['empresa']
-            telefono = request.POST['telefono']
-            codigo_postal = request.POST['postal']
-            pais = request.POST['pais']
-            estado = request.POST['estado']
-
-            obj_account.business_name = empresa
-            obj_account.telephone = telefono
-            obj_account.postal_code = codigo_postal
-            obj_account.country = pais
-            obj_account.state = estado
-
-        else:
-            
-            obj_user = request.user
-            obj_account = AccountModel.objects.get(user=obj_user.id)
-
-            empresa = request.POST['empresa']
-            telefono = request.POST['telefono']
-            codigo_postal = request.POST['postal']
-            pais = request.POST['pais']
-            estado = request.POST['estado']
+        if request.FILES.get('imagen') != None:
             imagen = request.FILES['imagen']
-
-            obj_account.business_name = empresa
-            obj_account.telephone = telefono
-            obj_account.postal_code = codigo_postal
-            obj_account.country = pais
-            obj_account.state = estado
             obj_account.image_profile = imagen
+        
+        
+        empresa = request.POST['empresa']
+        telefono = request.POST['telefono']
+        codigo_postal = request.POST['postal']
+        pais = request.POST['pais']
+        estado = request.POST['estado']
+            
+        obj_account.business_name = empresa
+        obj_account.telephone = telefono
+        obj_account.postal_code = codigo_postal
+        obj_account.country = pais
+        obj_account.state = estado
         
         obj_account.save()
 
@@ -79,5 +60,5 @@ class ProfileView(View):
 class RegisterView(View):
 
     def get(self, request):
-
+        
         return render(request, 'profile/form.html')

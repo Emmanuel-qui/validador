@@ -2,9 +2,9 @@
 
 {% block content %}
     <div class="contenedor-perfil">
-        <div class="card d-flex justify-content-center align-items-center shadow">
-            <div class="row w-75 p-1" style="height: 200px;">
-                <img class="" src="{{ imagen.url }}" alt="perfil">
+        <div class="card d-flex justify-content-center align-items-center shadow w-25 imagen-redonda" style="margin: 0 auto;">
+            <div class="row p-2">
+                <img class="imagen-redonda" src="{{ imagen.url }}" alt="perfil">
             </div>
         </div>
        
@@ -35,7 +35,6 @@
                         <input type="text" class="form-control" id="id_pais" value="{{ pais }}">
                     </div>
                     <div class="input-group mb-3 mt-2">
-                        
                         <input type="file" class="form-control" id="id_imagen">
                     </div>
                     <div class="input-group mt-2 mb-2">
