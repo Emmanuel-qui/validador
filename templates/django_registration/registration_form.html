@@ -32,9 +32,10 @@
                         {% csrf_token %}
                         
                         <div class="mb-3">
-                            <label for="id_username">Nombre: </label>
+                            <label for="id_username">Usuario: </label>
                             {{ form.username }}
                         </div>
+                        
                         <div class="mb-3">
                             <label for="id_email">Correo: </label>
                             {{ form.email }}

@@ -29,38 +29,20 @@ from validate.generate_pdf import PDF
 
 class IndexView(View):
 
-	def get(self, request):
-		usuario = request.user;
-        
-		objeto_usuario = User.objects.get(username=usuario)
-
-		
-
-		
-
-		
+	def get(self, request):		
 		#Obtenemos el formulario creado y lo mandamos a la vista.
 		form = FileForm()
-
-		
-		success = True
-
-		if success:
-			return render(request, 'profile/form.html')
-		else:
-			return render(request, 'validate/index.html', {'form':form})
+		return render(request, 'validate/index.html', {'form':form})
 
 	def post(self, request):
 		# Obtenemos el documento enviado
 		form = FileForm(request.POST, request.FILES)
-		
 		if form.is_valid():
 			m = form.save()
 			# Obtenemos el file del request y lo amacenamos
 			xml_file = m.file
 			# mandamos el xml como parametro a la clase Validate para hacer el proceso de validacion.
 			validate = Validate(xml_file)
-			print(validate.response)
 			return JsonResponse(validate.response)
        
 

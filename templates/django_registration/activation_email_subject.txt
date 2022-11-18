@@ -1,1 +1,1 @@
-{{ user.username }} registra tu cuenta ahora!!!!
+¡ Activacion de cuenta para {{ user.username }} !

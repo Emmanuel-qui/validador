@@ -51,7 +51,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'validate.middleware.simple_middleware'
+    'validate.middleware.SimpleMiddleware'
 ]
 
 ROOT_URLCONF = 'validador.urls'

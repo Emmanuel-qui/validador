@@ -1,15 +1,35 @@
-def simple_middleware(get_response):
-    # One-time configuration and initialization.
+from django.shortcuts import redirect
 
-    def middleware(request):
+from perfil.models import AccountModel
+
+
+class SimpleMiddleware:
+
+    def __init__(self, get_response):
+        self.get_response = get_response
+        # One-time configuration and initialization.
+
+    def __call__(self, request):
         # Code to be executed for each request before
         # the view (and later middleware) are called.
 
-        response = get_response(request)
-        print('holaaa desde mm')
+        response = self.get_response(request)
+
         # Code to be executed for each request/response after
         # the view is called.
-
         return response
 
-    return middleware
+
+    def process_view(self,request, view_func, view_args, view_kwargs):
+        
+        url = request.META.get('PATH_INFO')
+
+        obj_user = request.user
+
+        obj_account = AccountModel.objects.filter(user=obj_user)
+
+        if url == "/validate/" and not obj_account.exists():
+            return redirect("/profile/informacion/")
+
+
+        
