@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8"/>
+        <meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+        {% load static %}
+        <link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet"/>
+        <link href="{% static 'bootstrap/css/bootstrap.min.css.map' %}" rel="stylesheet"/>
+        <title>
+            Problema
+        </title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="m-0 row vh-100 d-flex justify-content-center align-items-center">
+                <div class="alert alert-danger w-25 p-3" role="alert">
+                    Al parecer ocurrio un error :(
+                    {{ message }} 
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'bootstrap/js/bootstrap.min.js'%}">
+        </script>
+    </body>
+</html>

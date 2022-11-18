@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Cargando estilos a la vista -->
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
+ 
+    <title>{% block title %}{% endblock %}</title>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  </head>
+  <body>
+   
+    {% block content-form %}
+
+    {% endblock %}
+   
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
+    
+  </body>
+</html>

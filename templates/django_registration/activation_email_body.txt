@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Activacion de Cuenta</title>
+	 <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+</head>
+<body>
+	<h2 class="font-monospace fw-normal">{{ user.usename }}, por favor activa tu cuenta</h2>
+
+	<p class="font-monospace fw-normal">Para activar tu cuenta, puedes dar click en el siguiente boton: </p>
+	<button class="btn btn-secondary"><a href="{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}"></a>Activar</button>
+	<p class="font-monospace fw-normal">O bien puedes copiar y pegar el siguiente enlace</p>
+	<a  class="text-decoration-none" href="{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}">{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}</a>
+</body>
+</html>

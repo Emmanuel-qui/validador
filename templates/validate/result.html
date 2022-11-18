@@ -1,0 +1,79 @@
+{% extends 'layout/layout.html' %} 
+
+{% block link-css %}
+<link rel="stylesheet" 
+type="text/css" 
+href="https://cdn.datatables.net/v/bs5/dt-1.13.1/datatables.min.css"/>
+{% endblock link-css %}
+  
+
+{% block content %}
+
+<div class="d-flex justify-content-center flex-column align-items-center mt-5">
+<div class="row row-cols-3 w-75 mb-4 p-3 border border-2 rounded-2">
+  <div class="col-12 p-1 mb-2 text-center">
+    <span class="form-text fs-6">Filtros de Busqueda.</span>
+  </div>
+  <div class="col">
+   
+    <input
+      type="text"
+      id="filter_rfc_emisor"
+      class="form-control form-control-sm"
+      name="emisor"
+    />
+    <span class="form-text">RFC Emisor </span>
+  </div>
+  <div class="col">
+    
+    <input
+      type="text"
+      class="form-control form-control-sm"
+      id="filter_rfc_receptor"
+      name="receptor"
+    />
+    <span class="form-text">RFC Receptor</span>
+  </div>
+  <div class="col">
+    
+    <input
+      type="date"
+      class="form-control form-control-sm"
+      id="filter_fecha"
+      name="fecha"
+    />
+    <span class="form-text">Fecha de Validación</span>
+  </div>
+
+</div>
+
+<div class="w-75 border border-3 rounded-2 p-2">
+<table id="example"class="table border" style="width: 100%">
+  <thead>
+    <tr class="table-secondary">
+      <th>RFC Emisor</th>
+      <th>RFC Receptor</th>
+      <th>Version</th>
+      <th>Fecha</th>
+      <th>Fecha Validacion</th>
+      <th>Status</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+</table>
+</div>
+</div>
+{% endblock %}
+
+{% block script %}
+  <script 
+  src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+
+  <script  
+  src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js">
+  </script>
+
+  {% load static %}
+  <script src="{% static 'js/result.js' %}"></script>
+
+{% endblock %}

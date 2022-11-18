@@ -1,0 +1,198 @@
+:root {
+    --color-principal: #7b211f;
+    --color-secundario: #A6A8A6;
+}
+
+html,
+body {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.header {
+    -webkit-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.49);
+    -moz-box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.49);
+    box-shadow: 0px 4px 5px 0px rgba(0,0,0,0.49);
+    background-color: var(--color-principal);
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-item {
+    padding: 1rem;
+    margin: 1rem;
+}
+
+
+.header_boton_menu {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+}
+
+
+.sidebar-navegacion {
+    top:0;
+    left: -270px;
+    background-color: var(--color-principal);
+    position: fixed;
+    width: 270px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-basis: 1rem;
+    transition: all 0.5s ease;
+    
+}
+.menu-navegacion {
+    margin-top: 1rem;
+    
+}
+.logo-imagen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    padding: 1rem;
+}
+
+img {
+    width: 150px;
+    height: 150px;
+}
+.enlace_navegacion {
+    text-align: center;
+    display: block;
+    padding: 1rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    color: white;
+    border-bottom: 1px solid rgb(211, 211, 211);
+}
+
+.enlace_navegacion:hover {
+    background-color: white;
+    color: var(--color-principal);
+}
+
+.cerrar-menu {
+    margin-right: 1rem;
+   align-self: flex-end;
+}
+
+.cerrar-menu span i {
+    cursor: pointer;
+    padding: 1rem;
+    color: white;
+    font-size: 2rem;
+}
+
+
+.contenedor {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/*Modificacion de bootstrap */
+.btn-primary {
+    color: #fff;
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+  }
+  .btn-primary:hover {
+    color: #fff;
+    background-color: var(--color-secundario);
+    border-color: var(--color-secundario);
+  }
+  .btn-outline-primary {
+    color: white;
+    border-color: var(--color-principal);
+  }
+  .btn-outline-primary:hover {
+    font-weight: 500;
+    color: var(--color-secundario);
+    background-color: white;
+    border-color: white;
+  }
+
+  .form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: var(--color-secundario);
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem rgba(166, 168, 166, 0.25);
+  }
+
+ 
+
+/* Codigo css para tabla */
+.container-validate {
+    display: grid;
+    max-width: 900px;    
+}
+/* .dividir {
+    grid-template-columns: 1fr 1fr;
+    column-gap: 3rem;
+} */
+
+.center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+#id_table {
+    display: none;
+}
+th {
+    text-align: center;
+}
+tr {
+    padding: 1rem;
+}
+
+
+/* Contenido formulario */
+.contenido-formulario {
+    margin: 0 auto;
+    width: 800px;
+    padding-top: 2rem;
+}
+
+
+/* css formulario registro */
+
+.color-fondo {
+    background-color: var(--color-principal);
+}
+.btn-register {
+    width: 100%;
+    color: #fff;
+    background-color: var(--color-principal);
+    border-color: var(--color-principal);
+    font-weight: 600;
+}
+
+.enlace:hover {
+    color: var(--color-principal);
+}
+
+/* Estilos seccion del perfil */
+
+
+.contenedor-perfil {
+    width: 760px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.imagen-perfil {
+    width: 300px;
+    padding: 1rem;
+    margin: 1rem;
+}

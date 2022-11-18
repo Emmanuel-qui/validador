@@ -11,8 +11,17 @@
       rel="stylesheet"
       href="{% static 'font-awesome/css/font-awesome.min.css'%}"
     />
-    <link rel="stylesheet" href="{% static 'style.css' %}" />
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    
+    <script src="{% static 'bootstrap/js/bootstrap.min.js' %}"></script>
 
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    {% block link-css %}
+
+    {% endblock %}
+   
     <title>Validate</title>
   </head>
   <body>
@@ -23,8 +32,16 @@
             <i class="fa fa-align-justify" aria-hidden="true"></i>
           </span>
       </div>
-      <div class="header-item">
-        <button>Iniciar Sesion</button>
+      <div class="header-item dropdown">
+        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <span >{{ request.user.email }}</span>
+        </button>
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+          <li><a class="dropdown-item" href="#">Action</a></li>
+          <li><a class="dropdown-item" href="#">Another action</a></li>
+          <li><a class="dropdown-item" href="#">Something else here</a></li>
+        </ul>
       </div>
     </header>
 
@@ -35,25 +52,37 @@
             <i id="cerrar" class="fa fa-angle-left" aria-hidden="true"></i>
         </span>
       </div>
-    
+      <div class="logo-imagen">
+        <img src="{% static 'img/perfil.png' %}" alt="logo">
+        <span class="mt-1">{{ request.user.email }}</span>
+        
+        <h5 class="mt-2">Finkok</h5>
+      </div>
       <nav class="menu-navegacion">
-        <a class="enlace_navegacion" href="#">Activo</a>
+        <a class="enlace_navegacion" href="{% url 'validate:index' %}">Validador CFDI</a>
 
         <a class="enlace_navegacion" href="#">Activo</a>
 
-        <a class="enlace_navegacion" href="#">Activo</a>
+        <a class="enlace_navegacion" href="{% url 'validate:result' %}">Historial Validacion</a>
 
-        <a class="enlace_navegacion" href="#">Activo</a>
+        <a class="enlace_navegacion" href="{% url 'profile:home' %}">Configuracion</a>
       </nav>
     </div>
 
     <!--- Contenedor -->
-    <div class="contenedor">
-      <h1>soy el contenido</h1>
-    </div>
+    <div class="container">
+        {% block content %}
+            
+        {% endblock %}
 
+      </div>
+      
 
-    <script src="{% static 'index.js' %}"></script>
+      {% block script %}
 
+      {% endblock %}
+    
+    <script src="{% static 'js/index.js' %}"></script>
+    
   </body>
 </html>

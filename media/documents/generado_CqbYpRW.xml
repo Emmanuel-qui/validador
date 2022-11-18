@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<cfdi:Comprobante certificado="" descuento="19694.68" exportacion="01" fecha="2022-10-21T11:12:44" folio="SV000001" lugarexpedicion="45069" metodopago="PUE" moneda="MXN" nocertificado="" sello="" subtotal="19694.68" tipodecomprobante="N" total="0.00" version="4.0"
+  xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+  xmlns:nomina12="http://www.sat.gob.mx/nomina12"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemalocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/nomina12 http://www.sat.gob.mx/sitio_internet/cfd/nomina/nomina12.xsd">
+  <cfdi:Emisor nombre="ESCUELA KEMPER URGATE" regimenfiscal="601" rfc="EKU9003173C9"></cfdi:Emisor>
+  <cfdi:Receptor domiciliofiscalreceptor="80290" nombre="MARIA OLIVIA MARTINEZ SAGAZ" regimenfiscalreceptor="605" rfc="MASO451221PM4" usocfdi="CN01"></cfdi:Receptor>
+  <cfdi:Conceptos>
+    <cfdi:concepto cantidad="1" claveprodserv="84111505" claveunidad="ACT" descripcion="Pago de nómina" descuento="19694.68" importe="19694.68" objetoimp="01" valorunitario="19694.68"></cfdi:concepto>
+  </cfdi:Conceptos>
+  <cfdi:Complemento>
+    <nomina12:Nomina FechaFinalPago="2022-10-21" fechainicialpago="2022-10-21" fechapago="2022-10-21" numdiaspagados="1" tiponomina="O" totaldeducciones="19694.68" totalotrospagos="0.00" totalpercepciones="19694.68" version="1.2">
+      <nomina12:Emisor registropatronal="5525665412"></nomina12:Emisor>
+      <nomina12:Receptor antigüedad="P9M21D" banco="012" claveentfed="JAL" cuentabancaria="2777730284" curp="AANM000806HCLLJRA9" departamento="DIRECCIÓN EJECUTIVA DE ADMINISTRACIÓN" fechainiciorellaboral="2022-01-01" numempleado="141" numseguridadsocial="555501234" periodicidadpago="04" riesgopuesto="2" salariodiariointegrado="2500.00" tipocontrato="01" tiporegimen="03"></nomina12:Receptor>
+      <nomina12:Percepciones totalexento="19694.68" totalgravado="0.00">
+        <nomina12:Percepcion concepto="Viáticos" importeexento="19694.68" importegravado="0.00" tipopercepcion="050"></nomina12:Percepcion>
+      </nomina12:Percepciones>
+      <nomina12:Deducciones totalimpuestosretenidos="0.00" totalotrasdeducciones="19694.68">
+        <nomina12:Deduccion concepto="Ajuste en viáticos entregados al trabajador" importe="19694.68" tipodeduccion="081"></nomina12:Deduccion>
+      </nomina12:Deducciones>
+      <nomina12:Otrospagos>
+        <nomina12:Otropago clave="003" concepto="Viáticos" importe="0.00" tipootropago="003"></nomina12:Otropago>
+      </nomina12:Otrospagos>
+    </nomina12:Nomina>
+  </cfdi:Complemento>
+</cfdi:Comprobante>
