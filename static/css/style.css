@@ -113,6 +113,9 @@ img {
     margin: 0 auto;
 }
 
+#content_response {
+    display: none;
+}
 /*Modificacion de bootstrap */
 .btn-primary {
     color: #fff;

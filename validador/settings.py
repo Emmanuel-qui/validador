@@ -51,7 +51,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'validate.middleware.SimpleMiddleware'
+    'validate.middleware.SimpleMiddleware',
+    'perfil.middleware.SegundMiddleware'
 ]
 
 ROOT_URLCONF = 'validador.urls'
@@ -162,7 +163,6 @@ if INVOICE_XSD_FILE.exists():
 # LoginView 
 LOGIN_REDIRECT_URL = '/validate/'
 # END LoginView
-
 LOGOUT_REDIRECT_URL = '/accounts/login/'
 
 
