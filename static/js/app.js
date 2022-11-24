@@ -1,5 +1,3 @@
-console.log("cargando");
-
 // Funcion para obtener el token
 
 function getCookie(name) {
@@ -22,11 +20,13 @@ const csrftoken = getCookie("csrftoken");
 const enviar = document.getElementById("form_button");
 
 function send() {
-
+  // seleccionamos los elementos de la tabla.
   const td_estruc = document.getElementById("td_estruc");
   const td_sello = document.getElementById("td_sello");
   const td_sesat = document.getElementById("td_sesat");
   const td_error = document.getElementById("td_error");
+
+  const contenedor_tabla = document.getElementById("content_response");
 
   // Asignamos la url que va a realizar el proceso.
   const url = "http://127.0.0.1:8000/validate/";
@@ -34,42 +34,40 @@ function send() {
   let input_file = document.getElementById("file");
   // Obtenemos los valores del formulario
   const form = new FormData();
-  
-  // var file = input_file.files[0].name;
-  
-  // let ext = file.split('.').pop()
 
-  // if(ext == "xml"){
-  //   alert("si es un xml")
-  // }else {
-  //   alert("No es un xml")
-  //   input_file.value = "";
-  // }
+  const file = input_file.files[0].name;
 
+  let ext = file.split(".").pop();
 
-  form.append("file", input_file.files[0]);
-  //form.append("csrftoken", csrftoken);
-
-  // Utilizamos fecth para enviar el documento a nuestra vista en Django.
-  fetch(url, {
-    method: "POST",
-    body: form,
-    headers: { "X-CSRFToken": csrftoken },
-    mode: "same-origin",
-  })
-    .then((response) => response.json())
-    .then((data) => {
-      console.log("Success:", data);
-      td_estruc.innerText = data.Estructura;
-      td_sello.innerText = data.Sello;
-      td_sesat.innerText = data.Sello_Sat;
-      td_error.innerText = data.Error;
-      document.getElementById('validate_formulario').reset();
+  if (ext == "xml") {
+    form.append("file", input_file.files[0]);
+    // Utilizamos fecth para enviar el documento a nuestra vista en Django.
+    fetch(url, {
+      method: "POST",
+      body: form,
+      headers: { "X-CSRFToken": csrftoken },
+      mode: "same-origin",
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+      .then((response) => response.json())
+      .then((data) => {
+        
+        td_estruc.innerText = data.response.Estructura;
+        td_sello.innerText = data.response.Sello;
+        td_sesat.innerText = data.response.Sello_Sat;
+        td_error.innerText = data.response.Error;
+        if(data.success){
+          contenedor_tabla.style.display = "block";
+          document.getElementById("validate_formulario").reset();
+        }
+        
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  } else {
+    alert("El archivo seleccionado, no es un archivo XML");
+    input_file.value = "";
+  }
 }
 
-enviar.addEventListener("click",send);
-
+enviar.addEventListener("click", send);

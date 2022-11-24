@@ -1,21 +1,20 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse, redirect
 from django.views import View
 from django.http import JsonResponse
-
-from django.contrib.auth.models import User
+from django.contrib.auth.mixins import LoginRequiredMixin
 from .models import AccountModel
+
 
 # Create your views here.
 
-# Vista de configuracion del perfil.
-class ProfileView(View):
-
+# Vista para mostrar configuracion 
+# del perfil (carga template)
+class ProfileView(LoginRequiredMixin,View):
+    login_url = '/accounts/login/'
     def get(self, request):
 
         obj_user = request.user
-       
         obj_account = AccountModel.objects.get(user=obj_user)
-
         response = {
             'empresa': obj_account.business_name,
             'telefono': obj_account.telephone,
@@ -29,22 +28,19 @@ class ProfileView(View):
         return render(request, 'profile/home.html',context=response)
     
     def post(self, request):
-        import pdb; pdb.set_trace()
         obj_user = request.user
-        obj_account = AccountModel.objects.get(user=obj_user.id)
+        obj_account = AccountModel.objects.get(user=obj_user)
 
-        if request.FILES.get('imagen') != None:
-            imagen = request.FILES['imagen']
-            obj_account.image_profile = imagen
+        if request.FILES.get('imagen'):
+            obj_account.image_profile = request.FILES['imagen']
         
         
-        empresa = request.POST['empresa']
         telefono = request.POST['telefono']
         codigo_postal = request.POST['postal']
         pais = request.POST['pais']
         estado = request.POST['estado']
             
-        obj_account.business_name = empresa
+        obj_account.business_name = request.POST.get('empresa', None)
         obj_account.telephone = telefono
         obj_account.postal_code = codigo_postal
         obj_account.country = pais
@@ -56,9 +52,14 @@ class ProfileView(View):
 
         return JsonResponse(response)
     
-# Vista para el formulario de registro.
-class RegisterView(View):
+# Vista para mostrar el formulario 
+# de registro de datos.
+class RegisterView(LoginRequiredMixin,View):
 
     def get(self, request):
         
         return render(request, 'profile/form.html')
+
+    def post(self, request):
+        
+        return JsonResponse('Todo bien')

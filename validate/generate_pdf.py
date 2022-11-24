@@ -108,7 +108,7 @@ class PDF:
 
     def generate(self):
         result_io = BytesIO()
-        doc = SimpleDocTemplate(result_io)
+        doc = SimpleDocTemplate(result_io,title="reporte")
         story = []
         header = self.get_header()
         story.extend(header)

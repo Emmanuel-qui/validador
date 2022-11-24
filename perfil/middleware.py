@@ -3,7 +3,7 @@ from django.shortcuts import redirect
 from perfil.models import AccountModel
 
 
-class SimpleMiddleware:
+class SegundMiddleware:
 
     def __init__(self, get_response):
         self.get_response = get_response
@@ -25,13 +25,8 @@ class SimpleMiddleware:
         url = request.META.get('PATH_INFO')
         if request.user.is_authenticated:
             obj_user = request.user
-            obj_account = AccountModel.objects.filter(user=obj_user.id) 
+            obj_account = AccountModel.objects.filter(user=obj_user)
 
-            if url == "/validate/" and not obj_account.exists():
+            if url == "/profile/" and not obj_account.exists():
                 return redirect("/profile/informacion/")
-            elif url == "/validate/result/" and not obj_account.exists():
-                return redirect("/profile/informacion/")
-        
-
-
-        
+       
