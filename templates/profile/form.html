@@ -1,5 +1,6 @@
 {% extends 'layout/layout.html' %}
 
+    
 
 {% block content %}
 	<br>
@@ -11,11 +12,11 @@
             </div>
             <div class="card-body">
                 <div>
-                    <form id="form-datos">
+                    <form>
                     <div class="row row-cols-3">
                         <div class="col mb-2 mt-2">
-                            <input type="text" class="form-control" id="nombre" name="nombre">
-                            <span class="form-text">Empresa</span>
+                            <input type="text" class="form-control" id="empresa" name="empresa">
+                            <span class="form-text" id="empresa_span">Empresa</span>
                         </div>
                         <div class="col mb-2 mt-2">
                             <input type="text" class="form-control" id="telefono" name="telefono">
@@ -26,24 +27,22 @@
                             <span class="form-text">RFC</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            
                             <input type="text" class="form-control" id="postal" name="postal">
                             <span class="form-text">Codigo Postal</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            
                             <input type="text" class="form-control" id="pais" name="pais">
                             <span class="form-text" >País</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            
-                            <input type="text" class="form-control" id="estado" name="estado">
+                           
+                           <input type="text" class="form-control" id="estado" name="estado"> 
                             <span class="form-text">Estado</span>
                         </div>
                         
                     </div>
 
-                    <div class="row row-cols-2">
+                    <!-- <div class="row row-cols-2">
                         <div class="col mb-2 mt-3">
                             <span class="form-text">Tipo de Persona</span>
                             <select class="form-select form-select-sm" aria-label=".form-select-sm" id="tipo_persona">
@@ -51,6 +50,7 @@
                                 <option value="M">Moral</option>
                                 <option value="F">Fisica</option>
                               </select>
+                              
                         </div>
                         <div class="col mb-2 mt-3">
                             <span class="form-text">Regimen Fiscal</span>
@@ -67,11 +67,12 @@
                                 <option value="612">Personas Físicas con Actividades Empresariales y Profesionales</option>
                                 <option value="614">Ingresos por intereses</option>
                               </select>
+                              
                             
-                        </div>
+                        </div> -->
                     </div>
                     <div class="mt-5">
-                        <button id="boton-data" type="button" class="btn btn-register w-50">Guardar Datos</button>
+                        <button  type="submit" class="btn btn-register w-50">Guardar Datos</button>
                     </div>
                     </form>
                 </div>

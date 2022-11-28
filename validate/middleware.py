@@ -23,13 +23,15 @@ class SimpleMiddleware:
     def process_view(self,request, view_func, view_args, view_kwargs):
         
         url = request.META.get('PATH_INFO')
+        if request.user.is_authenticated:
+            obj_user = request.user
+            obj_account = AccountModel.objects.filter(user=obj_user.id) 
 
-        obj_user = request.user
-
-        obj_account = AccountModel.objects.filter(user=obj_user)
-
-        if url == "/validate/" and not obj_account.exists():
-            return redirect("/profile/informacion/")
+            if url == "/validate/" and not obj_account.exists():
+                return redirect("/profile/informacion/")
+            elif url == "/validate/result/" and not obj_account.exists():
+                return redirect("/profile/informacion/")
+        
 
 
         

@@ -9,8 +9,7 @@ from .forms import FileForm
 from .utils import Validate
 # Importamos el modelo
 from .models import ValidateResultModel
-from pathlib import Path
-BASE_DIR = Path(__file__).resolve().parent.parent
+
 
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
@@ -22,20 +21,26 @@ from django.contrib.auth.models import User
 
 from validate.generate_pdf import PDF
 
-from perfil.models import AccountModel
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
+
+import os
+from django.conf import settings
+from django.http import HttpResponse
+from django.template.loader import get_template
+from xhtml2pdf import pisa
+from django.contrib.staticfiles import finders
 
 
+# Mostrando de seccion de carga de CFDI (carga template).
 
+class IndexView(LoginRequiredMixin,View):
+	login_url = '/accounts/login/'
+	redirect_field_name = 'redirect_to'
+	def get(self, request):
 
-# Create your views here.
-
-class IndexView(View):
-
-	def get(self, request):		
 		#Obtenemos el formulario creado y lo mandamos a la vista.
 		form = FileForm()
-		
-		
 		return render(request, 'validate/index.html', {'form':form})
 
 	def post(self, request):
@@ -47,20 +52,21 @@ class IndexView(View):
 			xml_file = m.file
 			# mandamos el xml como parametro a la clase Validate para hacer el proceso de validacion.
 			validate = Validate(xml_file)
-			return JsonResponse(validate.response)
+			data = {'response':validate.response, 'success':True}
+			return JsonResponse(data)
        
 
 
-# Cargando la vista
-class ResultValidate(View):
+# Mostrando la vista de historico de validaciones (carga template).
 
+class ResultValidate(LoginRequiredMixin,View):
+	login_url = '/accounts/login/'
 	template_name = "validate/result.html"
-
 	def get(self, request):
 		return render(request, self.template_name)
 
 
-# vista para la logica 
+# Vista para la implementacion de datatables 
 class ValidateResult(View):
 
 	def post(self, request):
@@ -106,8 +112,9 @@ class ValidateResult(View):
 
 
 
-# funcion del detalle de la validacion
-
+# Funcion para mostrar 
+# el detalle del resultado de una validacion.
+@login_required
 def ValidateResultDetail(request, pk):
 
 		validate_invoice = ValidateResultModel.objects.get(id=pk)
@@ -154,25 +161,44 @@ def ValidateResultDetail(request, pk):
 
 	
 
-# Vista para la generacion de PDF.
+# Vista que sirve para la generacion de PDF.
 class GeneratePdf(View):
 
 	def get(self, request, pk):
-		
 		pdf_obj = PDF(pk)
 		pdf_result =  pdf_obj.generate()
 		response = HttpResponse(pdf_result, content_type='application/pdf')
-		
 		return response
 
 
-# Vista envio de email
+class PDFView(View):
+
+	def get(self, request):
+		template = get_template('validate/invoice.html')
+
+		context = {'title': 'Reporte de Validación'}
+		html = template.render(context)
+		response = HttpResponse(content_type='application/pdf')
+		response['Content-Disposition'] = 'attachment; filename="report.pdf"'
+		
+		pisa_status = pisa.CreatePDF(
+       	html, dest=response)
+		# if error then show some funny view
+		if pisa_status.err:
+			return HttpResponse('We had some errors <pre>' + html + '</pre>')
+		
+
+		return response
+
+
+
+# Vista que sirve para el 
+# envio de pdf por email
 class UserEmail(View):
 
 	def get(self,request,pk):
 
 		user_obj = request.user
-		import pdb; pdb.set_trace()
 		pdf_obj = PDF(1)
 		pdf_result =  pdf_obj.generate()
 
@@ -181,9 +207,6 @@ class UserEmail(View):
             from_email=settings.EMAIL_HOST_USER,
 			to=[user_obj.email],
 			)
-
-		pdf_file = ContentFile(pdf_result, name="pdf_prueba.pdf")
-
 		msj.attach('reporte.pdf',pdf_result,'application/pdf')
 
 		msj.send()
