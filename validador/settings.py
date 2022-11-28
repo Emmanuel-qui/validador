@@ -163,7 +163,7 @@ if INVOICE_XSD_FILE.exists():
 # LoginView 
 LOGIN_REDIRECT_URL = '/validate/'
 # END LoginView
-LOGOUT_REDIRECT_URL = '/accounts/login/'
+LOGOUT_REDIRECT_URL = '/'
 
 
 # SETTINGS REGISTRATION

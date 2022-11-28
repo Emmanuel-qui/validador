@@ -18,7 +18,7 @@ from reportlab.lib import colors
 
 
 class PDF:
-    PRGH_STYLE_HEADER = ParagraphStyle("HEADER", fontSize=14, textColor=colors.HexColor("#7b211f"), alignment=TA_CENTER)
+    PRGH_STYLE_HEADER = ParagraphStyle("HEADER", fontSize=14, textColor=colors.black, alignment=TA_CENTER)
     PRGH_STYLE_SUBHEADER = ParagraphStyle("SUBHEADER", fontSize=12,textColor=colors.white)
     PRGH_STYLE_CONTENT = ParagraphStyle("CONTENT", fontSize=12,textColor=colors.black, alignment=TA_CENTER)
     PAGE_HEIGHT=defaultPageSize[1]; PAGE_WIDTH=defaultPageSize[0]
@@ -100,6 +100,7 @@ class PDF:
         ])
         return body_table
     
+
     def get_page(canvas, doc):
         canvas.saveState()
         # canvas.setFont('Times-Roman',9)

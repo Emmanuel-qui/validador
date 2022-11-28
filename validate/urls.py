@@ -21,5 +21,7 @@ urlpatterns = [
 
     path('pdf/<int:pk>', views.GeneratePdf.as_view(), name="generate-pdf"),
 
+    path('plantilla/', views.PDFView.as_view()),
+
     path('send/<int:pk>', views.UserEmail.as_view(), name="email"),
 ]
