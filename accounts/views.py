@@ -7,6 +7,7 @@ from django.views.generic.edit import FormView
 from .forms import PasswordResetForm, ChangePasswordForm
 import smtplib
 from django.conf import settings
+from django.template.loader import render_to_string
 
 # Create your views here.
 
