@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro Completo</title>
+    <title>Felicidades</title>
 
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
@@ -17,24 +17,53 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+    <style>
+      .grid {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .div_uno {
+        background-color: #7b211f;
+      }
+
+      .div_dos {
+        background-color: white;
+      }
+    </style>
   </head>
-  <body style="background-color: #e9ecef;">
-    <div class="container-fluid">
-      <div class="row d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-        <div class="card w-25 shadow" style="background-color: #7b211f;">
-          <div class="card-head border-bottom">
-            <h4 class="card-title font-monospace text-light p-1 fw-normal">¡Felicidades por su Registro!</h4>
-          </div>
-          <div class="card-body">
-            <h5 class="text-light p-2 fw-light">Estimado usuario</h5>
-            <p class="font-monospace text-light p-2 fw-light" style="text-align: justify;">
-                Su registro dentro de nuestro portal fue realizado con exito, para continuar es necesario que active su cuenta.
-                Dentro de su bandeja de entrada del correo con el que se registro, encontrara un correo con un enlace para activar su cuenta
-            </p>
-           
+  <body>
+    <div class="grid">
+      <div class="div_uno"></div>
+      <div class="div_dos">
+        <div class="container-fluid position-absolute" style="top: 350px">
+          <div
+            class="row d-flex justify-content-center align-items-center"
+          >
+            <div class="card w-25 shadow" style="background-color: white">
+              <div class="card-head border-bottom">
+                <h4 class="card-title font-monospace p-1 fw-normal" style="color: #7b211f;">
+                  ¡Felicidades por su Registro!
+                </h4>
+              </div>
+              <div class="card-body">
+                <h5 class="p-2 fw-light" style="color: #7b211f;">Estimado usuario</h5>
+                <p
+                  class="font-monospace p-2 fw-light"
+                  style="text-align: justify; color: #7b211f;"
+                >
+                  Su registro dentro de nuestro portal fue realizado con exito,
+                  para continuar es necesario que active su cuenta. Dentro de su
+                  bandeja de entrada del correo con el que se registro,
+                  encontrara un correo con un enlace para activar su cuenta
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </body>
-</html>
+</html>>
