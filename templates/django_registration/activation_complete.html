@@ -17,25 +17,52 @@
       integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
       crossorigin="anonymous"
     ></script>
+
+    <style>
+      .grid {
+        display: grid;
+        grid-template-rows: 1fr 1fr;
+        min-height: 100vh;
+        position: relative;
+      }
+
+      .div_uno {
+        background-color: #7b211f;
+      }
+
+      .div_dos {
+        background-color: white;
+      }
+    </style>
   </head>
-  <body style="background-color: #e9ecef;">
-    <div class="container-fluid">
-      <div class="row d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-        <div class="card w-25 shadow" style="background-color: #7b211f;">
-          <div class="card-head border-bottom">
-            <h4 class="card-title font-monospace text-light p-1 fw-normal">¡Cuenta Activada con Exito!</h4>
-          </div>
-          <div class="card-body">
-            <h5 class="text-light p-2 fw-light">Estimado usuario</h5>
-            <p class="font-monospace text-light p-2 fw-light" style="text-align: justify;">
-                Su cuenta ha sido activada de manera satisfactoria, ya puede regresar al portal de validacion para iniciar sesion.
-                Muchas Felicidades.
-            </p>
-           
+  <body>
+    <div class="grid">
+      <div class="div_uno"></div>
+      <div class="div_dos">
+        <div class="container-fluid position-absolute" style="top: 350px">
+          <div class="row d-flex justify-content-center align-items-center">
+            <div class="card w-25 shadow" style="background-color: white">
+              <div class="card-head border-bottom">
+                <h4 class="card-title font-monospace p-1 fw-normal" style="color: #7b211f;">
+                  ¡Cuenta Activada con Exito!
+                </h4>
+              </div>
+              <div class="card-body">
+                <h5 class="p-2 fw-light" style="color: #7b211f;"">Estimado usuario</h5>
+                <p
+                  class="font-monospace p-2 fw-light"
+                  style="text-align: justify; color: #7b211f;"
+                >
+                  Su cuenta ha sido activada de manera satisfactoria, ya puede
+                  ingresar al portal de validacion, de clck para <span><a>Iniciar sesion</a></span>. Muchas
+                  Felicidades.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-</html>
+

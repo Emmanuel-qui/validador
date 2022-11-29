@@ -15,12 +15,17 @@ from reportlab.lib.units import inch
 from reportlab.rl_config import defaultPageSize
 from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.lib import colors
+from django.contrib import staticfiles
+from reportlab.platypus import Image
 
 
 class PDF:
-    PRGH_STYLE_HEADER = ParagraphStyle("HEADER", fontSize=14, textColor=colors.black, alignment=TA_CENTER)
-    PRGH_STYLE_SUBHEADER = ParagraphStyle("SUBHEADER", fontSize=12,textColor=colors.white)
-    PRGH_STYLE_CONTENT = ParagraphStyle("CONTENT", fontSize=12,textColor=colors.black, alignment=TA_CENTER)
+    PATH_IMAGE = staticfiles.finders.find("img/img-quadrum.jpeg")
+    IMAGE = Image(PATH_IMAGE, width=100, height=100, hAlign='CENTER')
+    PRGH_STYLE_HEAD = ParagraphStyle("HEAD", fontSize=16, textColor=colors.black, alignment=TA_CENTER)
+    PRGH_STYLE_HEADER = ParagraphStyle("HEADER", fontSize=14, textColor=colors.white, alignment=TA_CENTER, leading=17)
+    PRGH_STYLE_SUBHEADER = ParagraphStyle("SUBHEADER", fontSize=12,textColor=colors.black)
+    PRGH_STYLE_CONTENT = ParagraphStyle("CONTENT", fontSize=12,textColor=colors.black, alignment=TA_CENTER, leading=15)
     PAGE_HEIGHT=defaultPageSize[1]; PAGE_WIDTH=defaultPageSize[0]
     styles = getSampleStyleSheet()
 
@@ -61,42 +66,48 @@ class PDF:
 
 
     def get_header(self):
-        header_data = [Paragraph("<b>Informacion del Comprobante</b>", self.PRGH_STYLE_HEADER)]
+        header_data = [Paragraph("<b>Reporte de Validición</b>", self.PRGH_STYLE_HEAD)]
         return header_data
 
     def get_body(self):
         body_data = [
-            [Paragraph("<b>Resultado</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.results, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>RFC Emisor</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.rfc_business, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>RFC Receptor</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.rfc_receiver, self.PRGH_STYLE_CONTENT),],  
-            [Paragraph("<b>Fecha</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.date, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>Version</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.version, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>Tipo de Comprobante</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.voucher_type, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>Total</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.total, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>Subtotal</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(self.subtotal, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Informacion del Comprobante", self.PRGH_STYLE_HEADER), Paragraph("<b>&nbsp;</b>", self.PRGH_STYLE_HEADER)],
+            [Paragraph("Resultado", self.PRGH_STYLE_SUBHEADER), Paragraph(self.results, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("RFC Emisor", self.PRGH_STYLE_SUBHEADER), Paragraph(self.rfc_business, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("RFC Receptor", self.PRGH_STYLE_SUBHEADER), Paragraph(self.rfc_receiver, self.PRGH_STYLE_CONTENT),],  
+            [Paragraph("Fecha", self.PRGH_STYLE_SUBHEADER), Paragraph(self.date, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Version", self.PRGH_STYLE_SUBHEADER), Paragraph(self.version, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Tipo de Comprobante", self.PRGH_STYLE_SUBHEADER), Paragraph(self.voucher_type, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Total", self.PRGH_STYLE_SUBHEADER), Paragraph(self.total, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Subtotal", self.PRGH_STYLE_SUBHEADER), Paragraph(self.subtotal, self.PRGH_STYLE_CONTENT),],
             
         ]
-
-        body_table = Table(body_data, colWidths=[2*inch, 5*inch], style=[
-            ("BACKGROUND",(0,0), (0, -1), colors.HexColor("#6c757d")),
+        rowsHeight = [0.3*inch] * len(body_data)
+        body_table = Table(body_data, colWidths=[2*inch, 5*inch],rowHeights=rowsHeight, style=[
+            ("BACKGROUND",(0,0), (0, 0), colors.HexColor("#7b211f")),
             ("INNERGRID", (0, 0), (-1, -1), 1, colors.black),
-            ("BOX", (0, 0), (-1, -1), 1, colors.black)
+            ("BOX", (0, 0), (-1, -1), 1, colors.black),
+            ("SPAN", (0, 0), (-1, 0)),
+            ("VALIGN", (0, 0), (-1, -1), 'MIDDLE'),
         ])
         return body_table
 
     def get_body_dos(self):
         body_data = [
-            [Paragraph("<b>Fecha de validacion</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.fecha_val), self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>Sello</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.sell), self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>Estructura</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.estruc), self.PRGH_STYLE_CONTENT),],
-            [Paragraph("<b>Mensaje</b>", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.error), self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Resultado de Validación", self.PRGH_STYLE_HEADER), Paragraph("<b>&nbsp;</b>", self.PRGH_STYLE_HEADER)],
+            [Paragraph("Fecha de validacion", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.fecha_val), self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Sello", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.sell), self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Estructura", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.estruc), self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Mensaje", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.error), self.PRGH_STYLE_CONTENT),],
             
         ]
 
         body_table = Table(body_data,colWidths=[2*inch, 5*inch], style=[
-            ("BACKGROUND",(0,0), (0, -1), colors.HexColor("#6c757d")),
+            ("BACKGROUND",(0,0), (0, 0), colors.HexColor("#7b211f")),
             ("INNERGRID", (0, 0), (-1, -1), 1, colors.black),
-            ("BOX", (0, 0), (-1, -1), 1, colors.black)
+            ("BOX", (0, 0), (-1, -1), 1, colors.black),
+            ("SPAN", (0, 0), (-1, 0)),
+            ("VALIGN", (0, 0), (-1, -1), 'TOP'),
         ])
         return body_table
     
@@ -104,13 +115,14 @@ class PDF:
     def get_page(canvas, doc):
         canvas.saveState()
         # canvas.setFont('Times-Roman',9)
-        canvas.drawString(inch, 0.75 * inch, "Page %d %s" % (doc.page, pageinfo))
+        canvas.drawString(inch, 0.75 * inch, "Page %d" % (doc.page))
         canvas.restoreState()
 
     def generate(self):
         result_io = BytesIO()
-        doc = SimpleDocTemplate(result_io,title="reporte")
+        doc = SimpleDocTemplate(result_io,title=self.fecha_val, topMargin=0.5*inch, bottomMargin=0.5*inch,)
         story = []
+        story.append(self.IMAGE)
         header = self.get_header()
         story.extend(header)
         story.append(Spacer(0, 12))

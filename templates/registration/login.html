@@ -7,8 +7,14 @@
 
 
 {% block content-form %}
-
 {% load static %}
+<nav class="navbar navbar-light" style="background-color: #7b211f;">
+  <div class="container-fluid container">
+      <img src="{% static 'img/logoQuadrum.png' %}"/>
+      
+  </div>
+</nav>
+
   <div class="center">
     <div class="row border shadow">
       <div class="col card" style="width: 20rem">
@@ -48,7 +54,7 @@
               </div>
               <div class="mb-3">
                 
-                <a class="form-text enlace" href="/accounts/register/">Crear una cuenta</a>
+                <a class="form-text enlace" href="/register/">Crear una cuenta</a>
               </div>
 
               <div>

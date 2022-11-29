@@ -24,7 +24,7 @@
         <div class="col card" style="width: 20rem;">
            <div class="card-head">
                 <br>
-                <h5 class="text-center" style="color: #7b211f;">Formulario de Registro</h5>
+                <h5 class="text-center fw-normal" style="color: #7b211f;">Crear cuenta</h5>
            </div>
             <div class="card-body">
                 <form  method="POST">
@@ -47,6 +47,12 @@
                         <div class="mb-3">
                             <label for="id_password2">Confirmar Contraseña: </label>
                             {{ form.password2 }}
+                        </div>
+                        <div class="mb-3">
+                            <a href="/" class="btn btn-secondary btn-sm">
+                                <i class="fa fa-reply" aria-hidden="true"></i>
+                                Regresar
+                            </a>
                         </div>
                         <div class="mb-3">
                             <input class="btn btn-register" type="submit" value="Registrarse" />
