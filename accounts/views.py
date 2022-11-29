@@ -53,7 +53,7 @@ class PasswordResetView(FormView):
             mensaje['To']=email_to
             mensaje['Subject']="Restablece tu contraseña"
 
-            content = render_to_string('send_email.html', {'link_resetpwd':'','link_home':''})
+            content = render_to_string('accounts/send_email.html', {'link_resetpwd':'','link_home':''})
 
             mensaje.attach(MIMEText(content,'html'))
 

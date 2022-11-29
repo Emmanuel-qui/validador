@@ -14,6 +14,7 @@ from .models import ValidateResultModel
 
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
+from django.core.mail import SafeMIMEText
 from django.core.files.base import ContentFile
 from django.conf import settings
 
@@ -37,6 +38,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.mime.application import MIMEApplication
 from django.template.loader import render_to_string
+from django.contrib import staticfiles
 
 # Mostrando de seccion de carga de CFDI (carga template).
 
@@ -208,17 +210,18 @@ class UserEmail(View):
 			user_obj = request.user
 			pdf_obj = PDF(1)
 			pdf_result =  pdf_obj.generate()
+			
+			content = render_to_string("validate/send_email.html",{'user': user_obj.username })
 
-			self.send_email(pdf_result)
+			msj = EmailMessage(subject="Reporte comprobante",
+			     from_email=settings.EMAIL_HOST_USER,
+			 	 to=[user_obj.email],
+			 	)
+			msj.attach(MIMEText(content,'html'))
 
-			# msj = EmailMessage(subject="Reporte comprobante",
-			#     body="Estimado usuario, le compartimos el reporte del resultado de la validación con Validador Quadrum.",
-			#     from_email=settings.EMAIL_HOST_USER,
-			# 	to=[user_obj.email],
-			# 	)
-			# msj.attach('reporte.pdf',pdf_result,'application/pdf')
+			msj.attach('reporte.pdf',pdf_result,'application/pdf')
 
-			# msj.send()
+			msj.send()
 
 			response = {'msj': 'Correo enviado'}
 		except Exception as ex:

@@ -21,8 +21,8 @@ from reportlab.platypus import Image
 
 class PDF:
     PATH_IMAGE = staticfiles.finders.find("img/img-quadrum.jpeg")
-    IMAGE = Image(PATH_IMAGE, width=100, height=100, hAlign='CENTER')
-    PRGH_STYLE_HEAD = ParagraphStyle("HEAD", fontSize=16, textColor=colors.black, alignment=TA_CENTER)
+    IMAGE = Image(PATH_IMAGE, width=50, height=50, hAlign='LEFT')
+    PRGH_STYLE_HEAD = ParagraphStyle("HEAD", fontSize=16, textColor=colors.HexColor("#7b211f"), alignment=TA_CENTER)
     PRGH_STYLE_HEADER = ParagraphStyle("HEADER", fontSize=14, textColor=colors.white, alignment=TA_CENTER, leading=17)
     PRGH_STYLE_SUBHEADER = ParagraphStyle("SUBHEADER", fontSize=12,textColor=colors.black)
     PRGH_STYLE_CONTENT = ParagraphStyle("CONTENT", fontSize=12,textColor=colors.black, alignment=TA_CENTER, leading=15)
@@ -68,6 +68,16 @@ class PDF:
     def get_header(self):
         header_data = [Paragraph("<b>Reporte de Validición</b>", self.PRGH_STYLE_HEAD)]
         return header_data
+
+    def get_image(self):
+        body_data =[[self.get_header()]]
+
+        body_table = Table(body_data, colWidths=[7*inch, 2*inch], style = [
+                ("BACKGROUND",(0,-1), colors.HexColor("#6c757d")),
+                ('VALIGN',(0,0),(-1,-1),'TOP'),
+            ])
+
+        return body_table
 
     def get_body(self):
         body_data = [
@@ -122,10 +132,9 @@ class PDF:
         result_io = BytesIO()
         doc = SimpleDocTemplate(result_io,title=self.fecha_val, topMargin=0.5*inch, bottomMargin=0.5*inch,)
         story = []
-        story.append(self.IMAGE)
         header = self.get_header()
         story.extend(header)
-        story.append(Spacer(0, 12))
+        story.append(Spacer(0, 14))
         body = self.get_body()
         story.append(body)
         story.append(Spacer(0, 12))

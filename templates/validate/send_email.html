@@ -50,21 +50,26 @@
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       }
 
-      p {
-        padding: 1rem;
+      .titulo {
+        text-align: left;
+      }
+      .p {
         text-align: justify;
       }
     </style>
 
   </head>
   <body style="background-color: #7b211f;">
-
         <div class="contenedor">
           <div class="card">
             <div class="card-body">
-              <p>
-                Estimado usuario le compartimos el Reporte de la validacion del comprobante.
+              <p class="titulo">
+                <b>Estimado {{ user }}.</b> 
               </p>
+                <p class="p">
+                  Le compartimos el Reporte de la validacion del comprobante validado en nuestro portal.
+                  Excelente día, Saludos.
+                </p>
             </div>
           </div>
         </div>
