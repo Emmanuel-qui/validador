@@ -1,3 +1,4 @@
+from email.header import Header
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, HttpResponse
 from django.views import View
@@ -13,6 +14,7 @@ from .models import ValidateResultModel
 
 from django.core.mail import send_mail
 from django.core.mail import EmailMessage
+from django.core.mail import SafeMIMEText
 from django.core.files.base import ContentFile
 from django.conf import settings
 
@@ -31,6 +33,12 @@ from django.template.loader import get_template
 from xhtml2pdf import pisa
 from django.contrib.staticfiles import finders
 
+import smtplib
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from email.mime.application import MIMEApplication
+from django.template.loader import render_to_string
+from django.contrib import staticfiles
 
 # Mostrando de seccion de carga de CFDI (carga template).
 
@@ -198,19 +206,64 @@ class UserEmail(View):
 
 	def get(self,request,pk):
 
-		user_obj = request.user
-		pdf_obj = PDF(1)
-		pdf_result =  pdf_obj.generate()
+		try:
+			user_obj = request.user
+			pdf_obj = PDF(1)
+			pdf_result =  pdf_obj.generate()
+			
+			content = render_to_string("validate/send_email.html",{'user': user_obj.username })
 
-		msj = EmailMessage(subject="Reporte comprobante",
-            body="Estimado usuario, le compartimos el reporte del resultado de la validación con Validador Quadrum.",
-            from_email=settings.EMAIL_HOST_USER,
-			to=[user_obj.email],
-			)
-		msj.attach('reporte.pdf',pdf_result,'application/pdf')
+			msj = EmailMessage(subject="Reporte comprobante",
+			     from_email=settings.EMAIL_HOST_USER,
+			 	 to=[user_obj.email],
+			 	)
+			msj.attach(MIMEText(content,'html'))
 
-		msj.send()
+			msj.attach('reporte.pdf',pdf_result,'application/pdf')
 
-		response = {'msj': 'Correo enviado'}
+			msj.send()
+
+			response = {'msj': 'Correo enviado'}
+		except Exception as ex:
+			response = {'msj': 'Ocurrio un error'}
+			print(str(ex))
 
 		return JsonResponse(response)
+	
+
+	def send_email(self, pdf_result):
+
+		try:
+			mailServer = smtplib.SMTP(settings.EMAIL_HOST,settings.EMAIL_PORT)
+			mailServer.ehlo()
+			mailServer.starttls()
+			mailServer.ehlo()
+			mailServer.login(settings.EMAIL_HOST_USER,settings.EMAIL_HOST_PASSWORD)
+			
+			email_to = "emmanuel.quiroz1223@gmail.com"
+            # Construimos el mensaje simple
+			mensaje = MIMEMultipart()
+			mensaje['From']=settings.EMAIL_HOST_USER
+			mensaje['To']=email_to
+			mensaje['Subject']="Reporte de validación"
+			content = render_to_string("send_email.html")
+			
+			mensaje.attach(MIMEText(content,'html'))
+
+			
+			with open('') as archive:
+				msg_attach = MIMEApplication(
+                archive.read(),
+                Name='reporte.pdf',
+            )
+
+			
+			mensaje.attach(msg_attach)
+
+            # Envio del mensaje
+			mailServer.sendmail(settings.EMAIL_HOST_USER,
+                            email_to,
+                            mensaje.as_string())
+			print('Correo enviado')
+		except Exception as ex:
+			print(str(ex))

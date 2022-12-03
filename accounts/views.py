@@ -7,6 +7,7 @@ from django.views.generic.edit import FormView
 from .forms import PasswordResetForm, ChangePasswordForm
 import smtplib
 from django.conf import settings
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -52,7 +53,7 @@ class PasswordResetView(FormView):
             mensaje['To']=email_to
             mensaje['Subject']="Restablece tu contraseña"
 
-            content = render_to_string('send_email.html', {'link_resetpwd':'','link_home':''})
+            content = render_to_string('accounts/send_email.html', {'link_resetpwd':'','link_home':''})
 
             mensaje.attach(MIMEText(content,'html'))
 

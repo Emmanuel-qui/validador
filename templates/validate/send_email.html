@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Actividacion exitosa</title>
+
+    <style>
+      .contenedor {
+        width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      @media (min-width: 576px) {
+        .contenedor {
+          max-width: 540px;
+        }
+      }
+
+      .card {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        min-width: 0;
+        word-wrap: break-word;
+        background-color: #fff;
+        background-clip: border-box;
+        border: 1px solid rgba(0, 0, 0, 0.125);
+        border-radius: 0.25rem;
+        width: 400px;
+        height: 300px;
+      }
+
+      .card-body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      
+      }
+
+      body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      .titulo {
+        text-align: left;
+      }
+      .p {
+        text-align: justify;
+      }
+    </style>
+
+  </head>
+  <body style="background-color: #7b211f;">
+        <div class="contenedor">
+          <div class="card">
+            <div class="card-body">
+              <p class="titulo">
+                <b>Estimado {{ user }}.</b> 
+              </p>
+                <p class="p">
+                  Le compartimos el Reporte de la validacion del comprobante validado en nuestro portal.
+                  Excelente día, Saludos.
+                </p>
+            </div>
+          </div>
+        </div>
+
+  </body>
+</html>
