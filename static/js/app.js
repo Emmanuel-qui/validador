@@ -49,21 +49,26 @@ function send() {
       mode: "same-origin",
     })
       .then((response) => response.json())
+
       .then((data) => {
         
-        td_estruc.innerText = data.response.Estructura;
-        td_sello.innerText = data.response.Sello;
-        td_sesat.innerText = data.response.Sello_Sat;
-        td_error.innerText = data.response.Error;
         if(data.success){
+
+          td_estruc.innerText = data.Estructura;
+          td_sello.innerText = data.Sello;
+          td_sesat.innerText = data.Sello_Sat;
+          td_error.innerText = data.Error;
           contenedor_tabla.style.display = "block";
+          document.getElementById("validate_formulario").reset();
+          
+        }
+        if(data.success == false){
+          alert(data.msj)
           document.getElementById("validate_formulario").reset();
         }
         
       })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+      
   } else {
     alert("El archivo seleccionado, no es un archivo XML");
     input_file.value = "";

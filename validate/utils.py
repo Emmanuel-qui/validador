@@ -12,51 +12,63 @@ class Validate:
 
     def __init__(self, xml_file):
         self.xml_file = xml_file
-        #self.xml_string = None
         self.xml_string = self.xml_file.read()
         self.xml_etree = None
         # Datos de la cuenta
-        self.username = "jquiroz@finkok.com.mx"
-        self.password = "Joseemmanuel_1223"
-        self.url = "https://demo-facturacion.finkok.com/servicios/soap/validation.wsdl"
-
+        self.username = settings.USERNAME
+        self.password = settings.PASSWORD
+        self.url = settings.URL_WS        
         # diccionario con los mensajes de validacion.
         self.response = {}
         self.success = False
-        self.message = "Error"
         self.estruc = False
+        self.message = ''
 
         # funcion que da inicio al proceso de validacion.
         self.start()
 
     def start(self):
-        self.validate_xsd()
-        if self.success:
+        if self.validate_xsd():
+            self.response['success'] = True
+            print(self.validate_xsd())
             self.validate_ws()
-            if self.success:
-                # Guardamos la informacion
+
+            if self.validate_ws():
                 self.save_invoice()
+
+        else:
+            self.response['success'] = False
+
+  
+            
+        
             
                 
       
     # funcion para validar la estructura de los XML.         
     def validate_xsd(self):
-        self.success = False
-        print("entra a validacion xsd...")
+        bandera = False
+    
         try:
             self.xml_etree = etree.fromstring(self.xml_string, settings.INVOICE_XSD_PARSER)
-            self.success = True
-            self.message = "Estructura Valida"
-            self.estruc = True
+
+            bandera = True
+            self.message = 'Estructura Valida'
+
         except Exception as e:
-            self.success = True
-            self.message = str(e)
-            self.estruc = False
+            self.message = 'Estructura Invalida'
+
+            print('Error')
+            print(e)
+            self.response['msj'] = str(e)
+        
+
+        return bandera
             
     # funcion de validacion del ws de finkok
     def validate_ws(self):
-        print("validacion ws")
-        self.success = False
+        bandera = False
+
         lines = "".join(self.xml_file.readlines())
         xml = lines.encode("UTF-8")
         history = HistoryPlugin()
@@ -65,26 +77,35 @@ class Validate:
         try:
             error = contenido.error
             if error != None:
-                self.response = {'Estructura': self.message,
-                            'Sello': str(contenido.sello),
-                            'Sello_Sat':str(contenido.sello_sat),
-                            'Error': error}
+                self.response['Estructura'] = self.message
+                self.response['Sello'] = contenido.sello
+                self.response['Sello_Sat'] = contenido.sello_sat
+                self.response['Error'] = error
+
+
+               # self.response = {'Estructura': self.message,
+                #            'Sello': str(contenido.sello),
+                #            'Sello_Sat':str(contenido.sello_sat),
+                #            'Error': error}
             else:
                 error = "¡No existe, ningún error!"
-                self.response = {'Estructura': self.message,
-                            'Sello': str(contenido.sello),
-                            'Sello_Sat':str(contenido.sello_sat),
-                            'Error': error}
+                self.response['Estructura'] = self.message
+                self.response['Sello'] = contenido.sello
+                self.response['Sello_Sat'] = contenido.sello_sat
+                self.response['Error'] = error
+                self.estruc = True
+            bandera = True
 
-        except Exception:
-            print('Ocurrio una excepcion')
+        except Exception as e:
+            print(e)
         
-        self.success = True
+
+        return bandera
         
 
       # funcion para guardar datos en el modelo invoice   
     def save_invoice(self):
-        self.success = False
+        
         voucher = etree.fromstring(self.xml_string)
         namespace = {'cfdi':"http://www.sat.gob.mx/cfd/4"}
 
@@ -146,13 +167,13 @@ class Validate:
                                 )
         invoice.save()
 
-        estruc = self.response['Estructura'] 
+        estruc = self.response.get('Estructura') 
         print(estruc)
-        stamp = bool(self.response['Sello'])
+        stamp = bool(self.response.get('Sello'))
         print(stamp)
-        stamp_sat = bool(self.response['Sello_Sat'])
+        stamp_sat = bool(self.response.get('Sello_Sat'))
         print(stamp_sat)
-        error = self.response['Error']
+        error = self.response.get('Error')
         print(error)
 
 
@@ -180,8 +201,9 @@ class Validate:
                                             stamp_sat = stamp_sat,
                                             error_ws = error,
                                             )
+        print(self.response)
         validate_result.save()
-        self.success = True
+        
    
     
         

@@ -60,8 +60,8 @@ class IndexView(LoginRequiredMixin,View):
 			xml_file = m.file
 			# mandamos el xml como parametro a la clase Validate para hacer el proceso de validacion.
 			validate = Validate(xml_file)
-			data = {'response':validate.response, 'success':True}
-			return JsonResponse(data)
+			
+			return JsonResponse(validate.response)
        
 
 

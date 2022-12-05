@@ -116,9 +116,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-MX'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'America/Mexico_City'
 
 USE_I18N = True
 
@@ -180,6 +180,10 @@ EMAIL_HOST_PASSWORD = '5678527cd82cab'
 EMAIL_PORT = '2525'
 
 
+#VARIABLES DEL WEB SERVICE DE VALIDATE.
 
+USERNAME = 'jquiroz@finkok.com.mx'
+PASSWORD = 'Joseemmanuel_1223'
+URL_WS = 'https://demo-facturacion.finkok.com/servicios/soap/validation.wsdl'
 
 
