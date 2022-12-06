@@ -9,7 +9,7 @@ urlpatterns = [
 
     path('password_reset/', views.PasswordResetView.as_view(), name="password_reset"),
 
-    path('password_change/', views.PasswordChangeView.as_view(), name="change_password")
+    path('password_change/<str:token>/', views.PasswordChangeView.as_view(), name="change_password")
 ]
 
 

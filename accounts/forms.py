@@ -44,3 +44,15 @@ class ChangePasswordForm(forms.Form):
         'placeholder':'Confirme su contraseña',
         'autocomplete':'off'
     }))
+
+    def clean(self):
+
+        cleaned = super().clean()
+
+        password = cleaned['password']
+        confirmPassword = cleaned['confirmPassword']
+
+        if password != confirmPassword:
+            raise forms.ValidationError('Las contraseñas no coinciden')
+
+        return cleaned
