@@ -1,6 +1,7 @@
 
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth import get_user_model
 from django_registration.backends.activation.views import ActivationView as BaseActivationView
 from django_registration.backends.activation.views import RegistrationView as BaseRegistrationView
 from django.template.loader import render_to_string
@@ -15,9 +16,25 @@ from django.conf import settings
 # Create your views here.
 class RegistrationView(BaseRegistrationView):
 
+     
+    def create_inactive_user(self, form):
+        """
+        Create the inactive user account and send an email containing
+        activation instructions.
+        """
+        import pdb; pdb.set_trace()
+        new_user = form.save(commit=False)
+        new_user.is_active = False
+        new_user.username = form.data['email']
+        new_user.save()
+
+        self.send_activation_email(new_user)
+
+        return new_user
+
     
 
-    def send_activation_email(self, user):
+    def send_activation_email(self,user):
        """
        Send the activation email. The activation key is the username,
        signed using TimestampSigner.
