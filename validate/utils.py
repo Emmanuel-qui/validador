@@ -168,13 +168,13 @@ class Validate:
         invoice.save()
 
         estruc = self.response.get('Estructura') 
-        print(estruc)
+    
         stamp = bool(self.response.get('Sello'))
-        print(stamp)
+        
         stamp_sat = bool(self.response.get('Sello_Sat'))
-        print(stamp_sat)
+        
         error = self.response.get('Error')
-        print(error)
+       
 
 
         resultado = ""
@@ -182,12 +182,33 @@ class Validate:
             resultado = "Comprobante Valido"
         else:
             resultado = "Comprobante Invalido"
+        
+        tipo = ""
+        if tipocomprobante == "I":
+            tipo = "Ingreso"
+        elif tipocomprobante == "E":
+            tipo = "Egreso"
+        elif tipocomprobante == "N":
+            tipo = "Nomina"
+        else:
+            tipo = "Traslado"
+
+        sello_sat = "No encontrado"
+
+        if stamp_sat:
+            sello_sat = "Encontrado"
+
+        sello = "Incorrecto"
+
+        if stamp:
+            sello = "Correcto"
+        
 
         
         validate_result = ValidateResultModel(
                                             invoice = invoice, 
 	                                        results = resultado,
-	                                        voucher_type = tipocomprobante,
+	                                        voucher_type = tipo,
 	                                        version = version,
 	                                        rfc_business = rfc_emisor,
 	                                        rfc_receiver = rfc_receptor,
@@ -197,11 +218,11 @@ class Validate:
 	                                        place_of_expedition = lugarexpedicion, 
 	                                        date = fecha,
                                             estruc = estruc, 
-	                                        stamp = stamp,
-                                            stamp_sat = stamp_sat,
+	                                        stamp = sello,
+                                            stamp_sat = sello_sat,
                                             error_ws = error,
                                             )
-        print(self.response)
+        
         validate_result.save()
         
    

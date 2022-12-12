@@ -30,7 +30,10 @@
                 <form  method="POST">
                     <div class="row">
                         {% csrf_token %}
-                        
+                        <div class="mb-3">
+                            <label for="id_username">Nombre de usuario: </label>
+                            {{ form.username }}
+                        </div>
                         <div class="mb-3">
                             <label for="id_email">Correo: </label>
                             {{ form.email }}
@@ -64,12 +67,16 @@
 <script>
     $(document).ready(function (){
         $("#id_username").addClass("form-control");
+        $("#id_username").attr("autocomplete","off");
 
         $("#id_email").addClass("form-control");
+        $("#id_email").attr("autocomplete","off");
 
         $("#id_password1").addClass("form-control");
+        $("#id_password1").attr("autocomplete","off");
 
         $("#id_password2").addClass("form-control");
+        $("#id_password2").attr("autocomplete","off");
     });
 </script>
 

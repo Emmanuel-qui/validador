@@ -1,55 +1,79 @@
 {% extends 'layout/layout.html' %}
 
 {% block content %}
-    <div class="contenedor-perfil">
-        <div class="card d-flex justify-content-center align-items-center shadow w-25 imagen-redonda" style="margin: 0 auto;">
-            <div class="row p-2">
-                <img class="imagen-redonda" src="{{ imagen.url }}" alt="perfil">
+<div class="contenedor-perfil">
+    <div class="card d-flex flex-row justify-content-around shadow">
+        
+            <div class="p-2">
+
+                
+                {% load static %}
+
+                {% if not imagen %}
+                <img class="imagen-redonda" src="{% static 'img/img-quadrum.jpeg' %}" alt="logo">
+                {% else %}
+                <img class="imagen-redonda" src="{{ imagen }}" alt="perfil">
+                {% endif %}
+                <h6 class="text-center fw-normal mt-2">Foto de Perfil</h6>
+
             </div>
-        </div>
-       
-        <div class="mt-4 mb-2">
-            <h3 class="text-center">Datos Personales.</h3>
-        </div>
-        <div class="card d-flex justify-content-center align-items-center shadow">
-            <div class="row w-75 p-1">
-                <form id="user_data" enctype="multipart/form-data">
-                    <div class="input-group mb-3 mt-2">
-                        <span class="input-group-text">Empresa</span>
-                        <input type="text" class="form-control" id="id_empresa" value="{{ empresa }}">
-                    </div>
-                    <div class="input-group mb-3 mt-2">
-                        <span class="input-group-text">Telefono</span>
-                        <input type="text" class="form-control" id="id_telefono" value="{{ telefono }}">
-                    </div>
-                    <div class="input-group mb-3 mt-2">
-                        <span class="input-group-text">Código Postal</span>
-                        <input type="text" class="form-control" id="id_codigo_postal" value="{{ codigo_postal }}">
-                    </div>
-                    <div class="input-group mb-3 mt-2">
-                        <span class="input-group-text">Estado</span>
-                        <input type="text" class="form-control" id="id_estado" value="{{ estado }}">
-                    </div>
-                    <div class="input-group mb-3 mt-2">
-                        <span class="input-group-text">País</span>
-                        <input type="text" class="form-control" id="id_pais" value="{{ pais }}">
-                    </div>
-                    <div class="input-group mb-3 mt-2">
-                        <input type="file" class="form-control" id="id_imagen">
-                    </div>
-                    <div class="input-group mt-2 mb-2">
-                        <button class="btn btn-register" id="id_update">Guardar Datos</button>
+
+            <div class="p-2 d-flex align-self-star">
+                <form>
+                    <div class="row w-75">
+                        <div class="mb-3">
+                            <input class="form-control" id="id_imagen" type="file">
+                        </div>
+                        <div >
+                            <button class="btn btn-primary w-100" onclick="updatePhoto()" type="button">Actualizar</button>
+                        </div>
                     </div>
                 </form>
             </div>
+           
+
+    </div>
+    <br>
+    <br>
+
+    <div class="card d-flex justify-content-center align-items-center shadow">
+        <div class="row w-75 p-1">
+            <h4 class="text-center fw-normal mt-1">Información Personal.</h4>
+            <form id="id_form">
+                <div class="input-group mb-3 mt-2">
+                    <span class="input-group-text">Empresa</span>
+                    <input type="text" class="form-control" required id="id_empresa" value="{{ empresa }}" />
+                </div>
+                <div class="input-group mb-3 mt-2">
+                    <span class="input-group-text">Telefono</span>
+                    <input type="text" class="form-control" id="id_telefono" value="{{ telefono }}">
+                </div>
+                <div class="input-group mb-3 mt-2">
+                    <span class="input-group-text">Código Postal</span>
+                    <input type="text" class="form-control" required id="id_codigo_postal" value="{{ codigo_postal }}">
+                </div>
+                <div class="input-group mb-3 mt-2">
+                    <span class="input-group-text">Estado</span>
+                    <input type="text" class="form-control" required id="id_estado" value="{{ estado }}">
+                </div>
+                <div class="input-group mb-3 mt-2">
+                    <span class="input-group-text">País</span>
+                    <input type="text" class="form-control" required id="id_pais" value="{{ pais }}">
+                </div>
+                <div class="input-group mt-2 mb-2 ">
+                    <button type="button" class="btn btn-primary w-100" required id="id_update" onclick="updateUser()">Guardar Datos</button>
+                </div>
+            </form>
         </div>
     </div>
+</div>
 
 {% endblock %}
 
 {% block script %}
 
 {% load static %}
-    <script src="{% static 'js/profile.js' %}"></script>
+<script src="{% static 'js/profile.js' %}"></script>
 
 {% endblock %}
+

@@ -52,7 +52,7 @@ class ValidateResultModel(models.Model):
 
 	results = models.CharField(max_length = 255, null = False)
 	# tipodecomprobante
-	voucher_type = models.CharField(max_length = 1, null = False)
+	voucher_type = models.CharField(max_length = 25, null = False)
 	# version
 	version = models.CharField(max_length = 3, null=False)
 	# rfc_emisor
@@ -74,9 +74,9 @@ class ValidateResultModel(models.Model):
 	# estructura
 	estruc = models.CharField(max_length = 255, null = True)
 	# sello
-	stamp = models.BooleanField(null = True)
+	stamp = models.CharField(max_length=25,null = True)
 	#sello_sat
-	stamp_sat = models.BooleanField(null = True)
+	stamp_sat = models.CharField(max_length=25,null = True)
 	# error del ws
 	error_ws = models.TextField(null=True)
 

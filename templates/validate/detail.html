@@ -3,12 +3,11 @@
 <br />
 <br />
 
-<div class="row justify-content-center">
+<div class="row justify-content-center" style="min-height: 100vh;">
   <div class="w-50">
     <div class="d-flex justify-content-end gap-2">
-      <button id="id_send" class="btn btn-primary btn-sm" value="{{ id }}"> 
+      <button id="id_send" class="btn btn-primary btn-sm" value="{{ id }}" type="button" onclick="sendEmail()"> 
         <i class="fa fa-share" aria-hidden="true"></i>
-
         Compartir 
       </button>
       <a
@@ -17,13 +16,12 @@
         >
         <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
         Generar PDF
-        
         </a
       >
     </div>
     <br />
     
-    <div class="card .bg-light">
+    <div class="card bg-light">
       <div class="card-head bg-secondary text-white">
         <h5 class="text-center p-2">Informacion del Comprobante</h5>
       </div>
