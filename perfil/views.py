@@ -1,10 +1,14 @@
-from django.shortcuts import render, HttpResponse, redirect
-from django.views import View
+from django.http import HttpResponseRedirect
 from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
+
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
-from django.conf import settings
-import os
+
+
+from django.urls import reverse
+
 
 
 # Importando modelos
@@ -65,9 +69,23 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
 
 # Vista para mostrar el formulario 
-# de registro de datos.
+@method_decorator(csrf_exempt, name='dispatch')
 class RegisterView(LoginRequiredMixin, TemplateView):
 
     template_name = "profile/form.html"
+
+    def post(self, request, *args, **kwargs):
+        response = {}
+        try:
+            if len(request.POST['rfc']) == 12:
+                print('F')
+
+            response['succes'] = True
+
+        except Exception as ex:
+            print(ex)
+            response['success'] = False
+
+        return JsonResponse(response)
 
     

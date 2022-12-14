@@ -10,8 +10,9 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 
-
-
+from django.core.mail import EmailMessage
+from django.core.mail import SafeMIMEText
+from email.mime.text import MIMEText
 
 # Create your views here.
 class RegistrationView(BaseRegistrationView):
@@ -22,10 +23,9 @@ class RegistrationView(BaseRegistrationView):
         Create the inactive user account and send an email containing
         activation instructions.
         """
-        import pdb; pdb.set_trace()
+        
         new_user = form.save(commit=False)
         new_user.is_active = False
-        new_user.username = form.data['email']
         new_user.save()
 
         self.send_activation_email(new_user)
@@ -56,7 +56,7 @@ class RegistrationView(BaseRegistrationView):
            context=context,
            request=self.request,
        )
-       # user.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
+       user.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
 
        send_mail(
            subject,
@@ -66,6 +66,10 @@ class RegistrationView(BaseRegistrationView):
            html_message=message,
            fail_silently=False,
        )
+       # msj = EmailMessage(subject=subject, from_email=settings.DEFAULT_FROM_EMAIL,to=[user.email],)
+       # msj.attach(MIMEText(message, 'html'))
+       # msj.send()
+
 
 class ActivationView(BaseActivationView):
     pass
