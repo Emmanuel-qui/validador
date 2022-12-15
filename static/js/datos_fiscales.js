@@ -1,10 +1,7 @@
 $(document).ready(function() {
-      
-      
       validate_input();
 
       select_regimen();
-
 });
 
 function validate_input() {
@@ -139,3 +136,33 @@ function select_regimen(){
 
 }
 
+async function save(){
+  const form_data = new FormData();
+
+  const empresa = document.getElementById("empresa");
+  const telefono = document.getElementById("telefono");
+  const rfc = document.getElementById("rfc");
+  const codigo_postal = document.getElementById("postal");
+  const pais = document.getElementById("pais");
+  const estado = document.getElementById("estado");
+  const regimen = document.getElementById("regimen");
+
+  form_data.append("empresa", empresa);
+  form_data.append("telefono", telefono);
+  form_data.append("rfc", rfc);
+  form_data.append("codigo", codigo_postal);
+  form_data.append("pais", pais);
+  form_data.append("estado", estado);
+  form_data.append("regimen", regimen);
+
+
+  try {
+
+    
+  } catch (error) {
+    console.log(error)
+  }
+
+
+
+}

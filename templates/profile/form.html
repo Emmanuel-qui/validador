@@ -36,22 +36,16 @@
                             <span class="form-text">Codigo Postal</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                           <!-- <input type="text" class="form-control" id="pais" name="pais">
-                            <span class="form-text" id="span_pais">País</span> -->
-                                <select name="country" class="countries form-select" id="countryId" required>
-                                    <option value="">Seleccione el país</option>
-                                </select>
+                            <span class="form-text" id="span_pais">País</span>
+                            <section class="form-select" name="pais" id="pais">
+                                <option value="MX">México</option>
+                            </section>
+
+                               
                         </div>
                         <div class="col mb-2 mt-2">
-                            <select name="state" class="states form-select" id="stateId" required>
-                                <option value="">Seleccione un estado</option>
-                            </select>
-                           
-                        <!-- <input type="text" class="form-control" id="estado" name="estado"> 
-                            <span class="form-text" id="label_estado">Estado</span> -->
-
-                  
-                            <select class="form-select" name="estados" aria-label="Estado" id="estados_mexicanos" style="display: none;">
+                       
+                            <select class="form-select" name="estados" id="estados" style="display: none;">
                                 <option selected>Seleccione un estado</option>
                                 <option value="601">Aguascalientes</option>
                                 <option value="601">Baja California</option>
