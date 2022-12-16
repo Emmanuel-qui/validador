@@ -2,23 +2,32 @@ $(document).ready(function() {
       validate_input();
 
       select_regimen();
+
+      // $("#register_form").validate({
+      //   messages: {
+      //     rfc: {
+      //       required: "Please enter a value here..."
+      //     }
+      //   },
+      //   rules: {
+      //     rfc: "required"
+      //   }
+      // })
 });
 
 function validate_input() {
-      // validar nombre de la empresa.
-      $("#empresa").keypress(function(event) {
-          if ((event.charCode < 65 || event.charCode > 90) && (event.charCode < 97 || event.charCode > 122) && (event.charCode != 32)) {
-              return false;
-          }
-      });
+  
       // validar numero de telefono
       $('#telefono').mask('(000) 000-0000');
       // validar rfc
-      $("#rfc").keypress(function(event) {
-          if ((event.charCode < 65 || event.charCode > 90) && (event.charCode < 48 || event.charCode > 57)) {
+      /* $("#rfc").keypress(function(event) {
+
+          // if ((event.charCode < 65 || event.charCode > 90) && (event.charCode < 48 || event.charCode > 57)) {
+          if (event.charCode < 48 || event.charCode > 90) {
+            console.log("false")
               return false;
           }
-      });
+      });*/
       $("#rfc").keyup(function(event) {
           var caracteres = $(this).val().length;
 
@@ -30,7 +39,7 @@ function validate_input() {
 
       // validando Codigo Postal.
       $("#postal").keypress(function(event){
-        if((event.charCode < 65 || event.charCode > 90) && (event.charCode < 97 || event.charCode > 122) && (event.charCode < 48 || event.charCode > 57)){
+        if(event.charCode < 48 || event.charCode > 57){
           return false;
         }
         
@@ -43,51 +52,6 @@ function validate_input() {
           if(caracteres == 5){
             $(this).keypress(function(event){ return false })
           }
-      });
-
-      // validando pais.
-      $("#pais").keypress(function (event){
-        var regex = new RegExp("^[a-zA-Z\u00C0-\u017F\s]+$");
-        var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-        if (!regex.test(key)) {
-          event.preventDefault();
-          return false;
-       }
-
-      });
-
-      $("#pais").keyup(function (event){
-
-          var mx = "México";
-
-          if($(this).val() == mx){
-            $("#label_estado").css("display", "none");
-
-            $("#estado").css("display", "none");
-            
-            $("#estados_mexicanos").css("display","block");
-          }
-
-          if($(this).val() == ""){
-            $("#estado").css("display", "block");
-            $("#label_estado").css("display", "block");
-            $("#estados_mexicanos").css("display","none");
-          }
-      });
-
-      $("#pais").keyup(function (event){
-
-          var regex = new RegExp("^A-Z");
-          var key = String.fromCharCode(!event.charCode ? event.which : event.charCode);
-          if (!regex.test(key)) {
-            
-            $("#span_pais").html("Debe empezar con una letra mayuscula");
-          }
-
-          if($("#pais").val() == "") {
-            $("#span_pais").html("Pais");
-          }
-
       });
 
 }
@@ -136,16 +100,35 @@ function select_regimen(){
 
 }
 
+
+
+
+function getCookie(name) {
+  let cookieValue = null;
+  if (document.cookie && document.cookie !== "") {
+    const cookies = document.cookie.split(";");
+    for (let i = 0; i < cookies.length; i++) {
+      const cookie = cookies[i].trim();
+      //Does this cookie string begin with the name we want?
+      if (cookie.substring(0, name.length + 1) === name + "=") {
+        cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+        break;
+      }
+    }
+  }
+  return cookieValue;
+}
+
 async function save(){
   const form_data = new FormData();
 
-  const empresa = document.getElementById("empresa");
-  const telefono = document.getElementById("telefono");
-  const rfc = document.getElementById("rfc");
-  const codigo_postal = document.getElementById("postal");
-  const pais = document.getElementById("pais");
-  const estado = document.getElementById("estado");
-  const regimen = document.getElementById("regimen");
+  const empresa = document.getElementById("empresa").value;
+  const telefono = document.getElementById("telefono").value;
+  const rfc = document.getElementById("rfc").value;
+  const codigo_postal = document.getElementById("postal").value;
+  const pais = document.getElementById("pais").value;
+  const estado = document.getElementById("estados").value;
+  const regimen = document.getElementById("regimen").value;
 
   form_data.append("empresa", empresa);
   form_data.append("telefono", telefono);
@@ -155,14 +138,96 @@ async function save(){
   form_data.append("estado", estado);
   form_data.append("regimen", regimen);
 
+  const url = "/profile/informacion/";
+
+  const options = {
+    method: "POST",
+    body: form_data,
+    headers: { "X-CSRFToken": getCookie("csrftoken") }
+  }
 
   try {
+
+    const response = fetch(url, options);
+
+    const data = response.json();
+
+    console.log(data);
+
 
     
   } catch (error) {
     console.log(error)
   }
 
-
-
 }
+
+
+const errores = [];
+
+function validate_form(){
+  
+
+  let rfc = document.getElementById("rfc").value.length;
+  let codigo_postal = document.getElementById("postal").value.length;
+  let estado = document.getElementById("estados").value;
+  let pais = document.getElementById("pais").value;
+
+  if(rfc < 12){
+
+    errores.push("El RFC debe contener minimo 12 caracteres.");
+    
+  }
+
+  REGEX_RFC = regex = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
+  if (!document.getElementById("rfc").value.match(REGEX_RFC)) {
+    this.errores.push("El RFC ingresado es un RFC invalido.")
+  }
+
+  if(codigo_postal < 5){
+
+    errores.push('Codigo postal invalido');
+  }
+
+  if(estado == ""){
+    errores.push('Debe selecionar un estado.');
+  }
+
+  if(pais == ""){
+    errores.push("No selecciono un país, debe seleccionar uno");
+  }
+
+
+
+  console.log(errores);
+
+
+  if(errores.length == 0){
+
+    save();
+
+  }else {
+
+    const div = document.getElementById("div_error");
+
+    div.style.display = "block";
+
+
+    for(let i=0; i < errores.length; i++ ){
+        const error = document.createTextNode(errores[i]);
+        const br = document.createElement("br");
+        div.appendChild(error);
+        div.appendChild(br);
+
+    }
+
+    document.querySelector("#register_form").reportValidity();
+
+    div.style.display = "none";
+
+  }
+}
+
+
+
+

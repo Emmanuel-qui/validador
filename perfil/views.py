@@ -1,7 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.http import JsonResponse
-from django.views.decorators.csrf import csrf_exempt
-from django.utils.decorators import method_decorator
+
 
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
@@ -69,7 +68,7 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
 
 # Vista para mostrar el formulario 
-@method_decorator(csrf_exempt, name='dispatch')
+
 class RegisterView(LoginRequiredMixin, TemplateView):
 
     template_name = "profile/form.html"
@@ -77,15 +76,16 @@ class RegisterView(LoginRequiredMixin, TemplateView):
     def post(self, request, *args, **kwargs):
         response = {}
         try:
-            if len(request.POST['rfc']) == 12:
-                print('F')
-
-            response['succes'] = True
+            
+            print(request.POST.get('rfc'))
+            response['success'] = True
 
         except Exception as ex:
             print(ex)
             response['success'] = False
 
+        
+        
         return JsonResponse(response)
 
     

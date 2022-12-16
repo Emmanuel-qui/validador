@@ -11,6 +11,9 @@
 	<br>
     <br>
     <div class="w-75 p-5" style="margin: 0 auto;">
+        <div id="div_error" class="mt-2 mb-2 alert alert-danger" role="alert" style="display: none;">
+           
+        </div>
         <div class="card shadow p-3 mb-5 bg-body rounded">
             <div class="card-head rounded" style="background-color: #7b211f;">
                 <h5 class="card-title text-center p-3 text-white">Registre su información</h5>
@@ -20,15 +23,15 @@
                     <form id="register_form">
                     <div class="row row-cols-3">
                         <div class="col mb-2 mt-2">
-                            <input type="text" class="form-control" id="empresa" name="empresa" required>
+                            <input type="text" class="form-control" id="empresa" name="empresa" required />
                             <span class="form-text">Empresa</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            <input type="text" class="form-control" id="telefono" name="telefono" required>
+                            <input type="text" class="form-control" id="telefono" name="telefono" required />
                             <span class="form-text">Telefono</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            <input type="text" class="form-control" id="rfc" name="rfc" required>
+                            <input type="text" class="form-control" id="rfc" name="rfc" required />
                             <span class="form-text">RFC</span>
                         </div>
                         <div class="col mb-2 mt-2">
@@ -36,49 +39,50 @@
                             <span class="form-text">Codigo Postal</span>
                         </div>
                         <div class="col mb-2 mt-2">
-                            <span class="form-text" id="span_pais">País</span>
-                            <section class="form-select" name="pais" id="pais">
+                            
+                            <select class="form-select" name="pais" id="pais" required >
+                                <option value="">Seleccione el pais</option>
                                 <option value="MX">México</option>
-                            </section>
+                            </select>
 
                                
                         </div>
                         <div class="col mb-2 mt-2">
                        
-                            <select class="form-select" name="estados" id="estados" style="display: none;">
-                                <option selected>Seleccione un estado</option>
-                                <option value="601">Aguascalientes</option>
-                                <option value="601">Baja California</option>
-                                <option value="601">Baja California Sur</option>
-                                <option value="601">Campeche</option>
-                                <option value="601">Chiapas</option>
-                                <option value="601">Chihuahua</option>
-                                <option value="601">Ciudad de México</option>
-                                <option value="601">Coahuila de Zaragoza</option>
-                                <option value="601">Colima</option>
-                                <option value="601">Durango</option>
-                                <option value="601">Guanajuato</option>
-                                <option value="601">Guerrero</option>
-                                <option value="601">Hidalgo</option>
-                                <option value="601">Jalisco</option>
-                                <option value="601">Estado de México</option>
-                                <option value="601">Michoacán de Ocampo</option>
-                                <option value="601">Morelos</option>
-                                <option value="601">Nayarit</option>
-                                <option value="601">Nuevo León</option>
-                                <option value="601">Oaxaca</option>
-                                <option value="601">Puebla</option>
-                                <option value="601">Querétaro</option>
-                                <option value="601">Quintana Roo</option>
-                                <option value="601">San Luis Potosí</option>
-                                <option value="601">Sinaloa</option>
-                                <option value="601">Sonora</option>
-                                <option value="601">Tabasco</option>
-                                <option value="601">Tamaulipas</option>
-                                <option value="601">Tlaxcala</option>
-                                <option value="601">Veracruz de Ignacio de la Llave</option>
-                                <option value="601">Yucatán</option>
-                                <option value="601">Zacatecas</option>
+                            <select class="form-select" name="estados" id="estados" required >
+                                <option value="">Seleccione un estado</option>
+                                <option value="AGS">Aguascalientes</option>
+                                <option value="BC">Baja California</option>
+                                <option value="BCS">Baja California Sur</option>
+                                <option value="CAMP">Campeche</option>
+                                <option value="CHIS">Chiapas</option>
+                                <option value="CHIH">Chihuahua</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="COAH">Coahuila de Zaragoza</option>
+                                <option value="COL">Colima</option>
+                                <option value="DGO">Durango</option>
+                                <option value="GTO">Guanajuato</option>
+                                <option value="GRO">Guerrero</option>
+                                <option value="HGO">Hidalgo</option>
+                                <option value="JAL">Jalisco</option>
+                                <option value="MEX">Estado de México</option>
+                                <option value="MICH">Michoacán de Ocampo</option>
+                                <option value="MOR">Morelos</option>
+                                <option value="NAY">Nayarit</option>
+                                <option value="NL">Nuevo León</option>
+                                <option value="OAX">Oaxaca</option>
+                                <option value="PUE">Puebla</option>
+                                <option value="QRO">Querétaro</option>
+                                <option value="QR">Quintana Roo</option>
+                                <option value="SLP">San Luis Potosí</option>
+                                <option value="SIN">Sinaloa</option>
+                                <option value="SON">Sonora</option>
+                                <option value="TAB">Tabasco</option>
+                                <option value="TAMS">Tamaulipas</option>
+                                <option value="TLAX">Tlaxcala</option>
+                                <option value="VER">Veracruz</option>
+                                <option value="YUC">Yucatán</option>
+                                <option value="ZAC">Zacatecas</option>
                             </select>
                               
                         </div>
@@ -89,15 +93,12 @@
                         
                         <div class="col mb-2 mt-3">
                             <span class="form-text">Regimen Fiscal</span>
-                            <select class="form-select form-select-sm"  id="regimen" required>
-                                <option selected>Seleccione el regimen fiscal</option>
+                            <select class="form-select form-select-sm"  id="regimen" required >
+                                <option value="">Seleccione el regimen fiscal</option>
                                 <option value="605">Sueldos y Salarios e Ingresos Asimilados a Salarios</option>
                                 <option value="606">Arrendamiento</option>
                                 <option value="607">Régimen de Enajenación o Adquisición de Bienes</option>
-                                <option value="608">Demás ingresos</option>
-                                <option value="610">Residentes en el Extranjero sin Establecimiento Permanente en México</option>
-                                <option value="611">Ingresos por Dividendos (socios y accionistas)</option>
-                                <option value="612">Personas Físicas con Actividades Empresariales y Profesionales</option>
+                                <option vaValida value="612">Personas Físicas con Actividades Empresariales y Profesionales</option>
                                 <option value="614">Ingresos por intereses</option>
                                 <option value="615">Régimen de los ingresos por obtención de premios</option>
                                 <option value="616">Sin obligaciones fiscales</option>
@@ -108,7 +109,7 @@
                         </div> 
                     </div>
                     <div class="mt-5">
-                        <button id="save_form" type="submit" class="btn btn-register w-50">Guardar Datos</button>
+                        <button id="save_form" type="button" onclick="validate_form()" class="btn btn-register w-50">Guardar Datos</button>
                     </div>
                     </form>
                 </div>
@@ -116,13 +117,16 @@
         </div>
     </div>
 
-    {% block script %}
 
-
-        {% load static %}
-
-        <script src="{% static 'js/datos_fiscales.js' %}"></script>
-
-    {% endblock %}
 
 {% endblock %}
+
+
+{% block script %}
+
+{% load static %}
+    <script src="{% static 'js/datos_fiscales.js' %}"></script>
+
+{% endblock %}
+
+

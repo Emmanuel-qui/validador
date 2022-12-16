@@ -18,9 +18,13 @@ from django.urls import include,path
 from django.conf import settings
 from django.conf.urls.static import static
 
+from accounts.views import CustomLoginView
+
+
 
 urlpatterns = [
-    path('accounts/', include('django.contrib.auth.urls')),
+    path('', CustomLoginView.as_view(), name="login"),
+    path('accounts/', include('accounts.urls')),
     path('register/', include('register.urls')),
     path('validate/', include('validate.urls')),
     path('profile/', include('perfil.urls')),

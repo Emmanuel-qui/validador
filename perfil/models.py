@@ -32,6 +32,42 @@ class AccountModel(models.Model):
 					('626','Régimen Simplificado de Confianza'),
 					]
 
+	pais = [('MX','México')]
+
+	estados =[('AGS','Aguascalientes'),
+              ('BC','Baja California'),
+              ('BCS','Baja California Sur'),
+              ('CAMP','Campeche'),
+              ('COAH','Coahuila de Zaragoza'),
+              ('COL','Colima'),
+              ('CHIS','Chiapas'),
+              ('CHIH','Chihuahua'),
+              ('DF','Distrito Federal'),
+              ('DGO','Durango'),
+              ('GTO','Guanajuato'),
+              ('GRO','Guerrero'),
+              ('HGO','Hidalgo'),
+              ('JAL','Jalisco'),
+              ('MEX','Estado de México'),
+              ('MICH','Michoacán'),
+              ('MOR','Morelos'),
+              ('NAY','Nayarit'),
+              ('NL','Nuevo León'),
+              ('OAX','Oaxaca'),
+              ('PUE','Puebla'),
+              ('QRO','Querétaro'),
+              ('QR','Quintana Roo'),
+              ('SLP','San Luis Potosí'),
+              ('SIN','Sinaloa'),
+              ('SON','Sonora'),
+              ('TAB','Tabasco'),
+              ('TAMS','Tamaulipas'),
+              ('TLAX','Tlaxcala'),
+              ('VER','Veracruz'),
+              ('YUC','Yucatán'),
+              ('ZAC','Zacatecas'),
+	]
+
 	# relacion con el modelo usuario.
 	user = models.OneToOneField(User, on_delete=models.CASCADE)
 
@@ -44,10 +80,10 @@ class AccountModel(models.Model):
 	telephone = models.CharField(max_length=255)
 
 	# pais
-	country = models.CharField(max_length=255)
+	country = models.CharField(max_length=10, choices=pais)
 
 	# estado
-	state = models.CharField(max_length=255)
+	state = models.CharField(max_length=10, choices=estados)
 
 	# codigo postal
 	postal_code = models.CharField(max_length=255)
