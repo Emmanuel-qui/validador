@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<stampResponse xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <stampResult xmlns="http://facturacion.finkok.com/stamp">
+    <xml xmlns="apps.services.soap.core.views" />
+    <UUID xsi:nil="true" xmlns="apps.services.soap.core.views" />
+    <faultstring xsi:nil="true" xmlns="apps.services.soap.core.views" />
+    <Fecha xsi:nil="true" xmlns="apps.services.soap.core.views" />
+    <CodEstatus xsi:nil="true" xmlns="apps.services.soap.core.views" />
+    <faultcode xsi:nil="true" xmlns="apps.services.soap.core.views" />
+    <SatSeal xsi:nil="true" xmlns="apps.services.soap.core.views" />
+    <Incidencias xmlns="apps.services.soap.core.views">
+      <Incidencia>
+        <IdIncidencia>54b29f99-2492-496d-a255-f8238c122cd4</IdIncidencia>
+        <RfcEmisor />
+        <Uuid />
+        <CodigoError>CFDI33195</CodigoError>
+        <WorkProcessId>F3EA8ACB-9DD7-588B-9D2E-56D1F3D1057F</WorkProcessId>
+        <MensajeIncidencia>El campo Importe correspondiente a Traslado no es igual a la suma de los importes de los impuestos trasladados registrados en los conceptos donde el impuesto del concepto sea igual al campo impuesto de este elemento y la TasaOCuota del concepto sea igual al campo TasaOCuota de este elemento.</MensajeIncidencia>
+        <ExtraInfo />
+        <NoCertificadoPac>00001000000504204441</NoCertificadoPac>
+        <FechaRegistro>2022-10-31T11:00:03</FechaRegistro>
+      </Incidencia>
+    </Incidencias>
+    <NoCertificadoSAT xsi:nil="true" xmlns="apps.services.soap.core.views" />
+  </stampResult>
+</stampResponse>

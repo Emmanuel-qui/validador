@@ -17,10 +17,13 @@ from django.contrib import admin
 from django.urls import include,path
 from django.conf import settings
 from django.conf.urls.static import static
-from django.contrib.auth import views as auth_views
+
+from accounts.views import CustomLoginView
+
+
 
 urlpatterns = [
-    path('', auth_views.LoginView.as_view()),
+    path('', CustomLoginView.as_view(), name="login"),
     path('accounts/', include('accounts.urls')),
     path('register/', include('register.urls')),
     path('validate/', include('validate.urls')),

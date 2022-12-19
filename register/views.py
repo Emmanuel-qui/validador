@@ -1,6 +1,7 @@
 
 from django.shortcuts import render
 from django.http import JsonResponse
+from django.contrib.auth import get_user_model
 from django_registration.backends.activation.views import ActivationView as BaseActivationView
 from django_registration.backends.activation.views import RegistrationView as BaseRegistrationView
 from django.template.loader import render_to_string
@@ -9,15 +10,31 @@ from django.core.mail import send_mail
 from django.conf import settings
 
 
-
-
+from django.core.mail import EmailMessage
+from django.core.mail import SafeMIMEText
+from email.mime.text import MIMEText
 
 # Create your views here.
 class RegistrationView(BaseRegistrationView):
 
+     
+    def create_inactive_user(self, form):
+        """
+        Create the inactive user account and send an email containing
+        activation instructions.
+        """
+        
+        new_user = form.save(commit=False)
+        new_user.is_active = False
+        new_user.save()
+
+        self.send_activation_email(new_user)
+
+        return new_user
+
     
 
-    def send_activation_email(self, user):
+    def send_activation_email(self,user):
        """
        Send the activation email. The activation key is the username,
        signed using TimestampSigner.
@@ -39,7 +56,7 @@ class RegistrationView(BaseRegistrationView):
            context=context,
            request=self.request,
        )
-       # user.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
+       user.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
 
        send_mail(
            subject,
@@ -49,6 +66,10 @@ class RegistrationView(BaseRegistrationView):
            html_message=message,
            fail_silently=False,
        )
+       # msj = EmailMessage(subject=subject, from_email=settings.DEFAULT_FROM_EMAIL,to=[user.email],)
+       # msj.attach(MIMEText(message, 'html'))
+       # msj.send()
+
 
 class ActivationView(BaseActivationView):
     pass

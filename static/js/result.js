@@ -24,7 +24,7 @@ $(document).ready(function () {
     },
     searching: false,
     ajax: {
-      url: "http://127.0.0.1:8000/validate/validateresult/",
+      url: "http://127.0.0.1:8000/validate/result/",
       type: "POST",
       data: (d) => {
         d.csrfmiddlewaretoken = csrftoken;

@@ -1,5 +1,4 @@
 // Funcion para obtener el token
-
 function getCookie(name) {
   let cookieValue = null;
   if (document.cookie && document.cookie !== "") {
@@ -17,57 +16,71 @@ function getCookie(name) {
 }
 const csrftoken = getCookie("csrftoken");
 
-const enviar = document.getElementById("form_button");
 
-function send() {
-  // seleccionamos los elementos de la tabla.
+
+async function send() {
+
   const td_estruc = document.getElementById("td_estruc");
   const td_sello = document.getElementById("td_sello");
   const td_sesat = document.getElementById("td_sesat");
   const td_error = document.getElementById("td_error");
 
   const contenedor_tabla = document.getElementById("content_response");
-
-  // Asignamos la url que va a realizar el proceso.
-  const url = "http://127.0.0.1:8000/validate/";
-  // Obtenemos el archivo enviado
-  let input_file = document.getElementById("file");
-  // Obtenemos los valores del formulario
-  const form = new FormData();
+  
+  const input_file = document.getElementById("id_file");  
 
   const file = input_file.files[0].name;
 
-  let ext = file.split(".").pop();
+  const ext = file.split(".").pop();
 
-  if (ext == "xml") {
-    form.append("file", input_file.files[0]);
-    // Utilizamos fecth para enviar el documento a nuestra vista en Django.
-    fetch(url, {
-      method: "POST",
-      body: form,
-      headers: { "X-CSRFToken": csrftoken },
-      mode: "same-origin",
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        
-        td_estruc.innerText = data.response.Estructura;
-        td_sello.innerText = data.response.Sello;
-        td_sesat.innerText = data.response.Sello_Sat;
-        td_error.innerText = data.response.Error;
-        if(data.success){
-          contenedor_tabla.style.display = "block";
-          document.getElementById("validate_formulario").reset();
+    if (ext == "xml") {
+
+      const form = new FormData();
+      form.append("file", input_file.files[0]);
+    
+
+      try {
+
+        const url = "/validate/";
+          
+        const options = {
+          method: "POST",
+          body: form,
+          headers: { "X-CSRFToken": csrftoken },
+          mode: "same-origin",
         }
+
+        const response = await fetch(url, options);
+
+        const data = await response.json();
+
+        console.log(data.success);
+        if(data.success){
+
+            td_estruc.innerText = data.Estructura;
+            td_sello.innerText = data.Sello;
+            td_sesat.innerText = data.Sello_Sat;
+            td_error.innerText = data.Error;
+            contenedor_tabla.style.display = "block";
+            document.getElementById("validate_formulario").reset();
+            
+        }else{
+            
+            alert(data.msj)
+            document.getElementById("validate_formulario").reset();
+        }
+
+      } catch (error) {
         
-      })
-      .catch((error) => {
-        console.error("Error:", error);
-      });
+        console.error(error);
+
+      }
+      
   } else {
     alert("El archivo seleccionado, no es un archivo XML");
     input_file.value = "";
   }
+
 }
 
-enviar.addEventListener("click", send);
+

@@ -1,21 +1,29 @@
 
-const enlace = document.getElementById("id_send");
+async function sendEmail(){
+    const send = document.getElementById("id_send");
+    const url = "/validate/send/"+send.value+"";
+    try {
+
+      const response = await fetch(url);
+
+      const { success } = await response.json();
+
+      if(success){
+
+        alert('Correo enviado, con exito.');
+      }else {
+
+        alert('Hubo un problema.');
+      }
+
+      
+    } catch (error) {
+      
+      console.log(error);
+    }
 
 
-function email(){
-    const id = enlace.value;
-    const url = "http://127.0.0.1:8000/validate/send/"+id+"";
-    fetch(url, {
-        method: "GET",
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          alert(data.msj);
-        })
-        .catch((error) => {
-          console.error("Error:", error);
-        });
 }
 
 
-enlace.addEventListener("click", email);
+
