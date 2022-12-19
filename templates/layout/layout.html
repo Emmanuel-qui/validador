@@ -60,7 +60,7 @@
       </div>
       <div class="logo-imagen">
         <div>
-        <img src="{% static 'img/img-quadrum.jpeg' %}" alt="logo">
+        <img src="{{ request.user.accountmodel.image_profile.url }}" alt="logo">
         </div>
         <span class="mt-1">{{ request.user.email }} </span>
         

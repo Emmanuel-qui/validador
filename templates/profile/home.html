@@ -1,21 +1,19 @@
-{% extends 'layout/layout.html' %}
+{% extends 'layout/base_from.html' %}
+
+{% block head %}
+   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js"></script> 
+
+{% endblock %}
 
 {% block content %}
 <div class="contenedor-perfil">
     <div class="card d-flex flex-row justify-content-around shadow">
         
             <div class="p-2">
-
-                
-                {% load static %}
-
-                {% if not imagen %}
-                <img class="imagen-redonda" src="{% static 'img/img-quadrum.jpeg' %}" alt="logo">
-                {% else %}
                 <img class="imagen-redonda" src="{{ imagen }}" alt="perfil">
-                {% endif %}
                 <h6 class="text-center fw-normal mt-2">Foto de Perfil</h6>
-
             </div>
 
             <div class="p-2 d-flex align-self-star">
@@ -54,7 +52,40 @@
                 </div>
                 <div class="input-group mb-3 mt-2">
                     <span class="input-group-text">Estado</span>
-                    <input type="text" class="form-control" required id="id_estado" value="{{ estado }}">
+                    <select class="form-select" name="estado" id="id_estado" required >
+                        <option value="AGS">Aguascalientes</option>
+                                <option value="BC">Baja California</option>
+                                <option value="BCS">Baja California Sur</option> 
+                                <option value="CAMP">Campeche</option>
+                                <option value="COAH">Coahuila de Zaragoza</option>
+                                <option value="COL">Colima</option>
+                                <option value="CHIS">Chiapas</option>
+                                <option value="CHIH">Chihuahua</option>
+                                <option value="DF">Distrito Federal</option>
+                                <option value="DGO">Durango</option>
+                                <option value="GTO">Guanajuato</option>
+                                <option value="GRO">Guerrero</option>
+                                <option value="HGO">Hidalgo</option>
+                                <option value="JAL">Jalisco</option>
+                                <option value="MEX">Estado de México</option>
+                                <option value="MICH">Michoacán de Ocampo</option>
+                                <option value="MOR">Morelos</option>
+                                <option value="NAY">Nayarit</option>
+                                <option value="NL">Nuevo León</option>
+                                <option value="OAX">Oaxaca</option>
+                                <option value="PUE">Puebla</option>
+                                <option value="QRO">Querétaro</option>
+                                <option value="QR">Quintana Roo</option>
+                                <option value="SLP">San Luis Potosí</option>
+                                <option value="SIN">Sinaloa</option>
+                                <option value="SON">Sonora</option>
+                                <option value="TAB">Tabasco</option>
+                                <option value="TAMS">Tamaulipas</option>
+                                <option value="TLAX">Tlaxcala</option>
+                                <option value="VER">Veracruz</option>
+                                <option value="YUC">Yucatán</option>
+                                <option value="ZAC">Zacatecas</option>
+                    </select>
                 </div>
                 <div class="input-group mb-3 mt-2">
                     <span class="input-group-text">País</span>
@@ -68,12 +99,13 @@
     </div>
 </div>
 
+
 {% endblock %}
 
 {% block script %}
 
-{% load static %}
-<script src="{% static 'js/profile.js' %}"></script>
+    {% load static %}
+    <script src="{% static 'js/profile.js' %}"></script>
 
 {% endblock %}
 

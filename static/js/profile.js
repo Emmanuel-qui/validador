@@ -1,3 +1,34 @@
+window.onload = () => {
+  console.log('Cargando')
+  getState()
+  validate_input()
+}
+
+function validate_input() {
+  
+  // validar numero de telefono
+  $('#id_telefono').mask('(000) 000-0000');
+
+  // validando Codigo Postal.
+  $("#id_codigo_postal").keypress(function(event){
+    if(event.charCode < 48 || event.charCode > 57){
+      return false;
+    }
+    
+  });
+
+  $("#id_codigo_postal").keyup(function(event){
+
+      var caracteres = $(this).val().length;
+
+      if(caracteres == 5){
+        $(this).keypress(function(event){ return false })
+      }
+  });
+
+}
+
+
 
 function getCookie(name) {
   let cookieValue = null;
@@ -13,6 +44,38 @@ function getCookie(name) {
     }
   }
   return cookieValue;
+}
+
+async function getState(){
+  const estados = ['AGS','BC','BCS','CAMP','COAH','COL','CHIS','CHIH','DF','DGO','GTO','GRO','HGO','JAL','MEX','MICH','MOR',
+  'NAY','NL','OAX','PUE','QRO','QR','SLP','SIN','SON','TAB','TAMS','TLAX','VER','YUC','ZAC']
+
+  let position = 0;
+
+  try {
+
+    const response = await fetch("/profile/data/");
+
+    const {estado} = await response.json() 
+    
+    console.log(estado)
+
+    for(let i=0; i<=estados.length; i++){
+      if(estados[i]==estado){
+        console.log(i)
+        position = i
+      }
+    }
+
+    const select = document.getElementById("id_estado").options[position];
+    select.setAttribute("selected","selected");
+    
+  } catch (error) {
+    console.log(error)
+  }
+  
+
+
 }
 
 async function updatePhoto() {
@@ -73,6 +136,7 @@ async function updatePhoto() {
 }
 
 async function updateUser() {
+ 
 
   const url = "/profile/";
 

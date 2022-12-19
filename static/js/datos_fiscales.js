@@ -2,32 +2,13 @@ $(document).ready(function() {
       validate_input();
 
       select_regimen();
-
-      // $("#register_form").validate({
-      //   messages: {
-      //     rfc: {
-      //       required: "Please enter a value here..."
-      //     }
-      //   },
-      //   rules: {
-      //     rfc: "required"
-      //   }
-      // })
 });
 
 function validate_input() {
   
       // validar numero de telefono
       $('#telefono').mask('(000) 000-0000');
-      // validar rfc
-      /* $("#rfc").keypress(function(event) {
 
-          // if ((event.charCode < 65 || event.charCode > 90) && (event.charCode < 48 || event.charCode > 57)) {
-          if (event.charCode < 48 || event.charCode > 90) {
-            console.log("false")
-              return false;
-          }
-      });*/
       $("#rfc").keyup(function(event) {
           var caracteres = $(this).val().length;
 
@@ -150,11 +131,11 @@ async function save(){
 
     const response = fetch(url, options);
 
-    const data = response.json();
+    const {success} = response.json();
 
-    console.log(data);
-
-
+    if(success){
+      alert('Datos almecenados correctamente')
+    }
     
   } catch (error) {
     console.log(error)
@@ -163,41 +144,25 @@ async function save(){
 }
 
 
-const errores = [];
+
 
 function validate_form(){
   
-
+  const errores = [];
   let rfc = document.getElementById("rfc").value.length;
-  let codigo_postal = document.getElementById("postal").value.length;
+  let codigo_postal = document.getElementById("postal").value;
   let estado = document.getElementById("estados").value;
   let pais = document.getElementById("pais").value;
 
-  if(rfc < 12){
-
-    errores.push("El RFC debe contener minimo 12 caracteres.");
-    
-  }
-
   REGEX_RFC = regex = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
   if (!document.getElementById("rfc").value.match(REGEX_RFC)) {
-    this.errores.push("El RFC ingresado es un RFC invalido.")
+    errores.push("El RFC ingresado es un RFC invalido.")
   }
 
-  if(codigo_postal < 5){
-
+  let expresion_rfc = new RegExp("[0-9]{5}") 
+  if(!expresion_rfc.test(codigo_postal)){
     errores.push('Codigo postal invalido');
   }
-
-  if(estado == ""){
-    errores.push('Debe selecionar un estado.');
-  }
-
-  if(pais == ""){
-    errores.push("No selecciono un país, debe seleccionar uno");
-  }
-
-
 
   console.log(errores);
 
@@ -212,7 +177,6 @@ function validate_form(){
 
     div.style.display = "block";
 
-
     for(let i=0; i < errores.length; i++ ){
         const error = document.createTextNode(errores[i]);
         const br = document.createElement("br");
@@ -222,8 +186,6 @@ function validate_form(){
     }
 
     document.querySelector("#register_form").reportValidity();
-
-    div.style.display = "none";
 
   }
 }

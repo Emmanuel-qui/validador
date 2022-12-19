@@ -27,7 +27,7 @@ async function send() {
 
   const contenedor_tabla = document.getElementById("content_response");
   
-  const input_file = document.getElementById("file");  
+  const input_file = document.getElementById("id_file");  
 
   const file = input_file.files[0].name;
 
@@ -52,8 +52,9 @@ async function send() {
 
         const response = await fetch(url, options);
 
-        const { success } = response.json();
+        const data = await response.json();
 
+        console.log(data.success);
         if(data.success){
 
             td_estruc.innerText = data.Estructura;
@@ -63,23 +64,19 @@ async function send() {
             contenedor_tabla.style.display = "block";
             document.getElementById("validate_formulario").reset();
             
-        }
-
-        if(data.success == false){
+        }else{
+            
             alert(data.msj)
             document.getElementById("validate_formulario").reset();
         }
 
-
-
       } catch (error) {
         
-          console.error(error);
+        console.error(error);
 
       }
       
   } else {
-
     alert("El archivo seleccionado, no es un archivo XML");
     input_file.value = "";
   }

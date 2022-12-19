@@ -1,19 +1,18 @@
 # Importanciones Django.
-from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import JsonResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import FormView
+from django.views.generic.base import View
 
-
-from email.header import Header
-from django.http import HttpResponseRedirect
-from django.shortcuts import render, HttpResponse
-from django.views import View
-# importando libreria para responder en formato json.
 
 # importando formulario para documentos
 from .forms import FileForm
-# importamos la clase Validate
+
+# importamos clases de app Validate
 from .utils import Validate
+from .generate_pdf import PDF
+
 # Importamos el modelo
 from .models import ValidateResultModel
 
@@ -22,12 +21,10 @@ from django.core.mail import send_mail
 from django.core.mail import EmailMessage
 from django.core.mail import SafeMIMEText
 from django.core.files.base import ContentFile
-from django.conf import settings
 
-#from perfil.models import AccountModel
-from django.contrib.auth.models import User
 
-from validate.generate_pdf import PDF
+
+
 
 
 
@@ -46,28 +43,31 @@ from email.mime.application import MIMEApplication
 from django.template.loader import render_to_string
 from django.contrib import staticfiles
 
-# Mostrando de seccion de carga de CFDI (carga template).
 
 
-class IndexView(LoginRequiredMixin, View):
+# Vista principal validate
+class IndexView(LoginRequiredMixin, FormView):
+    
+    template_name = 'validate/index.html'
+    form_class = FileForm
 
-    def get(self, request):
-
-        # Obtenemos el formulario creado y lo mandamos a la vista.
-        form = FileForm()
-        return render(request, 'validate/index.html', {'form': form})
-
-    def post(self, request):
-        # Obtenemos el documento enviado
-        form = FileForm(request.POST, request.FILES)
-        if form.is_valid():
-            m = form.save()
+    def post(self, request, *args, **kwargs):
+        try:
+            form = FileForm(request.POST, request.FILES)
+            if form.is_valid():
+                m = form.save()
             # Obtenemos el file del request y lo amacenamos
-            xml_file = m.file
+                xml_file = m.file
             # mandamos el xml como parametro a la clase Validate para hacer el proceso de validacion.
-            validate = Validate(xml_file)
-
-            return JsonResponse(validate.response)
+                validate = Validate(xml_file)
+                print(validate.response)
+                
+        except Exception as ex:
+            print(ex)
+        # Obtenemos el documento enviado
+        return JsonResponse(validate.response)
+        
+        
 
 
 # Vista de Resultado.
@@ -170,7 +170,6 @@ class GeneratePdf(View):
 
 
 # Vista para el envio de Email
-
 class UserEmail(View):
 
     def get(self, request, *args, **kwargs):

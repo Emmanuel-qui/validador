@@ -95,4 +95,4 @@ class AccountModel(models.Model):
 	person_type = models.CharField(max_length=1,choices=tipo_persona_choices)
 
 	# imagen 
-	image_profile = models.ImageField(upload_to='image/', default='/media/image/img-quadrum.jpeg', null=True, blank=True)
+	image_profile = models.ImageField(upload_to='image/', default='image/img-quadrum.jpeg', null=True, blank=True)

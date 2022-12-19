@@ -51,18 +51,15 @@ class Validate:
     
         try:
             self.xml_etree = etree.fromstring(self.xml_string, settings.INVOICE_XSD_PARSER)
-
             bandera = True
             self.message = 'Estructura Valida'
-
         except Exception as e:
             self.message = 'Estructura Invalida'
-
             print('Error')
             print(e)
             self.response['msj'] = str(e)
         
-
+        
         return bandera
             
     # funcion de validacion del ws de finkok
