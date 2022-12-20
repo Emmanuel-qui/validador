@@ -28,16 +28,18 @@ class Validate:
         self.start()
 
     def start(self):
-        if self.validate_xsd():
-            self.response['success'] = True
-            print(self.validate_xsd())
-            self.validate_ws()
+        self.validate_ws()
+        # self.save_invoice()
+        # if self.validate_xsd():
+        #     self.response['success'] = True
+        #     print(self.validate_xsd())
+        #     self.validate_ws()
 
-            if self.validate_ws():
-                self.save_invoice()
+        #     if self.validate_ws():
+        #         self.save_invoice()
 
-        else:
-            self.response['success'] = False
+        # else:
+        #     self.response['success'] = False
 
   
             
@@ -92,6 +94,7 @@ class Validate:
                 self.response['Error'] = error
                 self.estruc = True
             bandera = True
+            print(self.response)
 
         except Exception as e:
             print(e)

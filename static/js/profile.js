@@ -182,3 +182,25 @@ async function updateUser() {
 
 }
 
+
+function validate_form(){
+
+  const empresa = document.getElementById("id_empresa").value;
+  const telefono = document.getElementById("id_telefono").value;
+  const codigo_postal = document.getElementById("id_codigo_postal").value;
+  const pais = document.getElementById("id_pais").value;
+  const estado = document.getElementById("id_estado").value;
+  let expresion_rfc = new RegExp("[0-9]{5}") 
+
+  if(empresa=="" || telefono=="" || codigo_postal==""){
+    alert("Ningun campo debe estar vació, verfique los campos")
+  }else if(!expresion_rfc.test(codigo_postal)){
+    alert("El codigo postal es invalido")
+
+  }else{
+    
+    updateUser();
+  }
+  
+
+}

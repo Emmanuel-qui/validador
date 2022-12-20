@@ -187,6 +187,6 @@ PASSWORD = 'Joseemmanuel_1223'
 URL_WS = 'https://demo-facturacion.finkok.com/servicios/soap/validation.wsdl'
 
 
-#SESSION_COOKIE_AGE = 5*60
+SESSION_COOKIE_AGE = 5*60
 
 

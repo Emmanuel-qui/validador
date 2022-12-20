@@ -64,7 +64,8 @@ class IndexView(LoginRequiredMixin, FormView):
                 
         except Exception as ex:
             print(ex)
-        # Obtenemos el documento enviado
+
+
         return JsonResponse(validate.response)
         
         

@@ -129,12 +129,13 @@ async function save(){
 
   try {
 
-    const response = fetch(url, options);
+    const response = await fetch(url, options);
 
-    const {success} = response.json();
+    const {success} = await response.json();
 
     if(success){
       alert('Datos almecenados correctamente')
+      window.location.href = "/validate/"
     }
     
   } catch (error) {
@@ -149,14 +150,14 @@ async function save(){
 function validate_form(){
   
   const errores = [];
-  let rfc = document.getElementById("rfc").value.length;
   let codigo_postal = document.getElementById("postal").value;
-  let estado = document.getElementById("estados").value;
-  let pais = document.getElementById("pais").value;
+  
+  const sp_rfc = document.getElementById("span_rfc");
+
 
   REGEX_RFC = regex = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
   if (!document.getElementById("rfc").value.match(REGEX_RFC)) {
-    errores.push("El RFC ingresado es un RFC invalido.")
+    errores.push("El RFC ingresado es un RFC invalido.");
   }
 
   let expresion_rfc = new RegExp("[0-9]{5}") 
@@ -168,14 +169,20 @@ function validate_form(){
 
 
   if(errores.length == 0){
+    const div = document.getElementById("div_error");
+
+    div.style.display = "none";
 
     save();
 
   }else {
 
+    sp_rfc.innerText = "RFC invalido"
+
     const div = document.getElementById("div_error");
 
     div.style.display = "block";
+    div.textContent = "";
 
     for(let i=0; i < errores.length; i++ ){
         const error = document.createTextNode(errores[i]);
@@ -184,6 +191,7 @@ function validate_form(){
         div.appendChild(br);
 
     }
+
 
     document.querySelector("#register_form").reportValidity();
 

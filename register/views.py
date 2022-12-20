@@ -56,7 +56,7 @@ class RegistrationView(BaseRegistrationView):
            context=context,
            request=self.request,
        )
-       user.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
+       #user.email_user(subject, message, settings.DEFAULT_FROM_EMAIL)
 
        send_mail(
            subject,
