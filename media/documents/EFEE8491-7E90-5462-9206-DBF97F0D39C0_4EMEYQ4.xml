@@ -1,0 +1,56 @@
+<s:envelope xmlns:s="http://schemas.xmlsoap.org/soap/envelope/">
+    <s:body xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+        <cancelacfdresponse xmlns="http://cancelacfd.sat.gob.mx">
+            <cancelacfdresult fecha="2022-11-22T12:13:24" rfcemisor="EKU9003173C9">
+                <folios>
+                    <uuid>
+                        EFEE8491-7E90-5462-9206-DBF97F0D39C0
+                    </uuid>
+                    <estatusuuid>
+                        201
+                    </estatusuuid>
+                </folios>
+                <signature id="SelloSAT" xmlns="http://www.w3.org/2000/09/xmldsig#">
+                    <signedinfo>
+                        <canonicalizationmethod algorithm="http://www.w3.org/TR/2001/REC-xml-c14n-20010315">
+                        </canonicalizationmethod>
+                        <signaturemethod algorithm="http://www.w3.org/2001/04/xmldsig-more#hmac-sha512">
+                        </signaturemethod>
+                        <reference uri="">
+                            <transforms>
+                                <transform algorithm="http://www.w3.org/TR/1999/REC-xpath-19991116">
+                                    <xpath>
+                                        not(ancestor-or-self::*[local-name()='Signature'])
+                                    </xpath>
+                                </transform>
+                            </transforms>
+                            <digestmethod algorithm="http://www.w3.org/2001/04/xmlenc#sha512">
+                            </digestmethod>
+                            <digestvalue>
+                                P2lENAhvzEBJuAS1aIPcpZVjYN2A73ckFc0wkj+XPA2rp6NRIVGFEPL3qCSAwl2R2+xx1ZaItMkSuv+f5t3ZGA==
+                            </digestvalue>
+                        </reference>
+                    </signedinfo>
+                    <signaturevalue>
+                        EeXPV2EIrQtZzERdWgvrVOkl5HVcBVwZChX2Q/q9W2KzliiVWTznzVNVPqzaAvGkaZqAdv6KzbPeD9fUXTpB5g==
+                    </signaturevalue>
+                    <keyinfo>
+                        <keyname>
+                            00001088888800000093
+                        </keyname>
+                        <keyvalue>
+                            <rsakeyvalue>
+                                <modulus>
+                                    yxMvUucuS+s3aeWTFZvJrrFWIdes7kIDJmO7DA5DP+ZTapofNt37fgeIHlTUdAVvd/fDKhfiwNSh+vbrNbD58X3UEdQor3ngb6zpjrDjgYsedckPLv6fro4DO0NXLCdALFqhN8ARyX77kYBnvIj1fOSVp401Vc3urLUtiEm16Kle3tOyWhfjgFzdK3oAIXF8oeei/GburWbJnpP+NeGaHVE5bkxLCBp5757nKVonXwzpfpEGuBp204NGkI2/jyA2EH8wyRN4yUvzjT7IJYrHng23klRDlJoRYwa98QQPdQSTpcrlNu8nLhpQdI/zMTLoNF2NiBCkQNuAMacKhnvlVw==
+                                </modulus>
+                                <exponent>
+                                    AQAB
+                                </exponent>
+                            </rsakeyvalue>
+                        </keyvalue>
+                    </keyinfo>
+                </signature>
+            </cancelacfdresult>
+        </cancelacfdresponse>
+    </s:body>
+</s:envelope>

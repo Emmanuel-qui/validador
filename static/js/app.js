@@ -33,7 +33,7 @@ async function send() {
 
   const ext = file.split(".").pop();
 
-    if (ext == "xml") {
+    if (ext == "xml" || ext == "XML") {
 
       const form = new FormData();
       form.append("file", input_file.files[0]);
@@ -54,21 +54,32 @@ async function send() {
 
         const data = await response.json();
 
-        console.log(data.success);
-        if(data.success){
+        console.log(data);
 
-            td_estruc.innerText = data.Estructura;
-            td_sello.innerText = data.Sello;
-            td_sesat.innerText = data.Sello_Sat;
-            td_error.innerText = data.Error;
-            contenedor_tabla.style.display = "block";
-            document.getElementById("validate_formulario").reset();
-            
-        }else{
-            
-            alert(data.msj)
-            document.getElementById("validate_formulario").reset();
-        }
+        const Toast = Swal.mixin({
+          toast: true,
+          position: 'top-end',
+          showConfirmButton: false,
+          timer: 3000,
+          timerProgressBar: true,
+          didOpen: (toast) => {
+            toast.addEventListener('mouseenter', Swal.stopTimer)
+            toast.addEventListener('mouseleave', Swal.resumeTimer)
+          }
+        })
+        
+        Toast.fire({
+          icon: 'success',
+          title: 'Validación exitosa!'
+        })
+
+        td_estruc.innerText = data.Estructura;
+        td_sello.innerText = data.Sello;
+        td_sesat.innerText = data.Sello_Sat;
+        td_error.innerText = data.Error;
+        contenedor_tabla.style.display = "block";
+        document.getElementById("validate_formulario").reset();
+        
 
       } catch (error) {
         

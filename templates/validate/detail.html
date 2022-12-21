@@ -29,42 +29,34 @@
         <table class="table table-primary border border-light">
           <tbody>
             <tr>
-              <td>Resultado: {{ Resultado }}</td>
               <td>Version: {{ Version }}</td>
+              <td>Tipo de Comprobante: {{ Tipo }}</td>
             </tr>
 
             <tr>
+              <td>RFC Emisor: {{ Emisor }}</td>
               <td>RFC Receptor: {{ Receptor }}</td>
+            </tr>
+            <tr>
+              <td>Fecha: {{ Fecha}}</td>
+              <td>Fecha Validacion: {{ Fecha_validacion }}</td>
+            </tr>
+            <tr>
+              <td>Lugar Expedicion: {{ Lugar_ex }}</td>
               <td>Metodo Pago: {{ Metodo_pago }}</td>
             </tr>
             <tr>
-              <td>RFC Emisor: {{ Emisor }}</td>
-              <td>Fecha: {{ Fecha}}</td>
-            </tr>
-            <tr>
-              <td>Fecha Validacion: {{ Fecha_validacion }}</td>
-              <td>
-                Lugar Expedicion: {{ Lugar_ex }}
-              </td>
-            </tr>
-            <tr>
-              <td>Tipo de Comprobante: {{ Tipo }}</td>
               <td>Total: {{ Total }}</td>
+              <td>Subtotal: {{ Subtotal }}</td>
             </tr>
           </tbody>
         </table>
 
         <ul class="list-group list-group-flush ">
-          <li class="list-group-item">
-            Estructura: {{ Estructura }}
-          </li>
+          <li class="list-group-item">Estructura: {{ Estructura }}</li>
           <li class="list-group-item">Sello: {{ Sello }}</li>
-          <li class="list-group-item">
-            Sello SAT: {{ Sello_sat  }}
-          </li>
-          <li class="list-group-item">
-            Incidencia: {{ Error_msj }}
-          </li>
+          <li class="list-group-item">Sello SAT: {{ Sello_sat  }}</li>
+          <li class="list-group-item">Error: {{ Error_msj }}</li>
         </ul>
       </div>
     </div>
@@ -74,10 +66,7 @@
 {% endblock %}
 
 {% block script %}
-
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 	{% load static %}
-	<script 
-	src="{% static 'js/email.js' %}"></script>
-
-
+	<script src="{% static 'js/email.js' %}"></script>
 {% endblock %}

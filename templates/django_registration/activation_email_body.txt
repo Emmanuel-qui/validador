@@ -317,8 +317,9 @@
                     <tr>
                       <td>
                         <p>¡Saludos <b>{{user.username}}</b>, en horabuena ya puedes activar su cuenta!</p><br>
-                        <p>Para activar la cuenta, puedes dar click en el siguiente enlace de abajo:</p>
-                        <a align="center" href="{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}">Activar cuenta.</a>
+                        <p>Para activar la cuenta, puedes dar click en el siguiente enlace de abajo. En caso de no funcionar el botón, solo copié y pegue el siguiente enlace en una nueva pestaña del navegador.</p>
+                        <p>{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}</p>
+                        <a style="tex-align: center;" href="{{scheme}}://{{site}}{% url 'django_registration_activate' activation_key %}">Activar cuenta.</a>
                         <p align="center">¡Saludos Cordiales!</p>
                       </td>
                     </tr>

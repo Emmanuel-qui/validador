@@ -1,9 +1,14 @@
 # Importanciones Django.
+from django.http import HttpResponse
 from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import FormView
 from django.views.generic.base import View
+
+from django.core.mail import EmailMessage
+from email.mime.text import MIMEText
+from django.template.loader import render_to_string
 
 
 # importando formulario para documentos
@@ -16,32 +21,8 @@ from .generate_pdf import PDF
 # Importamos el modelo
 from .models import ValidateResultModel
 
-
-from django.core.mail import send_mail
-from django.core.mail import EmailMessage
-from django.core.mail import SafeMIMEText
-from django.core.files.base import ContentFile
-
-
-
-
-
-
-
-
-import os
 from django.conf import settings
-from django.http import HttpResponse
-from django.template.loader import get_template
-from xhtml2pdf import pisa
-from django.contrib.staticfiles import finders
 
-import smtplib
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-from email.mime.application import MIMEApplication
-from django.template.loader import render_to_string
-from django.contrib import staticfiles
 
 
 
@@ -69,7 +50,6 @@ class IndexView(LoginRequiredMixin, FormView):
         return JsonResponse(validate.response)
         
         
-
 
 # Vista de Resultado.
 class ResultValidate(LoginRequiredMixin, TemplateView):
@@ -134,7 +114,6 @@ class DetailView(LoginRequiredMixin, TemplateView):
             validate_invoice = ValidateResultModel.objects.get(id=kwargs['pk'])
 
             context['id'] = validate_invoice.id
-            context['Resultado'] = validate_invoice.results
             context['Version'] = validate_invoice.version
             context['Receptor'] = validate_invoice.rfc_receiver
             context['Metodo_pago'] = validate_invoice.metodo_pago
@@ -143,6 +122,7 @@ class DetailView(LoginRequiredMixin, TemplateView):
             context['Fecha_validacion'] = validate_invoice.validate_date
             context['Lugar_ex'] = validate_invoice.place_of_expedition
             context['Tipo'] = validate_invoice.voucher_type
+            context['Subtotal'] = validate_invoice.subtotal
             context['Total'] = validate_invoice.total
             context['Estructura'] = validate_invoice.estruc
             context['Sello'] = validate_invoice.stamp
@@ -178,12 +158,13 @@ class UserEmail(View):
         try:
             user_obj = request.user
             pdf_obj = PDF(kwargs['pk'])
+            obj_validate = ValidateResultModel.objects.get(id=kwargs['pk'])
             pdf_result = pdf_obj.generate()
 
             content = render_to_string(
-                "validate/send_email.html", {'user': user_obj.username})
+                "validate/send_email.html", {'user': user_obj.username, 'fecha': str(obj_validate.validate_date)})
 
-            msj = EmailMessage(subject="Reporte comprobante",
+            msj = EmailMessage(subject="Reporte de Comprobante",
                                from_email=settings.EMAIL_HOST_USER,
                                to=[user_obj.email],
                                )
@@ -194,7 +175,7 @@ class UserEmail(View):
             msj.send()
 
             response['success'] = True
-
+            response['email'] = user_obj.email    
         except Exception as ex:
             response['success'] = False
             print(str(ex))

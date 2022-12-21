@@ -49,7 +49,7 @@ function select_regimen(){
               if( rfc == 13 ){
 
                 $("#regimen").empty();
-                $("#regimen").append("<option selected>Seleccione el regimen fiscal</option>");
+                $("#regimen").append("<option value=''>Seleccione el regimen fiscal</option>");
                 $("#regimen").append("<option value='601'>General de Ley Personas Morales</option>");
                 $("#regimen").append("<option value='603'>Personas Morales con Fines no Lucrativos </option>");
                 $("#regimen").append("<option value='610'>Residentes en el Extranjero sin Establecimiento Permanente en México</option>");
@@ -61,7 +61,7 @@ function select_regimen(){
 
               }else {
                 $("#regimen").empty();
-                $("#regimen").append("<option selected>Seleccione el regimen fiscal</option>");
+                $("#regimen").append("<option value=''>Seleccione el regimen fiscal</option>");
                 $("#regimen").append("<option value='605'>Sueldos y Salarios e Ingresos Asimilados a Salarios</option>");
                 $("#regimen").append("<option value='606'>Arrendamiento</option>");
                 $("#regimen").append("<option value='607'>Régimen de Enajenación o Adquisición de Bienes</option>");
@@ -134,8 +134,12 @@ async function save(){
     const {success} = await response.json();
 
     if(success){
-      alert('Datos almecenados correctamente')
-      window.location.href = "/validate/"
+      Swal.fire(
+        '¡Información Almacenada!',
+        'Su registro fue exitoso',
+        'success').then(function(){
+          location.href = "/validate/"
+        })
     }
     
   } catch (error) {
@@ -152,7 +156,8 @@ function validate_form(){
   const errores = [];
   let codigo_postal = document.getElementById("postal").value;
   
-  const sp_rfc = document.getElementById("span_rfc");
+
+  document.querySelector("#register_form").reportValidity();
 
 
   REGEX_RFC = regex = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
