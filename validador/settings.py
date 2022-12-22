@@ -164,7 +164,7 @@ if INVOICE_XSD_FILE.exists():
 # LoginView 
 LOGIN_REDIRECT_URL = '/validate/'
 # END LoginView
-LOGOUT_REDIRECT_URL = '/'
+#LOGOUT_REDIRECT_URL = '/'
 
 
 # SETTINGS REGISTRATION
@@ -186,7 +186,6 @@ USERNAME = 'jquiroz@finkok.com.mx'
 PASSWORD = 'Joseemmanuel_1223'
 URL_WS = 'https://demo-facturacion.finkok.com/servicios/soap/validation.wsdl'
 
-
-#SESSION_COOKIE_AGE = 5*60
+# SESSION_COOKIE_AGE = 2*60
 
 

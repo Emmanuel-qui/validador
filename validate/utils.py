@@ -13,91 +13,48 @@ class Validate:
     def __init__(self, xml_file):
         self.xml_file = xml_file
         self.xml_string = self.xml_file.read()
-        self.xml_etree = None
+
         # Datos de la cuenta
         self.username = settings.USERNAME
         self.password = settings.PASSWORD
         self.url = settings.URL_WS        
         # diccionario con los mensajes de validacion.
         self.response = {}
-        self.success = False
-        self.estruc = False
-        self.message = ''
 
         # funcion que da inicio al proceso de validacion.
         self.start()
 
     def start(self):
-        if self.validate_xsd():
-            self.response['success'] = True
-            print(self.validate_xsd())
-            self.validate_ws()
-
-            if self.validate_ws():
-                self.save_invoice()
-
-        else:
-            self.response['success'] = False
+        self.validate_ws()
 
   
             
-        
-            
-                
-      
-    # funcion para validar la estructura de los XML.         
-    def validate_xsd(self):
-        bandera = False
     
-        try:
-            self.xml_etree = etree.fromstring(self.xml_string, settings.INVOICE_XSD_PARSER)
-            bandera = True
-            self.message = 'Estructura Valida'
-        except Exception as e:
-            self.message = 'Estructura Invalida'
-            print('Error')
-            print(e)
-            self.response['msj'] = str(e)
-        
-        
-        return bandera
             
     # funcion de validacion del ws de finkok
     def validate_ws(self):
-        bandera = False
-
-        lines = "".join(self.xml_file.readlines())
-        xml = lines.encode("UTF-8")
         history = HistoryPlugin()
         client = Client(wsdl=self.url, plugins=[history])
         contenido = client.service.validate(self.xml_string, self.username, self.password)
         try:
             error = contenido.error
             if error != None:
-                self.response['Estructura'] = self.message
+                self.response['Estructura'] = "Estructura invalida"
                 self.response['Sello'] = contenido.sello
                 self.response['Sello_Sat'] = contenido.sello_sat
                 self.response['Error'] = error
-
-
-               # self.response = {'Estructura': self.message,
-                #            'Sello': str(contenido.sello),
-                #            'Sello_Sat':str(contenido.sello_sat),
-                #            'Error': error}
             else:
                 error = "¡No existe, ningún error!"
-                self.response['Estructura'] = self.message
+                self.response['Estructura'] = "Estructura valida"
                 self.response['Sello'] = contenido.sello
                 self.response['Sello_Sat'] = contenido.sello_sat
                 self.response['Error'] = error
-                self.estruc = True
-            bandera = True
+            
 
+            self.save_invoice()
         except Exception as e:
             print(e)
         
-
-        return bandera
         
 
       # funcion para guardar datos en el modelo invoice   
@@ -115,7 +72,7 @@ class Validate:
         nocertificado = voucher.xpath('string(./@NoCertificado)',namespaces = namespace)
         certificado = voucher.xpath('string(./@Certificado)',namespaces = namespace)
         condicionespago = voucher.xpath('string(./@CondicionesDePago)',namespaces = namespace)
-        # datos del e y r
+
         subtotal = voucher.xpath('string(./@SubTotal)',namespaces = namespace)
         descuento = voucher.xpath('string(./@Descuento)',namespaces = namespace)
         moneda = voucher.xpath('string(./@Moneda)',namespaces = namespace)
@@ -138,8 +95,9 @@ class Validate:
         receptor = voucher.xpath('.//cfdi:Receptor', namespaces = namespace)[0]
         rfc_receptor = receptor.xpath('string(./@Rfc)',namespaces = namespace)
         nombre_receptor = receptor.xpath('string(./@Nombre)',namespaces = namespace)
-       
-        invoice = InvoiceModel(version = version,
+
+        try:
+            invoice = InvoiceModel(version = version,
                                 series = serie,
                                 folio = folio,
                                 date = fecha,
@@ -161,51 +119,18 @@ class Validate:
                                 export = exportacion,
                                 place_of_expedition = lugarexpedicion,
                                 metodo_pago = metodopago
-                                )
-        invoice.save()
+                            )
+            
+            invoice.save()
+            print(self.getValue(tipocomprobante).get('tipo'))
+            print(self.response.get('Estructura'))
+            print(self.getValue(tipocomprobante).get('sello'))
+            print(self.getValue(tipocomprobante).get('sello_sat'))
+            print(self.response.get('Error'))
 
-        estruc = self.response.get('Estructura') 
-    
-        stamp = bool(self.response.get('Sello'))
-        
-        stamp_sat = bool(self.response.get('Sello_Sat'))
-        
-        error = self.response.get('Error')
-       
-
-
-        resultado = ""
-        if self.estruc:
-            resultado = "Comprobante Valido"
-        else:
-            resultado = "Comprobante Invalido"
-        
-        tipo = ""
-        if tipocomprobante == "I":
-            tipo = "Ingreso"
-        elif tipocomprobante == "E":
-            tipo = "Egreso"
-        elif tipocomprobante == "N":
-            tipo = "Nomina"
-        else:
-            tipo = "Traslado"
-
-        sello_sat = "No encontrado"
-
-        if stamp_sat:
-            sello_sat = "Encontrado"
-
-        sello = "Incorrecto"
-
-        if stamp:
-            sello = "Correcto"
-        
-
-        
-        validate_result = ValidateResultModel(
-                                            invoice = invoice, 
-	                                        results = resultado,
-	                                        voucher_type = tipo,
+            validate_result = ValidateResultModel(
+                                            invoice = invoice,
+	                                        voucher_type = self.getValue(tipocomprobante).get('tipo'),
 	                                        version = version,
 	                                        rfc_business = rfc_emisor,
 	                                        rfc_receiver = rfc_receptor,
@@ -214,13 +139,47 @@ class Validate:
 	                                        metodo_pago = metodopago,
 	                                        place_of_expedition = lugarexpedicion, 
 	                                        date = fecha,
-                                            estruc = estruc, 
-	                                        stamp = sello,
-                                            stamp_sat = sello_sat,
-                                            error_ws = error,
+                                            estruc = self.response.get('Estructura'), 
+	                                        stamp = self.getValue(tipocomprobante).get('sello'),
+                                            stamp_sat = self.getValue(tipocomprobante).get('sello_sat'),
+                                            error_ws = self.response.get('Error'),
                                             )
         
-        validate_result.save()
+            validate_result.save()
+        except Exception as ex:
+            print(ex)
+        
+
+    def getValue(self, tipocomprobante):
+
+        data = {}
+    
+        stamp = bool(self.response.get('Sello'))
+        stamp_sat = bool(self.response.get('Sello_Sat'))
+        
+        if tipocomprobante == "I":
+            data['tipo'] = "Ingreso"
+        elif tipocomprobante == "E":
+            data['tipo'] = "Egreso"
+        elif tipocomprobante == "N":
+            data['tipo'] = "Nomina"
+        elif tipocomprobante == "T":
+            data['tipo'] = "Traslado"
+        else:
+            data['tipo'] = tipocomprobante
+
+        data['sello_sat'] = "No encontrado"
+        if stamp_sat:
+            data['sello_sat'] = "Encontrado"
+
+        data['sello'] = "Incorrecto"
+        if stamp:
+            data['sello'] = "Correcto"
+        
+
+        return data
+        
+        
         
    
     

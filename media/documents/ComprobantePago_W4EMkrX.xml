@@ -1,0 +1,47 @@
+<cfdi:Comprobante Version="4.0" Serie="CP" Folio="96" Fecha="2022-10-27T00:00:00" Sello="QKauo/Q+Cxm5Za7bDz121ya7XpegRlwTHqtEDAcFCKdxkQcbYY+Z8TOMJch0hX1CVMtqK7epwtxXz27qpErOKorMU8Qf3y5VXgRY17tgHT4uVKTsYkpEL+FeCv5ZTSknX2JMqURTQ7XCbyhD66TXjbBZwmwdpdF/hVEAsl3wKLaeXhr/shtdOzM7596un1oMKg+NC5NtOkdsdN6oVS9Xd1TOIg7vnE6H4A/Mfzpjzk2RYxIOUyHkcIUva100B98zsqTgkJI6IVZ0v6ZQ1UBXxy24ZZ817DJLyHvqReTcWnT5lbRUBFtw43PCO7TNOf8hbjEmTXTvIgcTers6Yq+HDQ==" NoCertificado="00001000000412772209" Certificado="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" SubTotal="0" Moneda="XXX" Total="0" TipoDeComprobante="P" Exportacion="01" LugarExpedicion="76190"
+	xmlns:pago20="http://www.sat.gob.mx/Pagos20"
+	xmlns:cfdi="http://www.sat.gob.mx/cfd/4"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sat.gob.mx/cfd/4 http://www.sat.gob.mx/sitio_internet/cfd/4/cfdv40.xsd http://www.sat.gob.mx/Pagos20 http://www.sat.gob.mx/sitio_internet/cfd/Pagos/Pagos20.xsd">
+	<cfdi:Emisor Rfc="MAR040303Q40" Nombre="MG ARQUITECTOS" RegimenFiscal="601"/>
+	<cfdi:Receptor Rfc="PCI000905DA5" Nombre="PORTALITO CONSULTING INTERNATIONAL" DomicilioFiscalReceptor="76190" RegimenFiscalReceptor="601" UsoCFDI="CP01"/>
+	<cfdi:Conceptos>
+		<cfdi:Concepto ClaveProdServ="84111506" Cantidad="1" ClaveUnidad="ACT" Descripcion="Pago" ValorUnitario="0" Importe="0" ObjetoImp="01"/>
+	</cfdi:Conceptos>
+	<cfdi:Complemento>
+		<pago20:Pagos Version="2.0">
+			<pago20:Totales TotalTrasladosBaseIVA16="3448.28" TotalTrasladosImpuestoIVA16="551.72" TotalTrasladosBaseIVA0="4000" MontoTotalPagos="1000"/>
+			<pago20:Pago FechaPago="2022-10-27T12:00:00" FormaDePagoP="03" MonedaP="MXN" TipoCambioP="1" RfcEmisorCtaBen="BBA940707IE1" CtaBeneficiario="MXN">
+				<pago20:DoctoRelacionado IdDocumento="00000000-0000-0000-0000-000000000000" MonedaDR="MXN" NumParcialidad="7" ImpSaldoAnt="1978.04" ImpPagado="1600.00" ImpSaldoInsoluto="378.04" ObjetoImpDR="02">
+					<pago20:ImpuestosDR>
+						<pago20:TrasladosDR>
+							<pago20:TrasladoDR BaseDR="1600.00" ImpuestoDR="002" TipoFactorDR="Tasa" TasaOCuotaDR="0.000000" ImporteDR="0.00"/>
+							<pago20:TrasladoDR BaseDR="1379.31" ImpuestoDR="002" TipoFactorDR="Tasa" TasaOCuotaDR="0.160000" ImporteDR="220.69"/>
+						</pago20:TrasladosDR>
+					</pago20:ImpuestosDR>
+				</pago20:DoctoRelacionado>
+				<pago20:DoctoRelacionado IdDocumento="00000000-0000-0000-0000-000000000000" MonedaDR="MXN" NumParcialidad="6" ImpSaldoAnt="1901.36" ImpPagado="1600.00" ImpSaldoInsoluto="301.36" ObjetoImpDR="02">
+					<pago20:ImpuestosDR>
+						<pago20:TrasladosDR>
+							<pago20:TrasladoDR BaseDR="1600.00" ImpuestoDR="002" TipoFactorDR="Tasa" TasaOCuotaDR="0.000000" ImporteDR="0.00"/>
+							<pago20:TrasladoDR BaseDR="1379.31" ImpuestoDR="002" TipoFactorDR="Tasa" TasaOCuotaDR="0.160000" ImporteDR="220.69"/>
+						</pago20:TrasladosDR>
+					</pago20:ImpuestosDR>
+				</pago20:DoctoRelacionado>
+				<pago20:DoctoRelacionado IdDocumento="00000000-0000-0000-0000-000000000000" MonedaDR="MXN" NumParcialidad="6" ImpSaldoAnt="21008.08" ImpPagado="800.00" ImpSaldoInsoluto="20208.08" ObjetoImpDR="02">
+					<pago20:ImpuestosDR>
+						<pago20:TrasladosDR>
+							<pago20:TrasladoDR BaseDR="800.00" ImpuestoDR="002" TipoFactorDR="Tasa" TasaOCuotaDR="0.000000" ImporteDR="0.00"/>
+							<pago20:TrasladoDR BaseDR="689.66" ImpuestoDR="002" TipoFactorDR="Tasa" TasaOCuotaDR="0.160000" ImporteDR="110.34"/>
+						</pago20:TrasladosDR>
+					</pago20:ImpuestosDR>
+				</pago20:DoctoRelacionado>
+				<pago20:ImpuestosP>
+					<pago20:TrasladosP>
+						<pago20:TrasladoP BaseP="4000" ImpuestoP="002" TipoFactorP="Tasa" TasaOCuotaP="0.000000"/>
+						<pago20:TrasladoP BaseP="3448.28" ImpuestoP="002" TipoFactorP="Tasa" TasaOCuotaP="0.160000" ImporteP="551.72"/>
+					</pago20:TrasladosP>
+				</pago20:ImpuestosP>
+			</pago20:Pago>
+		</pago20:Pagos>
+	</cfdi:Complemento>
+</cfdi:Comprobante>

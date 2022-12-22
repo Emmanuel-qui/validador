@@ -58,7 +58,7 @@
         </div>
         <span class="mt-1">{{ request.user.email }} </span>
         
-        <h5 class="mt-2">Quadrum</h5>
+        <h5 class="mt-2">{{ request.user.accountmodel.business_name }}</h5>
       </div>
       <nav class="menu-navegacion">
         <a class="enlace_navegacion" href="{% url 'validate:index' %}">Validador CFDI</a>

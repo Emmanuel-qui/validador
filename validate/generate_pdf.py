@@ -34,7 +34,6 @@ class PDF:
         self.rfc_receiver = self.validateresultmodel_obj.rfc_receiver
         self.rfc_business = self.validateresultmodel_obj.rfc_business
         self.version = self.validateresultmodel_obj.version
-        self.results = self.validateresultmodel_obj.results
         self.voucher_type = self.validateresultmodel_obj.voucher_type
         self.subtotal = self.validateresultmodel_obj.subtotal
         self.total = self.validateresultmodel_obj.total
@@ -45,28 +44,10 @@ class PDF:
         self.estruc = self.validateresultmodel_obj.estruc
         self.stamp = self.validateresultmodel_obj.stamp
         self.error = self.validateresultmodel_obj.error_ws
-        self.sell = ""
-        self.fecha_val = ""
-        self.texto()
-        
-    def texto(self):
-
-        if self.stamp:
-            self.sell = "Sello Correcto"
-        else:
-            self.sell = "Sello Incorrecto"
-
-        self.fecha_val = str(self.validate_date)
-
-        self.fecha_val = self.fecha_val.split(".")
-
-        cadena = ''.join(self.fecha_val)
-
-        self.fecha_val = cadena[0:19]
 
 
     def get_header(self):
-        header_data = [Paragraph("<b>Reporte de Validición</b>", self.PRGH_STYLE_HEAD)]
+        header_data = [Paragraph("<b>Reporte de Validación</b>", self.PRGH_STYLE_HEAD)]
         return header_data
 
     def get_image(self):
@@ -81,13 +62,12 @@ class PDF:
 
     def get_body(self):
         body_data = [
-            [Paragraph("Informacion del Comprobante", self.PRGH_STYLE_HEADER), Paragraph("<b>&nbsp;</b>", self.PRGH_STYLE_HEADER)],
-            [Paragraph("Resultado", self.PRGH_STYLE_SUBHEADER), Paragraph(self.results, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Información del Comprobante", self.PRGH_STYLE_HEADER), Paragraph("<b>&nbsp;</b>", self.PRGH_STYLE_HEADER)],
+            [Paragraph("Tipo de Comprobante", self.PRGH_STYLE_SUBHEADER), Paragraph(self.voucher_type, self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Version", self.PRGH_STYLE_SUBHEADER), Paragraph(self.version, self.PRGH_STYLE_CONTENT),],
             [Paragraph("RFC Emisor", self.PRGH_STYLE_SUBHEADER), Paragraph(self.rfc_business, self.PRGH_STYLE_CONTENT),],
             [Paragraph("RFC Receptor", self.PRGH_STYLE_SUBHEADER), Paragraph(self.rfc_receiver, self.PRGH_STYLE_CONTENT),],  
             [Paragraph("Fecha", self.PRGH_STYLE_SUBHEADER), Paragraph(self.date, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("Version", self.PRGH_STYLE_SUBHEADER), Paragraph(self.version, self.PRGH_STYLE_CONTENT),],
-            [Paragraph("Tipo de Comprobante", self.PRGH_STYLE_SUBHEADER), Paragraph(self.voucher_type, self.PRGH_STYLE_CONTENT),],
             [Paragraph("Total", self.PRGH_STYLE_SUBHEADER), Paragraph(self.total, self.PRGH_STYLE_CONTENT),],
             [Paragraph("Subtotal", self.PRGH_STYLE_SUBHEADER), Paragraph(self.subtotal, self.PRGH_STYLE_CONTENT),],
             
@@ -105,8 +85,8 @@ class PDF:
     def get_body_dos(self):
         body_data = [
             [Paragraph("Resultado de Validación", self.PRGH_STYLE_HEADER), Paragraph("<b>&nbsp;</b>", self.PRGH_STYLE_HEADER)],
-            [Paragraph("Fecha de validacion", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.fecha_val), self.PRGH_STYLE_CONTENT),],
-            [Paragraph("Sello", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.sell), self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Fecha de validacion", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.validate_date), self.PRGH_STYLE_CONTENT),],
+            [Paragraph("Sello", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.stamp), self.PRGH_STYLE_CONTENT),],
             [Paragraph("Estructura", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.estruc), self.PRGH_STYLE_CONTENT),],
             [Paragraph("Mensaje", self.PRGH_STYLE_SUBHEADER), Paragraph(str(self.error), self.PRGH_STYLE_CONTENT),],
             
@@ -130,7 +110,7 @@ class PDF:
 
     def generate(self):
         result_io = BytesIO()
-        doc = SimpleDocTemplate(result_io,title=self.fecha_val, topMargin=0.5*inch, bottomMargin=0.5*inch,)
+        doc = SimpleDocTemplate(result_io,title=str(self.validate_date), topMargin=0.5*inch, bottomMargin=0.5*inch,)
         story = []
         header = self.get_header()
         story.extend(header)

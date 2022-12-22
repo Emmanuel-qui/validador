@@ -1,4 +1,3 @@
-
 async function sendEmail(){
     const send = document.getElementById("id_send");
     const url = "/validate/send/"+send.value+"";
@@ -6,14 +5,20 @@ async function sendEmail(){
 
       const response = await fetch(url);
 
-      const { success } = await response.json();
+      const { success, email } = await response.json();
 
       if(success){
-
-        alert('Correo enviado, con exito.');
+        Swal.fire(
+          'Email enviado!',
+          'Enviadio al correo '+email+'',
+          'success'
+        )
       }else {
-
-        alert('Hubo un problema.');
+        Swal.fire(
+          'Ocurrio un error',
+          '¡Intentelo más tarde!',
+          'error'
+        )
       }
 
       

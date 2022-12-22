@@ -91,7 +91,7 @@ async function updatePhoto() {
 
   const path = imagen.value;
 
-  const extensiones = /(.jpg|.jpeg|.png|.gif)$/i;
+  const extensiones = /(.jpg|.jpeg|.png)$/i;
 
 
   if (extensiones.exec(path)) {
@@ -117,18 +117,26 @@ async function updatePhoto() {
       console.log(data);
 
       if (data.success) {
-
-        alert('Imagen actualizada');
-        window.location.reload();
+        Swal.fire(
+          'Información Actualizada!',
+          'Imagen subida exitosamente!',
+          'success',).then(function(){
+              location.reload();
+          })
+         //window.location.reload();
       }
-
+      
     } catch (error) {
       console.log(error)
     }
 
   }else {
 
-    alert('El archivo cargado no es una imagen.');
+    Swal.fire(
+      '¡Ocurrio un error!',
+      'El archivo enviado no es una imagen',
+      'error'
+    )
     imagen.value = "";
   }
 
@@ -170,8 +178,19 @@ async function updateUser() {
 
     if (data.success) {
 
-      alert('Datos Actualizados');
-      window.location.reload();
+      Swal.fire(
+        'Información Actualizada!',
+        'El registro fue exitoso!',
+        'success').then(function(){
+          location.reload();
+      })
+      //window.location.reload();
+    }else {
+      Swal.fire(
+        '¡Ocurrio un error!',
+        'Algo salío mal, intente de nuevo',
+        'error'
+      )
     }
 
   } catch (error) {
@@ -182,3 +201,31 @@ async function updateUser() {
 
 }
 
+
+function validate_form(){
+  const empresa = document.getElementById("id_empresa").value;
+  const telefono = document.getElementById("id_telefono").value;
+  const codigo_postal = document.getElementById("id_codigo_postal").value;
+  let expresion_rfc = new RegExp("[0-9]{5}") 
+
+  if(empresa=="" || telefono=="" || codigo_postal==""){
+    Swal.fire(
+      'Advertencia!',
+      'Ningun campo debe estar vació, verfique los campos',
+      'warning'
+    )
+  
+  }else if(!expresion_rfc.test(codigo_postal)){
+    Swal.fire(
+      'Advertencia!',
+      'Codigo postal invalido',
+      'warning'
+    )
+    
+  }else{
+    
+    updateUser();
+  }
+  
+
+}

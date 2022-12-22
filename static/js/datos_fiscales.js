@@ -49,7 +49,7 @@ function select_regimen(){
               if( rfc == 13 ){
 
                 $("#regimen").empty();
-                $("#regimen").append("<option selected>Seleccione el regimen fiscal</option>");
+                $("#regimen").append("<option value=''>Seleccione el regimen fiscal</option>");
                 $("#regimen").append("<option value='601'>General de Ley Personas Morales</option>");
                 $("#regimen").append("<option value='603'>Personas Morales con Fines no Lucrativos </option>");
                 $("#regimen").append("<option value='610'>Residentes en el Extranjero sin Establecimiento Permanente en México</option>");
@@ -61,7 +61,7 @@ function select_regimen(){
 
               }else {
                 $("#regimen").empty();
-                $("#regimen").append("<option selected>Seleccione el regimen fiscal</option>");
+                $("#regimen").append("<option value=''>Seleccione el regimen fiscal</option>");
                 $("#regimen").append("<option value='605'>Sueldos y Salarios e Ingresos Asimilados a Salarios</option>");
                 $("#regimen").append("<option value='606'>Arrendamiento</option>");
                 $("#regimen").append("<option value='607'>Régimen de Enajenación o Adquisición de Bienes</option>");
@@ -129,12 +129,17 @@ async function save(){
 
   try {
 
-    const response = fetch(url, options);
+    const response = await fetch(url, options);
 
-    const {success} = response.json();
+    const {success} = await response.json();
 
     if(success){
-      alert('Datos almecenados correctamente')
+      Swal.fire(
+        '¡Información Almacenada!',
+        'Su registro fue exitoso',
+        'success').then(function(){
+          location.href = "/validate/"
+        })
     }
     
   } catch (error) {
@@ -149,14 +154,18 @@ async function save(){
 function validate_form(){
   
   const errores = [];
-  let rfc = document.getElementById("rfc").value.length;
-  let codigo_postal = document.getElementById("postal").value;
-  let estado = document.getElementById("estados").value;
-  let pais = document.getElementById("pais").value;
+  const codigo_postal = document.getElementById("postal").value;
+  const estado = document.getElementById("estados").value;
+  const regimen = document.getElementById("regimen").value;
+  const pais = document.getElementById("pais").value;
+  
+
+  document.querySelector("#register_form").reportValidity();
+
 
   REGEX_RFC = regex = /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/;
   if (!document.getElementById("rfc").value.match(REGEX_RFC)) {
-    errores.push("El RFC ingresado es un RFC invalido.")
+    errores.push("El RFC ingresado es un RFC invalido.");
   }
 
   let expresion_rfc = new RegExp("[0-9]{5}") 
@@ -164,18 +173,27 @@ function validate_form(){
     errores.push('Codigo postal invalido');
   }
 
+  if(estado == ""){ errores.push('Debe seleccionar un estado.') }
+
+  if(regimen == ""){ errores.push('Debe seleccionar un regimen.') }
+  
   console.log(errores);
 
 
   if(errores.length == 0){
+    const div = document.getElementById("div_error");
+
+    div.style.display = "none";
 
     save();
 
   }else {
 
+
     const div = document.getElementById("div_error");
 
     div.style.display = "block";
+    div.textContent = "";
 
     for(let i=0; i < errores.length; i++ ){
         const error = document.createTextNode(errores[i]);
@@ -184,6 +202,7 @@ function validate_form(){
         div.appendChild(br);
 
     }
+
 
     document.querySelector("#register_form").reportValidity();
 
