@@ -154,7 +154,10 @@ async function save(){
 function validate_form(){
   
   const errores = [];
-  let codigo_postal = document.getElementById("postal").value;
+  const codigo_postal = document.getElementById("postal").value;
+  const estado = document.getElementById("estados").value;
+  const regimen = document.getElementById("regimen").value;
+  const pais = document.getElementById("pais").value;
   
 
   document.querySelector("#register_form").reportValidity();
@@ -170,6 +173,10 @@ function validate_form(){
     errores.push('Codigo postal invalido');
   }
 
+  if(estado == ""){ errores.push('Debe seleccionar un estado.') }
+
+  if(regimen == ""){ errores.push('Debe seleccionar un regimen.') }
+  
   console.log(errores);
 
 
@@ -182,7 +189,6 @@ function validate_form(){
 
   }else {
 
-    sp_rfc.innerText = "RFC invalido"
 
     const div = document.getElementById("div_error");
 
